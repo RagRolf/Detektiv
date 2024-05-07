@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcblol1ybuxup"]
+[gd_scene load_steps=4 format=3 uid="uid://dcblol1ybuxup"]
+
+[ext_resource type="Script" path="res://Svante/Camera3D.gd" id="1_uwefp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mva4m"]
 
@@ -8,8 +10,10 @@
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.61804)
+script = ExtResource("1_uwefp")
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.834578, -0.129358, -0.573164)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
@@ -18,3 +22,12 @@ shape = SubResource("BoxShape3D_mva4m")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("BoxMesh_cex0k")
+
+[node name="item1Pos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.839111, -0.142759, -0.192744)
+
+[node name="cameraDefault" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.618)
+
+[connection signal="mouse_entered" from="Area3D" to="Camera3D" method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="Camera3D" method="_on_area_3d_mouse_exited"]
