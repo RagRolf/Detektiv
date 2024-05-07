@@ -1,3 +1,113 @@
-[gd_scene format=3 uid="uid://bf65g24adqhv0"]
+[gd_scene load_steps=10 format=3 uid="uid://jkm6q7nj65ke"]
 
-[node name="DavidMain" type="Node3D"]
+[ext_resource type="Texture2D" uid="uid://bb73x5udt7e2m" path="res://David/Textures/Knife.png" id="1_q714s"]
+[ext_resource type="Script" path="res://David/Scripts/Display_Cursor.gd" id="1_qcq35"]
+[ext_resource type="Texture2D" uid="uid://bcudxbmxyf3d1" path="res://David/Textures/Fingerprint.png" id="2_p3qks"]
+[ext_resource type="Texture2D" uid="uid://cark78kw58jy0" path="res://David/Textures/Brush.png" id="4_j5dky"]
+[ext_resource type="Texture2D" uid="uid://b1b2h6t2rypga" path="res://icon.svg" id="5_jeok3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7v2bv"]
+radius = 28.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d4yn0"]
+radius = 36.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tgp7q"]
+radius = 44.0
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_bediv"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Knife" type="Sprite2D" parent="."]
+position = Vector2(838, 546)
+scale = Vector2(1.025, 1.025)
+texture = ExtResource("1_q714s")
+
+[node name="Fingerprint4" type="Area2D" parent="."]
+position = Vector2(639, 910)
+metadata/Finished = false
+
+[node name="Fingerprint" type="Sprite2D" parent="Fingerprint4"]
+modulate = Color(0.827451, 0.6, 0.960784, 0)
+scale = Vector2(0.193, 0.193)
+texture = ExtResource("2_p3qks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fingerprint4"]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_7v2bv")
+
+[node name="Fingerprint5" type="Area2D" parent="."]
+position = Vector2(1023, 230)
+metadata/Finished = false
+
+[node name="Fingerprint3" type="Sprite2D" parent="Fingerprint5"]
+modulate = Color(0.827451, 0.6, 0.960784, 0)
+rotation = 1.78024
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_p3qks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fingerprint5"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_d4yn0")
+
+[node name="Fingerprint6" type="Area2D" parent="."]
+position = Vector2(842, 573)
+metadata/Finished = false
+
+[node name="Fingerprint2" type="Sprite2D" parent="Fingerprint6"]
+modulate = Color(0.827451, 0.6, 0.960784, 0)
+scale = Vector2(0.303, 0.303)
+texture = ExtResource("2_p3qks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fingerprint6"]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_tgp7q")
+
+[node name="Brush" type="Area2D" parent="."]
+position = Vector2(1320, 728)
+script = ExtResource("1_qcq35")
+
+[node name="Sprite2D" type="Sprite2D" parent="Brush"]
+texture = ExtResource("4_j5dky")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Brush"]
+position = Vector2(1.00001, -75)
+polygon = PackedVector2Array(-20, -35, -31, -52, -39, -75, -37, -98, -24, -112, -1, -118, 15, -114, 31, -99, 37, -78, 30, -61, 18, -33)
+
+[node name="MicrophoneAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMicrophone_bediv")
+autoplay = true
+bus = &"Record"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MicrophoneAudioStreamPlayer"]
+position = Vector2(91, 104)
+texture_normal = ExtResource("5_jeok3")
+texture_pressed = ExtResource("5_jeok3")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 1389.0
+offset_top = 183.0
+offset_right = 1702.0
+offset_bottom = 321.0
+color = Color(1, 0.67451, 1, 0.490196)
+
+[node name="HSlider" type="HSlider" parent="Control/ColorRect"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 29.0
+offset_right = 297.0
+offset_bottom = 118.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[connection signal="area_entered" from="Brush" to="Brush" method="_on_area_entered"]
+[connection signal="pressed" from="MicrophoneAudioStreamPlayer/TouchScreenButton" to="Brush" method="_on_touch_screen_button_pressed"]
