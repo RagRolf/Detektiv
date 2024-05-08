@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://lhi7ly1qqlvr"]
+
+[ext_resource type="Texture2D" uid="uid://c7m62ao1sgssb" path="res://David/Textures/Blob1.png" id="1_0114l"]
+[ext_resource type="Texture2D" uid="uid://bptcplxy0fs85" path="res://David/Textures/Blob2.png" id="2_v62w5"]
+[ext_resource type="Texture2D" uid="uid://b5glefnegydkc" path="res://David/Textures/Blob3.png" id="3_ekv7h"]
+[ext_resource type="Texture2D" uid="uid://dl1rqr27qs868" path="res://David/Textures/Blob4.png" id="4_cd00w"]
+[ext_resource type="Texture2D" uid="uid://br8v3x0om0jfd" path="res://David/Textures/Blob5.png" id="5_c4k7d"]
+
+[node name="AllSpriteBlobs" type="Node2D"]
+
+[node name="Blob1" type="Sprite2D" parent="."]
+modulate = Color(0.46558, 0.0453579, 0.170369, 1)
+z_index = 1
+texture = ExtResource("1_0114l")
+
+[node name="Blob2" type="Sprite2D" parent="."]
+modulate = Color(0.46558, 0.0453579, 0.170369, 1)
+z_index = 1
+texture = ExtResource("2_v62w5")
+
+[node name="Blob3" type="Sprite2D" parent="."]
+modulate = Color(0.46558, 0.0453579, 0.170369, 1)
+z_index = 1
+texture = ExtResource("3_ekv7h")
+
+[node name="Blob4" type="Sprite2D" parent="."]
+modulate = Color(0.46558, 0.0453579, 0.170369, 1)
+z_index = 1
+texture = ExtResource("4_cd00w")
+
+[node name="Blob5" type="Sprite2D" parent="."]
+modulate = Color(0.46558, 0.0453579, 0.170369, 1)
+texture = ExtResource("5_c4k7d")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpyn1a37mmuau"]
+
+[ext_resource type="Texture2D" uid="uid://bcudxbmxyf3d1" path="res://David/Textures/Fingerprint.png" id="1_3igba"]
+
+[node name="FingerPrint" type="Node2D"]
+z_index = 1
+z_as_relative = false
+
+[node name="Fingerprint" type="Sprite2D" parent="."]
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("1_3igba")
