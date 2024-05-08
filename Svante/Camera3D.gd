@@ -1,9 +1,9 @@
 extends Camera3D
 
-var hovering = false
-var zoom = false
 var follow_speed = 0.1
-var targetPos
+var targetPos 
+var zoom = false
+var focus = "Default"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,41 +12,26 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("debug_test"):
-		zoom = !zoom
-		
-		if zoom:
-			targetPos = $"../item1Pos".position
-			print("Zooming")
-		else:
-			targetPos = $"../cameraDefault".position
-			print("Returning")
-	
 	# Lerp
 	position = lerp(position, targetPos, follow_speed)
 	
-	if hovering:
-		if Input.is_action_just_pressed("Left_click"):
-			print("Block Clicked")
+	if targetPos != $"../cameraDefault".position:
+		zoom = true
+	else:
+		zoom = false
 
 
-func _on_area_3d_mouse_entered():
-	print("Block Hovered")
-	hovering = true
-
-
-func _on_area_3d_mouse_exited():
-	hovering = false
-
-func activateZoom():
-	zoom = true
-	targetPos = $"../item1Pos".position
-func returnZoom():
-	zoom = false
-	targetPos = $"../cameraDefault".position
-
+# Zooms to Item 1
 func _on_control_button_1_pressed():
-	activateZoom()
+	targetPos = $"../item1Pos".position
+	focus = "Item_1"
 
+# Zooms to Item 2
+func _on_control_button_2_pressed():
+	targetPos = $"../item2Pos".position
+	focus = "Item_2"
+
+# Returns to default position
 func _on_control_button_return():
-	returnZoom()
+	targetPos = $"../cameraDefault".position
+	focus = "Default"
