@@ -37,3 +37,16 @@ func _on_area_3d_mouse_entered():
 
 func _on_area_3d_mouse_exited():
 	hovering = false
+
+func activateZoom():
+	zoom = true
+	targetPos = $"../item1Pos".position
+func returnZoom():
+	zoom = false
+	targetPos = $"../cameraDefault".position
+
+func _on_control_button_1_pressed():
+	activateZoom()
+
+func _on_control_button_return():
+	returnZoom()
