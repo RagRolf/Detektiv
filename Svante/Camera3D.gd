@@ -2,13 +2,12 @@ extends Camera3D
 
 var hovering = false
 var zoom = false
-#var currentPos
+var follow_speed = 0.1
 var targetPos
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	targetPos = $"../cameraDefault".position
-	#currentPos = position
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,7 +23,7 @@ func _process(delta):
 			print("Returning")
 	
 	# Lerp
-	position = lerp(position, targetPos, 0.2)
+	position = lerp(position, targetPos, follow_speed)
 	
 	if hovering:
 		if Input.is_action_just_pressed("Left_click"):
