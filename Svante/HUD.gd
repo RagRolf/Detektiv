@@ -20,10 +20,8 @@ func _process(delta):
 		$Return.hide()
 	
 	if $"../../Camera3D".focus != "Default":
-		if $"../../Camera3D".focus == "Item_1":
-			$Zoom2.hide()
-		elif $"../../Camera3D".focus == "Item_2":
-			$Zoom.hide()
+		$Zoom2.hide()
+		$Zoom.hide()
 	else:
 		$Zoom2.show()
 		$Zoom.show()
