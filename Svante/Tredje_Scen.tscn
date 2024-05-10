@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dcblol1ybuxup"]
 
 [ext_resource type="Script" path="res://Svante/Camera3D.gd" id="1_uwefp"]
-[ext_resource type="PackedScene" uid="uid://moxlv3sydv51" path="res://Svante/HUD.tscn" id="2_mkqj6"]
+[ext_resource type="PackedScene" uid="uid://3767c6xy0jj3" path="res://Svante/HUD.tscn" id="2_mkqj6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mva4m"]
 
@@ -51,6 +51,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0425458, -0.454131)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("2_mkqj6")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 0, 0)
 
 [connection signal="button1Pressed" from="CanvasLayer/Control" to="Camera3D" method="_on_control_button_1_pressed"]
 [connection signal="button2Pressed" from="CanvasLayer/Control" to="Camera3D" method="_on_control_button_2_pressed"]

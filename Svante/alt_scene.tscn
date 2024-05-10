@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://baxysxlb6g5l5"]
+[gd_scene load_steps=3 format=3 uid="uid://bv4ip0k2prnxi"]
 
 [ext_resource type="Script" path="res://Svante/alt_scene.gd" id="1_pbkyv"]
 [ext_resource type="Texture2D" uid="uid://colg75o0iha4j" path="res://Svante/assets/whiteCircle.png" id="2_vcsnp"]
@@ -17,7 +17,9 @@ offset_bottom = 38.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "This is a 2D scene"
+text = "This is a 2D scene
+V Go back V"
+horizontal_alignment = 1
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 position = Vector2(463, 49)
