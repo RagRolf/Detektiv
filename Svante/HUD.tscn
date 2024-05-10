@@ -25,7 +25,6 @@ scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("1_g2wmu")
 
 [node name="Return" type="TouchScreenButton" parent="."]
-position = Vector2(992, 0)
 scale = Vector2(0.3, 0.3)
 texture_normal = ExtResource("1_g2wmu")
 
