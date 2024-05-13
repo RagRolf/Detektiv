@@ -14,13 +14,13 @@ script = ExtResource("1_okmwx")
 
 [node name="Zoom" type="TouchScreenButton" parent="."]
 self_modulate = Color(1, 1, 1, 0.478431)
-position = Vector2(197, 295)
+position = Vector2(488, 579)
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("1_g2wmu")
 
 [node name="Zoom2" type="TouchScreenButton" parent="."]
 self_modulate = Color(1, 1, 1, 0.478431)
-position = Vector2(496, 246)
+position = Vector2(880, 454)
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("1_g2wmu")
 
