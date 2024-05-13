@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://3767c6xy0jj3"]
+
+[ext_resource type="Texture2D" uid="uid://colg75o0iha4j" path="res://Svante/assets/whiteCircle.png" id="1_g2wmu"]
+[ext_resource type="Script" path="res://Svante/HUD.gd" id="1_okmwx"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_okmwx")
+
+[node name="Zoom" type="TouchScreenButton" parent="."]
+self_modulate = Color(1, 1, 1, 0.478431)
+position = Vector2(197, 295)
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("1_g2wmu")
+
+[node name="Zoom2" type="TouchScreenButton" parent="."]
+self_modulate = Color(1, 1, 1, 0.478431)
+position = Vector2(496, 246)
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("1_g2wmu")
+
+[node name="Return" type="TouchScreenButton" parent="."]
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("1_g2wmu")
+
+[connection signal="pressed" from="Zoom" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="Zoom2" to="." method="_on_zoom_2_pressed"]
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
