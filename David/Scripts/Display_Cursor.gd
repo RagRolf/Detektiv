@@ -41,8 +41,10 @@ var power = 0.0
 var FingerPrint = preload("res://David/FingerPrint.tscn")
 
 const MAXBLOBS = 15
-const ScreamPower = -100.0
+const ScreamPower = -30.0
 const BLOBSPERFILL = 3
+
+var isDone = false
 
 #var start_time
 
@@ -66,7 +68,7 @@ func _process(_delta):
 	lastPos = position
 	position = get_global_mouse_position()
 	#power = clamp(db_to_linear(AudioServer.get_bus_peak_volume_left_db(indexBuffer, 0)), 0.0, 1.0)
-	power = AudioServer.get_bus_peak_volume_left_db(indexBuffer, 0)
+	#power = AudioServer.get_bus_peak_volume_left_db(indexBuffer, 0)
 	#print("Inside Update: " + str(isInsideKnife))
 	#print("Inside Update: " + str(totalBlobsThisFill))
 	#print(str(power))
@@ -129,8 +131,11 @@ func drop_splash():
 		await get_tree().process_frame
 
 func checkforblow(): #Seems to work know, shall choose random sprite-blobs to put fingerprints on
-	while true:
+	while !isDone:
 		#print(str(ScreamPower))
+		power = AudioServer.get_bus_peak_volume_left_db(indexBuffer, 0)
+		#print(str(power))
+		#isDone = false
 		if power > ScreamPower: 
 			prompt.visible = false
 			var SpriteChildren = AllSprites.get_child_count()
@@ -149,8 +154,13 @@ func checkforblow(): #Seems to work know, shall choose random sprite-blobs to pu
 				AllSprites.get_child(index).visible = false
 				allPossible[index] = allPossible[amount]
 				finger_print.modulate = Color(randf_range(0.0,1.0),randf_range(0.0,1.0),randf_range(0.0,1.0))
-			return
-		await get_tree().process_frame
+			await get_tree().create_timer(1.0).timeout
+			isDone = true
+			Load.change_scene()
+		#else:
+		#if !isDone:
+		if !isDone:
+			await get_tree().process_frame
 		
 func exit_splash(area):
 	#print("Exited: " + str(isInsideKnife))

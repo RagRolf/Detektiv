@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Detektiv"
-run/main_scene="res://David/David_Main.tscn"
+run/main_scene="res://David/LoadingScen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,10 +20,14 @@ config/icon="res://icon.svg"
 driver/driver=""
 driver/enable_input=true
 
+[autoload]
+
+Load="*res://David/Scripts/Load.gd"
+
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=2000
+window/size/viewport_height=1200
 
 [input_devices]
 
