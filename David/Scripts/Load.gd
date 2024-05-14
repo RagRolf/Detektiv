@@ -2,7 +2,7 @@ extends Control
 
 #var loading_scene = preload("res://David/LoadingScen.tscn")
 @onready var bar
-var OnOff = true
+var OnOff = false
 #@onready var scene = "res://David/Main_Menu.tscn"
 
 var progress = [0.0]
@@ -33,7 +33,7 @@ func change_scene(toScene = "res://David/Main_Menu.tscn"):
 				await get_tree().process_frame
 			3:
 				bar.value = 1.0
-				await get_tree().create_timer(0.1).timeout
+				#await get_tree().process_frame
 				var _loaded_resource = ResourceLoader.load_threaded_get(toScene)
 				ifDone = true
 				get_tree().change_scene_to_packed(_loaded_resource)
