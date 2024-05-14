@@ -1531,9 +1531,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x7glr")
 }],
-"loop": true,
+"loop": false,
 "name": &"phone",
-"speed": 5.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1744,4 +1744,4 @@ shape = SubResource("RectangleShape2D_0vwx5")
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(1000, 597)
 sprite_frames = SubResource("SpriteFrames_sb2sy")
-animation = &"knife"
+animation = &"safe"
