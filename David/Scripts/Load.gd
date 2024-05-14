@@ -2,12 +2,14 @@ extends Control
 
 #var loading_scene = preload("res://David/LoadingScen.tscn")
 @onready var bar
+var OnOff = false
 #@onready var scene = "res://David/Main_Menu.tscn"
 
 var progress = [0.0]
 
 func _ready():
-	change_scene()
+	if OnOff:
+		change_scene()
 
 func change_scene(toScene = "res://David/Main_Menu.tscn"):
 	#var loader = 
