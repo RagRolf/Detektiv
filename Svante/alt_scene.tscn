@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv4ip0k2prnxi"]
+[gd_scene load_steps=3 format=3 uid="uid://baxysxlb6g5l5"]
 
 [ext_resource type="Script" path="res://Svante/alt_scene.gd" id="1_pbkyv"]
 [ext_resource type="Texture2D" uid="uid://colg75o0iha4j" path="res://Svante/assets/whiteCircle.png" id="2_vcsnp"]

@@ -1,7 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://dcblol1ybuxup"]
+[gd_scene load_steps=22 format=3 uid="uid://dcblol1ybuxup"]
 
 [ext_resource type="Script" path="res://Svante/Camera3D.gd" id="1_uwefp"]
-[ext_resource type="PackedScene" uid="uid://3767c6xy0jj3" path="res://Svante/HUD.tscn" id="2_mkqj6"]
+[ext_resource type="PackedScene" uid="uid://moxlv3sydv51" path="res://Svante/HUD.tscn" id="2_mkqj6"]
+[ext_resource type="Texture2D" uid="uid://dpk0ki4n14jvt" path="res://Svante/assets/textures/wood/wood_floor_worn_diff_4k.png" id="3_yxohp"]
+[ext_resource type="Texture2D" uid="uid://c3bh0vmeoe0wx" path="res://Svante/assets/textures/wood/wood_floor_worn_nor_gl_4k.png" id="4_uerem"]
+[ext_resource type="Texture2D" uid="uid://do7fcnvccqjv5" path="res://Svante/assets/textures/wood/wood_floor_worn_rough_4k.png" id="5_spbdq"]
+[ext_resource type="Texture2D" uid="uid://do2lkgjqygirp" path="res://Svante/assets/textures/roof_plaster/grey_plaster_03_diff_4k.png" id="6_bvxsa"]
+[ext_resource type="Texture2D" uid="uid://d1qab6h2oodo2" path="res://Svante/assets/textures/plaster/patterned_clay_plaster_diff_4k.png" id="6_rbmvi"]
+[ext_resource type="Texture2D" uid="uid://bggnlkkp1p5gt" path="res://Svante/assets/textures/plaster/patterned_clay_plaster_nor_gl_4k.png" id="7_h4fem"]
+[ext_resource type="Texture2D" uid="uid://b13b1wgkmsfdt" path="res://Svante/assets/textures/roof_plaster/grey_plaster_03_nor_gl_4k.png" id="7_mxesl"]
+[ext_resource type="Texture2D" uid="uid://kerdps85kog6" path="res://Svante/assets/textures/roof_plaster/grey_plaster_03_rough_4k.png" id="8_0002u"]
+[ext_resource type="Texture2D" uid="uid://dfny3obrwajqx" path="res://Svante/assets/textures/plaster/patterned_clay_plaster_rough_4k.png" id="8_j321r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mva4m"]
 
@@ -11,9 +20,35 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rgqy6"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xcja"]
+albedo_texture = ExtResource("3_yxohp")
+roughness_texture = ExtResource("5_spbdq")
+normal_enabled = true
+normal_texture = ExtResource("4_uerem")
+uv1_scale = Vector3(3, 3, 3)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_8ggxe"]
+material = SubResource("StandardMaterial3D_0xcja")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2nn04"]
+albedo_texture = ExtResource("6_bvxsa")
+roughness_texture = ExtResource("8_0002u")
+normal_enabled = true
+normal_texture = ExtResource("7_mxesl")
+uv1_scale = Vector3(2, 2, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_elwmh"]
+material = SubResource("StandardMaterial3D_2nn04")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e3cqg"]
+albedo_texture = ExtResource("6_rbmvi")
+roughness_texture = ExtResource("8_j321r")
+normal_enabled = true
+normal_texture = ExtResource("7_h4fem")
+uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xwxme"]
+material = SubResource("StandardMaterial3D_e3cqg")
 
 [node name="TredjeScen" type="Node3D"]
 
@@ -57,7 +92,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0425458, -0.454131)
 [node name="Control" parent="CanvasLayer" instance=ExtResource("2_mkqj6")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.0951331, 0.995465, 0, -0.995465, 0.0951331, 0, 0, 0.200251)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00731057, 0.11637, -0.553768)
@@ -73,7 +108,7 @@ mesh = SubResource("PlaneMesh_8ggxe")
 
 [node name="Ceiling" type="MeshInstance3D" parent="Room"]
 transform = Transform3D(-0.5, -1.33329e-07, 0, 7.54979e-08, -0.883, 0, 0, 0, 0.5, 0, 0.25, -0.55)
-mesh = SubResource("PlaneMesh_8ggxe")
+mesh = SubResource("PlaneMesh_elwmh")
 
 [node name="L_Wall" type="MeshInstance3D" parent="Room"]
 transform = Transform3D(-1.22565e-08, 1, 0, -0.280395, -4.37114e-08, 0, 0, 0, 0.5, -0.5, -0.0225166, -0.55)
