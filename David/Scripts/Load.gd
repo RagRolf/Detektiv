@@ -3,6 +3,8 @@ extends Control
 #var loading_scene = preload("res://David/LoadingScen.tscn")
 @onready var bar
 var OnOff = true
+
+var first = true
 #@onready var scene = "res://David/Main_Menu.tscn"
 
 var progress = [0.0]
@@ -20,6 +22,14 @@ func change_scene(toScene = "res://David/Main_Menu.tscn"):
 	get_tree().change_scene_to_file("res://David/LoadingScen.tscn")
 	await get_tree().process_frame
 	bar = get_node("/root/LoadingScene/ProgressBar")
+	if first:
+		#var power = 
+		var mic = AudioStreamPlayer.new()
+		get_tree().get_current_scene().add_child(mic)
+		mic.stream = AudioStreamMicrophone.new()
+		mic.play()
+		first = false
+		#var power = AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("Record"), 0)
 	ResourceLoader.load_threaded_request(toScene, "", false, 1) #Multithreading works on PC, but breaks android
 	var ifDone = false
 	while true:

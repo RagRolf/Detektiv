@@ -135,9 +135,13 @@ func drop_splash():
 func checkforblow(): #Seems to work know, shall choose random sprite-blobs to put fingerprints on
 	while !isDone:
 		#print(str(ScreamPower))
+		#print(mic.playing)
 		if !mic.playing:
+			await get_tree().create_timer(1.0).timeout #small timer, give some time
 			mic.play()
+			#print("Started")
 		power = AudioServer.get_bus_peak_volume_left_db(indexBuffer, 0)
+		#print(power)
 		#print(str(power))
 		#isDone = false
 		if power > ScreamPower: 
