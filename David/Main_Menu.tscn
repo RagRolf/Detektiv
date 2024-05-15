@@ -1744,4 +1744,4 @@ shape = SubResource("RectangleShape2D_0vwx5")
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(1000, 597)
 sprite_frames = SubResource("SpriteFrames_sb2sy")
-animation = &"safe"
+animation = &"phone"
