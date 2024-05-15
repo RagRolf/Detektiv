@@ -2,7 +2,7 @@ extends Control
 
 #var loading_scene = preload("res://David/LoadingScen.tscn")
 @onready var bar
-var OnOff = false
+var OnOff = true
 #@onready var scene = "res://David/Main_Menu.tscn"
 
 var progress = [0.0]
@@ -20,7 +20,7 @@ func change_scene(toScene = "res://David/Main_Menu.tscn"):
 	get_tree().change_scene_to_file("res://David/LoadingScen.tscn")
 	await get_tree().process_frame
 	bar = get_node("/root/LoadingScene/ProgressBar")
-	ResourceLoader.load_threaded_request(toScene, "", true, 1) #Multithreading works on PC, but breaks android
+	ResourceLoader.load_threaded_request(toScene, "", false, 1) #Multithreading works on PC, but breaks android
 	var ifDone = false
 	while true:
 		var status = ResourceLoader.load_threaded_get_status(toScene, progress)

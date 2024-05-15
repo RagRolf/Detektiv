@@ -46,6 +46,8 @@ const BLOBSPERFILL = 3
 
 var isDone = false
 
+@onready var mic = $"../MicrophoneAudioStreamPlayer"
+
 #var start_time
 
 func _ready():
@@ -133,6 +135,8 @@ func drop_splash():
 func checkforblow(): #Seems to work know, shall choose random sprite-blobs to put fingerprints on
 	while !isDone:
 		#print(str(ScreamPower))
+		if !mic.playing:
+			mic.play()
 		power = AudioServer.get_bus_peak_volume_left_db(indexBuffer, 0)
 		#print(str(power))
 		#isDone = false
