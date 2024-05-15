@@ -8,7 +8,7 @@ extends Node2D
 #var scene3 = preload("res://David/Candle.tscn")
 
 #@onready var allPlayers = [$KnifeP, $LogP, $PhoneP, $SafeP]
-var allScenes = ["res://David/David_Main.tscn", "res://David/Rotate_Object.tscn", "res://David/Safe.tscn", "res://David/Phone.tscn"]
+var allScenes = ["res://David/KnifeScene.tscn", "res://David/Rotate_Object.tscn", "res://David/Safe.tscn", "res://David/Phone.tscn"]
 var allAnims = ["knife", "log", "safe", "phone"]
 
 func _ready():

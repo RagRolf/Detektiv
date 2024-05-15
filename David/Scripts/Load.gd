@@ -2,16 +2,54 @@ extends Control
 
 #var loading_scene = preload("res://David/LoadingScen.tscn")
 @onready var bar
-var OnOff = true
+var OnOff = false
 
-var first = true
 #@onready var scene = "res://David/Main_Menu.tscn"
 
 var progress = [0.0]
 
+const SAVEPATH = "user://savegame.save"
+
 func _ready():
-	if OnOff:
-		change_scene()
+	if !OnOff:
+		return
+	const STARTSCENE = "res://David/Main_Menu.tscn"
+	await get_tree().process_frame #Scene is null otherwise
+	#var LoadingScene = "res://David/LoadingScen.tscn"
+	get_tree().change_scene_to_file("res://David/LoadingScen.tscn")
+	await get_tree().process_frame
+	bar = get_node("/root/LoadingScene/ProgressBar")
+	if !FileAccess.file_exists("user://savegame.save"):
+		var mic = AudioStreamPlayer.new()
+		get_tree().get_current_scene().add_child(mic)
+		mic.stream = AudioStreamMicrophone.new()
+		mic.play()
+		var save_file = ConfigFile.new()
+		save_file.save(SAVEPATH)
+		#print("Hi")
+		await get_tree().create_timer(1.0).timeout
+		get_tree().quit()
+	ResourceLoader.load_threaded_request(STARTSCENE, "", false, 1) #Multithreading works on PC, but breaks android
+	var ifDone = false
+	while true:
+		var status = ResourceLoader.load_threaded_get_status(STARTSCENE, progress)
+		match status:
+			0, 2:
+				set_process(false)
+				return
+			1:
+				bar.value = progress[0]
+				await get_tree().process_frame
+			3:
+				bar.value = 1.0
+				#await get_tree().process_frame
+				var _loaded_resource = ResourceLoader.load_threaded_get(STARTSCENE)
+				ifDone = true
+				get_tree().change_scene_to_packed(_loaded_resource)
+		if !ifDone:
+			await get_tree().process_frame
+		
+
 
 func change_scene(toScene = "res://David/Main_Menu.tscn"):
 	#var loader = 
@@ -22,13 +60,6 @@ func change_scene(toScene = "res://David/Main_Menu.tscn"):
 	get_tree().change_scene_to_file("res://David/LoadingScen.tscn")
 	await get_tree().process_frame
 	bar = get_node("/root/LoadingScene/ProgressBar")
-	if first:
-		#var power = 
-		var mic = AudioStreamPlayer.new()
-		get_tree().get_current_scene().add_child(mic)
-		mic.stream = AudioStreamMicrophone.new()
-		mic.play()
-		first = false
 		#var power = AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("Record"), 0)
 	ResourceLoader.load_threaded_request(toScene, "", false, 1) #Multithreading works on PC, but breaks android
 	var ifDone = false
