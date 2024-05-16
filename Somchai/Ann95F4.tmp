@@ -1,12 +1,12 @@
-[gd_scene load_steps=44 format=3 uid="uid://cxgub058r4wvj"]
+[gd_scene load_steps=43 format=3 uid="uid://cxgub058r4wvj"]
 
 [ext_resource type="Texture2D" uid="uid://cij7b47m7ynn" path="res://Somchai/white circle blur.png" id="1_187f4"]
 [ext_resource type="Script" path="res://Somchai/candle.gd" id="1_byd36"]
 [ext_resource type="Script" path="res://Somchai/Annan_Scen.gd" id="1_htqrr"]
 [ext_resource type="Texture2D" uid="uid://dkuto30av3s73" path="res://Somchai/vector-3d-realistic-candle-fire-260nw-1987246832-removebg-preview.png" id="2_fmp57"]
 [ext_resource type="Script" path="res://Somchai/shaderCandle.gd" id="2_loost"]
-[ext_resource type="Script" path="res://Somchai/Pivot3DLight.gd" id="3_bxqxc"]
 [ext_resource type="Texture2D" uid="uid://qm0gfgcpmuh1" path="res://Somchai/ezgif-6-e4e0c5094d-removebg-preview.png" id="3_e076q"]
+[ext_resource type="Script" path="res://Somchai/light.gd" id="5_pcd4r"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_omc4f"]
 
@@ -224,13 +224,7 @@ transparency = 1
 billboard_mode = 1
 grow = true
 
-[sub_resource type="Curve" id="Curve_u1mq5"]
-max_value = 3.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
 [sub_resource type="CurveTexture" id="CurveTexture_73j8a"]
-curve = SubResource("Curve_u1mq5")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_523ho"]
 gravity = Vector3(0, 1, 0)
@@ -254,19 +248,16 @@ transform = Transform3D(-4.37114e-08, -0.533744, 0, 1, -2.33307e-08, 0, 0, 0, 1,
 mesh = SubResource("CylinderMesh_omc4f")
 script = ExtResource("1_byd36")
 
-[node name="Camera3D" type="Camera3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 7.10543e-15, 0, 0, 1.87356, 0, 0, 0, 1, 4.26326e-14, 0.695459, 3.82694)
-projection = 1
-size = 2.0584
-
-[node name="Pivot" type="Node3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39058e-08, 1.02465, 0)
-script = ExtResource("3_bxqxc")
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="MeshInstance3D/Pivot"]
-transform = Transform3D(0.999869, -0.0303441, 0, 0.0161959, 1.87331, 0, 0, 0, 1, -0.000248635, 0.470921, -0.0098511)
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="MeshInstance3D"]
+transform = Transform3D(0.999869, -0.0303441, 0, 0.0161959, 1.87331, 0, 0, 0, 1, -0.000248611, 1.49557, -0.0098511)
 sprite_frames = SubResource("SpriteFrames_jwl4u")
 animation = &"default2"
+script = ExtResource("5_pcd4r")
+
+[node name="Camera3D" type="Camera3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1.87356, 0, 0, 0, 1, 0, 0.695459, 3.82694)
+projection = 1
+size = 2.0584
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.135011, 0, 0, 0, 0.43364, 0, 0, 0, 0.135011, 0, 0.291553, 0)
@@ -294,7 +285,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Gyroscope" type="Label" parent="Control"]
-layout_mode = 0
 offset_left = 88.0
 offset_top = 117.0
 offset_right = 1138.0
