@@ -1,128 +1,124 @@
-[gd_scene load_steps=43 format=3 uid="uid://cxgub058r4wvj"]
+[gd_scene load_steps=34 format=3 uid="uid://8l53avp6t4ak"]
 
-[ext_resource type="Texture2D" uid="uid://cij7b47m7ynn" path="res://Somchai/white circle blur.png" id="1_187f4"]
-[ext_resource type="Script" path="res://Somchai/candle.gd" id="1_byd36"]
-[ext_resource type="Script" path="res://Somchai/Annan_Scen.gd" id="1_htqrr"]
-[ext_resource type="Texture2D" uid="uid://dkuto30av3s73" path="res://Somchai/vector-3d-realistic-candle-fire-260nw-1987246832-removebg-preview.png" id="2_fmp57"]
-[ext_resource type="Script" path="res://Somchai/shaderCandle.gd" id="2_loost"]
-[ext_resource type="Texture2D" uid="uid://qm0gfgcpmuh1" path="res://Somchai/ezgif-6-e4e0c5094d-removebg-preview.png" id="3_e076q"]
-[ext_resource type="Script" path="res://Somchai/light.gd" id="5_pcd4r"]
+[ext_resource type="Script" path="res://Somchai/2DCandle.gd" id="1_hq0gi"]
+[ext_resource type="Texture2D" uid="uid://dkuto30av3s73" path="res://Somchai/vector-3d-realistic-candle-fire-260nw-1987246832-removebg-preview.png" id="1_ppws1"]
+[ext_resource type="Texture2D" uid="uid://qm0gfgcpmuh1" path="res://Somchai/ezgif-6-e4e0c5094d-removebg-preview.png" id="2_r6xv7"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_omc4f"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_6qwxm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_465t5"]
-atlas = ExtResource("2_fmp57")
+atlas = ExtResource("1_ppws1")
 region = Rect2(0, 3, 65, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bga7o"]
-atlas = ExtResource("2_fmp57")
+atlas = ExtResource("1_ppws1")
 region = Rect2(130, 3, 65, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v44j5"]
-atlas = ExtResource("2_fmp57")
+atlas = ExtResource("1_ppws1")
 region = Rect2(195, 3, 65, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5g42u"]
-atlas = ExtResource("2_fmp57")
+atlas = ExtResource("1_ppws1")
 region = Rect2(65, 87, 65, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_snfrg"]
-atlas = ExtResource("2_fmp57")
+atlas = ExtResource("1_ppws1")
 region = Rect2(130, 87, 65, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kf327"]
-atlas = ExtResource("2_fmp57")
+atlas = ExtResource("1_ppws1")
 region = Rect2(195, 87, 65, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_acdr6"]
-atlas = ExtResource("2_fmp57")
+atlas = ExtResource("1_ppws1")
 region = Rect2(0, 171, 65, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1a0fp"]
-atlas = ExtResource("2_fmp57")
+atlas = ExtResource("1_ppws1")
 region = Rect2(65, 171, 65, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7o6e8"]
-atlas = ExtResource("2_fmp57")
+atlas = ExtResource("1_ppws1")
 region = Rect2(130, 171, 65, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o5g8w"]
-atlas = ExtResource("2_fmp57")
+atlas = ExtResource("1_ppws1")
 region = Rect2(195, 171, 65, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yn0e4"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(17, 27, 55, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yy2ct"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(72, 27, 55, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntbpt"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(127, 27, 55, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5cmr5"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(182, 27, 55, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dehpt"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(237, 27, 55, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cbslr"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(292, 27, 55, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vfclm"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(17, 99, 55, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktxhw"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(72, 99, 55, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xl64v"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(127, 99, 55, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ueox"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(182, 99, 55, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_58cvs"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(237, 99, 55, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rexk5"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(292, 99, 55, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pc8qc"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(17, 171, 55, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3w2yx"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(72, 171, 55, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vqx3"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(127, 171, 55, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6y3m8"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(182, 171, 55, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_br8cy"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(237, 171, 55, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_og758"]
-atlas = ExtResource("3_e076q")
+atlas = ExtResource("2_r6xv7")
 region = Rect2(292, 171, 55, 72)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_jwl4u"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_rt3tw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -219,75 +215,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8cjji"]
-transparency = 1
-billboard_mode = 1
-grow = true
+[node name="2dCandle" type="Node2D"]
+script = ExtResource("1_hq0gi")
 
-[sub_resource type="CurveTexture" id="CurveTexture_73j8a"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1125.5, 567.5)
+scale = Vector2(1231, 687)
+texture = SubResource("CanvasTexture_6qwxm")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_523ho"]
-gravity = Vector3(0, 1, 0)
-scale_over_velocity_min = 96.39
-scale_over_velocity_max = 120.48
-scale_over_velocity_curve = SubResource("CurveTexture_73j8a")
-color = Color(0.8, 0.113725, 0.733333, 1)
+[node name="Pivot" type="Node2D" parent="Sprite2D"]
+position = Vector2(-0.498375, -0.0254731)
+scale = Vector2(0.000812348, 0.0014556)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ho6tr"]
-transparency = 1
-albedo_texture = ExtResource("1_187f4")
-
-[sub_resource type="QuadMesh" id="QuadMesh_3cu03"]
-material = SubResource("StandardMaterial3D_ho6tr")
-
-[node name="AnnanScen" type="Node3D"]
-script = ExtResource("1_htqrr")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, -0.533744, 0, 1, -2.33307e-08, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CylinderMesh_omc4f")
-script = ExtResource("1_byd36")
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="MeshInstance3D"]
-transform = Transform3D(0.999869, -0.0303441, 0, 0.0161959, 1.87331, 0, 0, 0, 1, -0.000248611, 1.49557, -0.0098511)
-sprite_frames = SubResource("SpriteFrames_jwl4u")
+[node name="Light" type="AnimatedSprite2D" parent="Sprite2D/Pivot"]
+position = Vector2(-1.99994, -154)
+rotation = 0.0161967
+scale = Vector2(6.32971, 5.81507)
+sprite_frames = SubResource("SpriteFrames_rt3tw")
 animation = &"default2"
-script = ExtResource("5_pcd4r")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.135011, 0, 0, 0, 0.43364, 0, 0, 0, 0.135011, 0, 0.291553, 0)
-visible = false
-mesh = SubResource("CylinderMesh_omc4f")
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.940363, 0)
-visible = false
-material_override = SubResource("StandardMaterial3D_8cjji")
-cast_shadow = 0
-randomness = 1.0
-process_material = SubResource("ParticleProcessMaterial_523ho")
-draw_pass_1 = SubResource("QuadMesh_3cu03")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-
-[node name="Node" type="Node" parent="."]
-script = ExtResource("2_loost")
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Gyroscope" type="Label" parent="Control"]
-offset_left = 88.0
-offset_top = 117.0
-offset_right = 1138.0
-offset_bottom = 642.0
-theme_override_font_sizes/font_size = 80
-text = "Gyroscope"
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.371197, -1.62255e-08, 3.82694)
-projection = 1
-size = 2.0584
