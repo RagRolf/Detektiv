@@ -5,9 +5,11 @@ var pitch: float = 0.0
 var roll: float = 0.0
 var yaw: float = 0.0
 
-var initial_yaw : float = 0.0
+#var initial_yaw : float = 0.0
 
 var k : float = 0.98
+
+@onready var touchbutton = $"../Return"
 
 #@onready var MainScene = load("res://David/Main_Menu.tscn")
 
@@ -16,12 +18,9 @@ var k : float = 0.98
 #var timer
 
 func _ready():
-	await get_tree().process_frame
+	touchbutton.pressed.connect(scene_switch)
+	#await get_tree().process_frame
 	#var magnet: Vector3 = Input.get_magnetometer()
-	#timer = Timer.new()
-	#timer.wait_time = 2.0
-	#get_tree().root.add_child(timer)
-	#timer.timeout.connect(scene_switch)
 	#print(magnet)
 	#initial_yaw = atan2(-magnet.x, magnet.z) 
 	
@@ -37,16 +36,17 @@ func _process(delta):
 	pitch = lerp_angle(pitch_acc, pitch + gyroscope.x * delta, k)
 	yaw = lerp_angle(yaw_magnet, yaw + gyroscope.y * delta, k)
 	roll = lerp_angle(roll_acc, roll + gyroscope.z * delta, k) 
-	rotation = Vector3(pitch, yaw, roll)
+	rotation = Vector3(-pitch, roll, yaw)
 	#var dot = transform.basis.z.dot(Vector3.FORWARD)
 	#print(dot)
 	if transform.basis.z.dot(Vector3.FORWARD) > 0.9:
 		#timer.start()
-		scene_switch()
+		#scene_switch()
+		touchbutton.visible = true
 		#await _scene_switch()
 		
 		
 func scene_switch():
-	await get_tree().create_timer(3.0).timeout
+	#await get_tree().create_timer(3.0).timeout
 	Load.change_scene()
 	

@@ -1,3 +1,144 @@
-[gd_scene format=3 uid="uid://0e2ccyox4626"]
+[gd_scene load_steps=18 format=3 uid="uid://0e2ccyox4626"]
 
-[node name="Candle" type="Node2D"]
+[ext_resource type="Script" path="res://David/Scripts/Safe.gd" id="1_l851o"]
+[ext_resource type="Texture2D" uid="uid://c0y1m5l7t1efg" path="res://David/Textures/Safe/nought.png" id="1_wg7l6"]
+[ext_resource type="Texture2D" uid="uid://mthpsjdghn7" path="res://David/Textures/Safe/One.png" id="2_vh4kg"]
+[ext_resource type="Texture2D" uid="uid://bgvukt45q4o3b" path="res://David/Textures/Safe/Two.png" id="3_c0jf2"]
+[ext_resource type="Texture2D" uid="uid://7evfpyd2yura" path="res://David/Textures/Safe/Three.png" id="4_5w7bv"]
+[ext_resource type="Texture2D" uid="uid://bnrdb2i1kovyw" path="res://David/Textures/Safe/Four.png" id="5_eaf2m"]
+[ext_resource type="Texture2D" uid="uid://dannoxesvx0dw" path="res://David/Textures/Safe/Five.png" id="6_1jw52"]
+[ext_resource type="Texture2D" uid="uid://cj4gub0j2b362" path="res://David/Textures/Safe/Six.png" id="7_cknqw"]
+[ext_resource type="Texture2D" uid="uid://d0u7pcq5y8q6t" path="res://David/Textures/Safe/Seven.png" id="8_f417v"]
+[ext_resource type="Texture2D" uid="uid://cjnkdr4l2xppe" path="res://David/Textures/Safe/eight.png" id="9_1enxl"]
+[ext_resource type="Texture2D" uid="uid://bwf5ejhi8f5nt" path="res://David/Textures/Safe/nine.png" id="10_q1kjq"]
+[ext_resource type="Texture2D" uid="uid://0fneopc1ibni" path="res://David/Textures/Safe/Return.png" id="11_qugxf"]
+[ext_resource type="Texture2D" uid="uid://cf56cnmfjodk4" path="res://David/Textures/Safe/EX.png" id="12_opoct"]
+[ext_resource type="Texture2D" uid="uid://oi5qkl5s06qh" path="res://David/Textures/Safe/left_arrow.png" id="13_dsne5"]
+[ext_resource type="Texture2D" uid="uid://c5xjr4vedropm" path="res://David/Textures/Safe/right_arrow.png" id="13_skdh7"]
+[ext_resource type="Texture2D" uid="uid://dq6orkm5ew21x" path="res://David/Textures/Safe/left_point.png" id="15_igg4l"]
+[ext_resource type="Texture2D" uid="uid://cf6yenfn5iwwf" path="res://David/Textures/Safe/right_point.png" id="16_q1vfn"]
+
+[node name="Safe" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(99.475, 99.475)
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.156396, 0.217922, 0.111944, 0.717647)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 0
+offset_left = 837.0
+offset_right = 1077.0
+offset_bottom = 419.0
+
+[node name="Code1" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "0000"
+
+[node name="Code2" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "0000"
+
+[node name="Code3" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "0000"
+
+[node name="Marker" type="ColorRect" parent="Background"]
+layout_mode = 0
+offset_left = 892.0
+offset_top = 26.0
+offset_right = 896.0
+offset_bottom = 114.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_l851o")
+
+[node name="AllButtons" type="Node2D" parent="."]
+
+[node name="0" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(788, 756)
+texture_normal = ExtResource("1_wg7l6")
+texture_pressed = ExtResource("1_wg7l6")
+
+[node name="1" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(639, 461)
+texture_normal = ExtResource("2_vh4kg")
+texture_pressed = ExtResource("2_vh4kg")
+
+[node name="2" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(796, 458)
+texture_normal = ExtResource("3_c0jf2")
+texture_pressed = ExtResource("3_c0jf2")
+
+[node name="3" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(951, 461)
+texture_normal = ExtResource("4_5w7bv")
+texture_pressed = ExtResource("4_5w7bv")
+
+[node name="4" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(1101, 460)
+texture_normal = ExtResource("5_eaf2m")
+texture_pressed = ExtResource("5_eaf2m")
+
+[node name="5" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(639, 610)
+texture_normal = ExtResource("6_1jw52")
+texture_pressed = ExtResource("6_1jw52")
+
+[node name="6" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(788, 610)
+texture_normal = ExtResource("7_cknqw")
+texture_pressed = ExtResource("7_cknqw")
+
+[node name="7" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(947, 610)
+texture_normal = ExtResource("8_f417v")
+texture_pressed = ExtResource("8_f417v")
+
+[node name="8" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(1097, 610)
+texture_normal = ExtResource("9_1enxl")
+texture_pressed = ExtResource("9_1enxl")
+
+[node name="9" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(635, 756)
+texture_normal = ExtResource("10_q1kjq")
+texture_pressed = ExtResource("10_q1kjq")
+
+[node name="Return" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(948, 758)
+texture_normal = ExtResource("11_qugxf")
+texture_pressed = ExtResource("11_qugxf")
+
+[node name="EraseAll" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(1099, 758)
+texture_normal = ExtResource("12_opoct")
+texture_pressed = ExtResource("12_opoct")
+
+[node name="Left_Arrow" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(639, 896)
+texture_normal = ExtResource("13_dsne5")
+texture_pressed = ExtResource("13_dsne5")
+
+[node name="Right_Arrow" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(792, 896)
+texture_normal = ExtResource("13_skdh7")
+texture_pressed = ExtResource("13_skdh7")
+
+[node name="Left_Point" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(950, 894)
+texture_normal = ExtResource("15_igg4l")
+texture_pressed = ExtResource("15_igg4l")
+
+[node name="Right_Point" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(1100, 894)
+texture_normal = ExtResource("16_q1vfn")
+texture_pressed = ExtResource("16_q1vfn")

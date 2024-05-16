@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://63kvu4hkp665"]
+[gd_scene load_steps=7 format=3 uid="uid://63kvu4hkp665"]
 
 [ext_resource type="PackedScene" uid="uid://2xkjh05n3qt" path="res://David/Models/Trunk.gltf" id="1_03lpv"]
+[ext_resource type="Texture2D" uid="uid://b1b2h6t2rypga" path="res://icon.svg" id="1_5m5p5"]
 [ext_resource type="Script" path="res://David/Scripts/Rotate_Trunk.gd" id="2_tmgy5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rv5yq"]
@@ -16,6 +17,12 @@ sky = SubResource("Sky_rirmy")
 tonemap_mode = 2
 
 [node name="Node3D" type="Node3D"]
+
+[node name="Return" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2(36, 907)
+texture_normal = ExtResource("1_5m5p5")
+texture_pressed = ExtResource("1_5m5p5")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_munvw")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5glefnegydkc"
-path="res://.godot/imported/Blob3.png-af0f36b878b6aa662990b27c5a2abdfc.ctex"
+uid="uid://dl1rqr27qs868"
+path="res://.godot/imported/Blob4.png-f586692b425cb7327e62d35954ecfa9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://David/Textures/Blob3.png"
-dest_files=["res://.godot/imported/Blob3.png-af0f36b878b6aa662990b27c5a2abdfc.ctex"]
+source_file="res://David/Textures/Knife/Blob4.png"
+dest_files=["res://.godot/imported/Blob4.png-f586692b425cb7327e62d35954ecfa9f.ctex"]
 
 [params]
 

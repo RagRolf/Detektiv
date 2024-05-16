@@ -6,18 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dyvjsvws0g2l1" path="res://David/Animation/AnimationPhone/spritesheet.jpg" id="4_xihfs"]
 [ext_resource type="Texture2D" uid="uid://b631ipa1353ux" path="res://David/Animation/AnimationSafe/spritesheet.jpg" id="5_jp6aa"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gufax"]
-radius = 46.2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg20q"]
-size = Vector2(608.655, 150)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oevtn"]
-size = Vector2(300, 300)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vwx5"]
-size = Vector2(200, 200)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_iycd0"]
 atlas = ExtResource("2_vvmfq")
 region = Rect2(0, 0, 2000, 1200)
@@ -1721,27 +1709,78 @@ animations = [{
 "speed": 60.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gufax"]
+radius = 74.25
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg20q"]
+size = Vector2(608.655, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oevtn"]
+size = Vector2(300, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vwx5"]
+size = Vector2(200, 200)
+
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_63g2m")
 
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(963, 539.5)
+scale = Vector2(0.963, 0.904167)
+sprite_frames = SubResource("SpriteFrames_sb2sy")
+animation = &"phone"
+
 [node name="Knife" type="TouchScreenButton" parent="."]
-position = Vector2(855, 665)
+position = Vector2(831, 592)
 shape = SubResource("CircleShape2D_gufax")
 
 [node name="Log" type="TouchScreenButton" parent="."]
-position = Vector2(424, 803)
+position = Vector2(435, 713)
 rotation = -0.0959931
 shape = SubResource("RectangleShape2D_lg20q")
 
 [node name="Safe" type="TouchScreenButton" parent="."]
-position = Vector2(1692, 742)
+position = Vector2(1626, 659)
 shape = SubResource("RectangleShape2D_oevtn")
 
 [node name="Phone" type="TouchScreenButton" parent="."]
-position = Vector2(316, 402)
+position = Vector2(312, 360)
 shape = SubResource("RectangleShape2D_0vwx5")
 
-[node name="Animation" type="AnimatedSprite2D" parent="."]
-position = Vector2(1000, 597)
-sprite_frames = SubResource("SpriteFrames_sb2sy")
-animation = &"phone"
+[node name="LabelScen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Code1" type="Label" parent="LabelScen"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 916.0
+offset_right = 180.0
+offset_bottom = 1012.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0000"
+
+[node name="Code2" type="Label" parent="LabelScen"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 965.0
+offset_right = 180.0
+offset_bottom = 1061.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0000"
+
+[node name="Code3" type="Label" parent="LabelScen"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 1013.0
+offset_right = 180.0
+offset_bottom = 1109.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0000"
