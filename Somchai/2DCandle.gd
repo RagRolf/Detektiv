@@ -1,24 +1,31 @@
 extends Node2D
 
-var child_sprite
-var parent_sprite
+var light_sprite
+var light_pivot
+var candle_sprite
+
+var roll = 0.0
 
 func _ready():
-	child_sprite = get_node("Sprite2D/Pivot/Light")
-	if child_sprite != null:
-		child_sprite.play()  # Play the animation
-	parent_sprite = get_node("Sprite2D/")
-		
+	light_sprite = get_node("Pivot/Light")
+	light_pivot = get_node("Pivot")
+	candle_sprite = get_node(("Sprite2D"))
+	#light_sprite.scale = Vector2(3, 1)
+	light_sprite.play()
+	
 func _process(delta):
-	if not child_sprite:
-		return
+	var gyro = Input.get_gyroscope()
+	var grav = Input.get_gravity()
+	var acc = Input.get_accelerometer()
+	get_node("Control/Gyroscope").text = "Gyroscope: " + str(gyro)
+	get_node("Control/Grav").text = "Grav: " + str(grav)
+	get_node("Control/Acc").text = "Acc: " + str(acc)
+	
 
-	# Get parent's rotation
-	var parent_rotation = parent_sprite.rotation
-
-	# Set child sprite's rotation to face up relative to parent
-	child_sprite.rotation = parent_rotation + PI / 2  # PI/2 radians is 90 degrees
-
-func _draw():
-	# Optional: Draw a gizmo to visualize the child sprite's position'
-	draw_line(Vector2.ZERO, child_sprite.get_position(), Color.LIGHT_BLUE, 2)
+	var gravity: Vector3 = Input.get_gravity()
+	var roll_acc = atan2(gravity.x, gravity.y) 
+	var gyroscope: Vector3 = Input.get_gyroscope().rotated(-Vector3.FORWARD, roll)
+	roll = lerp_angle(roll_acc, roll + gyroscope.z * delta, 0.98)
+	
+	print(str(roll))
+	light_pivot.rotation = roll

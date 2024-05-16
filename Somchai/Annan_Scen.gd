@@ -2,7 +2,7 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var sprite = get_node("MeshInstance3D/AnimatedSprite3D")
+	var sprite = get_node("MeshInstance3D/Pivot/AnimatedSprite3D")
 	if sprite != null:
 		sprite.play()  # Play the animation
 	
@@ -23,12 +23,12 @@ func rotate_by_gyro(p_gyro, p_basis, p_delta):
 	var rotate = Basis()
 
 	rotate = rotate.rotated(p_basis.x.normalized(), -p_gyro.x * p_delta)
-	rotate = rotate.rotated(p_basis.y, -p_gyro.y * p_delta)
-	rotate = rotate.rotated(p_basis.z, -p_gyro.z * p_delta)
+	rotate = rotate.rotated(p_basis.y.normalized(), -p_gyro.y * p_delta)
+	rotate = rotate.rotated(p_basis.z.normalized(), -p_gyro.z * p_delta)
 
 	return rotate * p_basis
+	
 # This function corrects the drift in our matrix by our gravity vector
-
 func drift_correction(p_basis, p_grav):
 	# as always, make sure our vector is normalized but also invert as our gravity points down
 	var real_up = -p_grav.normalized()
