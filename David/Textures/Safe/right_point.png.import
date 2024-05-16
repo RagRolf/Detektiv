@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7m62ao1sgssb"
-path="res://.godot/imported/Blob1.png-d17d29925a26af1892534ecee8f56a66.ctex"
+uid="uid://cf6yenfn5iwwf"
+path="res://.godot/imported/right_point.png-1c5f9cf011a733fc93cb5e33d5667833.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://David/Textures/Blob1.png"
-dest_files=["res://.godot/imported/Blob1.png-d17d29925a26af1892534ecee8f56a66.ctex"]
+source_file="res://David/Textures/Safe/right_point.png"
+dest_files=["res://.godot/imported/right_point.png-1c5f9cf011a733fc93cb5e33d5667833.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcudxbmxyf3d1"
-path="res://.godot/imported/Fingerprint.png-45d1acfd50d2bfeaf29e419240efdf5f.ctex"
+uid="uid://dkc4bl5xgj8e0"
+path="res://.godot/imported/Dude.png-1f878db09b35523ef055ae83043c9af3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://David/Textures/Fingerprint.png"
-dest_files=["res://.godot/imported/Fingerprint.png-45d1acfd50d2bfeaf29e419240efdf5f.ctex"]
+source_file="res://David/Textures/Phone/Dude.png"
+dest_files=["res://.godot/imported/Dude.png-1f878db09b35523ef055ae83043c9af3.ctex"]
 
 [params]
 

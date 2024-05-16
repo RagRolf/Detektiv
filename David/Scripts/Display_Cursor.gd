@@ -48,10 +48,23 @@ var isDone = false
 
 @onready var mic = $"../MicrophoneAudioStreamPlayer"
 
+@onready var all_labels = [$"../AllSuspects/AllLabels/Rina", $"../AllSuspects/AllLabels/Ryan", $"../AllSuspects/AllLabels/Olga", $"../AllSuspects/AllLabels/Hassan", $"../AllSuspects/AllLabels/Stig", $"../AllSuspects/AllLabels/Nuka"]
+@onready var all_buttons = [$"../AllSuspects/Rina/Rina", $"../AllSuspects/Ryan/Ryan", $"../AllSuspects/Olga/Olga", $"../AllSuspects/Hassan/Hassan", $"../AllSuspects/Stig/Stig", $"../AllSuspects/Nuka/Nuka"]
+
 #var start_time
+
+var click_once = false
+
+@onready var all_suspects = $"../AllSuspects"
 
 func _ready():
 	#start_time = Time.get_time_dict_from_system ()
+	#$"../PopupMenu".popup_exclusive = true
+	var j = 0
+	for button in all_buttons:
+		button.pressed.connect(_selected.bind(j))
+		j += 1
+		#allSus.get_child(i).set_block_signals(true)
 	blobMum = $"../BlobMum"
 	polygons = $"../Knife/CollisionPolygon2D".polygon
 	for i in len(polygons):
@@ -133,6 +146,7 @@ func drop_splash():
 		await get_tree().process_frame
 
 func checkforblow(): #Seems to work know, shall choose random sprite-blobs to put fingerprints on
+	await get_tree().create_timer(1.0).timeout
 	while !isDone:
 		#print(str(ScreamPower))
 		#print(mic.playing)
@@ -141,8 +155,7 @@ func checkforblow(): #Seems to work know, shall choose random sprite-blobs to pu
 			mic.play()
 			#print("Started")
 		power = AudioServer.get_bus_peak_volume_left_db(indexBuffer, 0)
-		#print(power)
-		#print(str(power))
+		print(str(power))
 		#isDone = false
 		if power > ScreamPower: 
 			prompt.visible = false
@@ -161,10 +174,11 @@ func checkforblow(): #Seems to work know, shall choose random sprite-blobs to pu
 				finger_print.position = AllSprites.get_child(index).position
 				AllSprites.get_child(index).visible = false
 				allPossible[index] = allPossible[amount]
-				finger_print.modulate = Color(randf_range(0.0,1.0),randf_range(0.0,1.0),randf_range(0.0,1.0))
-			await get_tree().create_timer(1.0).timeout
+				#finger_print.modulate = Color(randf_range(0.0,1.0),randf_range(0.0,1.0),randf_range(0.0,1.0))
+			await get_tree().create_timer(2.0).timeout
 			isDone = true
-			Load.change_scene()
+			all_suspects.visible = true
+			#Load.change_scene()
 		#else:
 		#if !isDone:
 		if !isDone:
@@ -180,8 +194,6 @@ func exit_splash(area):
 			#difference -= randi_range(20, 50) #decrease a bit
 		
 		
-
-
 #func _on_knife_mouse_exited():
 	##if area.is_in_group("Knife"):
 	#isInsideKnife = false
@@ -192,3 +204,18 @@ func exit_splash(area):
 #func _on_knife_mouse_entered():
 	#if blobMum.visible:
 		#await drop_splash()
+
+
+func _selected(index : int):
+	#print("He")
+	if click_once:
+		return
+	click_once = true
+	if index == 5:
+		all_labels[index].modulate = Color.GREEN
+		await get_tree().create_timer(2.0).timeout
+		Load.change_scene()
+	else:
+		all_labels[index].modulate = Color.RED
+		await get_tree().create_timer(2.0).timeout
+		Load.change_scene("res://David/KnifeScene.tscn")

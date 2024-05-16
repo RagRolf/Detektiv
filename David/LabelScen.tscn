@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cngifehvyices"]
+
+[node name="LabelScen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Code1" type="Label" parent="."]
+layout_mode = 0
+offset_left = 652.0
+offset_top = 221.0
+offset_right = 812.0
+offset_bottom = 317.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "0000"
+
+[node name="Code2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 652.0
+offset_top = 288.0
+offset_right = 812.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "0000"
+
+[node name="Code3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 652.0
+offset_top = 354.0
+offset_right = 812.0
+offset_bottom = 450.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "0000"

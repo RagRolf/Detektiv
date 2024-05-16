@@ -2,13 +2,17 @@ extends Control
 
 #var loading_scene = preload("res://David/LoadingScen.tscn")
 @onready var bar
-var OnOff = false
+var OnOff = true
 
 #@onready var scene = "res://David/Main_Menu.tscn"
 
 var progress = [0.0]
 
 const SAVEPATH = "user://savegame.save"
+
+var done_map = [false, false, false]
+
+const allPasswords = ["9141", "1346", "1493"]
 
 func _ready():
 	if !OnOff:
@@ -20,14 +24,25 @@ func _ready():
 	await get_tree().process_frame
 	bar = get_node("/root/LoadingScene/ProgressBar")
 	if !FileAccess.file_exists("user://savegame.save"):
+		#print("Hi")
+		get_tree()
+		var prompt = ResourceLoader.load("res://David/PromptFirstTime.tscn")
+		prompt = prompt.instantiate()
+		get_tree().root.add_child(prompt)
+		prompt.show()
+		while true:
+			await get_tree().process_frame
+			if !prompt.visible:
+				#print("Break")
+				prompt.get_child(0).visible = false
+				break
+		var save_file = ConfigFile.new()
+		save_file.save(SAVEPATH)
 		var mic = AudioStreamPlayer.new()
 		get_tree().get_current_scene().add_child(mic)
 		mic.stream = AudioStreamMicrophone.new()
 		mic.play()
-		var save_file = ConfigFile.new()
-		save_file.save(SAVEPATH)
-		#print("Hi")
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(2.0).timeout
 		get_tree().quit()
 	ResourceLoader.load_threaded_request(STARTSCENE, "", false, 1) #Multithreading works on PC, but breaks android
 	var ifDone = false
@@ -61,7 +76,7 @@ func change_scene(toScene = "res://David/Main_Menu.tscn"):
 	await get_tree().process_frame
 	bar = get_node("/root/LoadingScene/ProgressBar")
 		#var power = AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("Record"), 0)
-	ResourceLoader.load_threaded_request(toScene, "", false, 1) #Multithreading works on PC, but breaks android
+	ResourceLoader.load_threaded_request(toScene, "", false, ResourceLoader.CACHE_MODE_REUSE) #Multithreading works on PC, but breaks android
 	var ifDone = false
 	while true:
 		var status = ResourceLoader.load_threaded_get_status(toScene, progress)

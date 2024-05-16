@@ -1,21 +1,36 @@
 extends Node2D
 
-@onready var allButtons = [$Knife, $Log, $Safe, $Phone]
+@onready var allButtons = [$Knife, $Log, $Phone, $Safe]
 @onready var animationPlayer = $Animation
+@onready var AllLabels = [$LabelScen/Code1, $LabelScen/Code2, $LabelScen/Code3]
 #@onready var pic = $Pi
-#var scene1 = preload("res://David/David_Main.tscn")
-#var scene2 = preload("res://David/Rotate_Object.tscn")
-#var scene3 = preload("res://David/Candle.tscn")
 
 #@onready var allPlayers = [$KnifeP, $LogP, $PhoneP, $SafeP]
-var allScenes = ["res://David/KnifeScene.tscn", "res://David/Rotate_Object.tscn", "res://David/Safe.tscn", "res://David/Phone.tscn"]
-var allAnims = ["knife", "log", "safe", "phone"]
+var allScenes = ["res://David/KnifeScene.tscn", "res://David/Rotate_Object.tscn", "res://David/Phone.tscn", "res://David/Safe.tscn"]
+var allAnims = ["knife", "log", "phone", "safe"]
+var just_pressed = false
+
 
 func _ready():
 	for i in len(allButtons):
-		allButtons[i].pressed.connect(_change_scene.bind(i))
+		allButtons[i].pressed.connect(change_scene.bind(i))
+	for i in len(Load.done_map):
+		if Load.done_map[i]:
+			AllLabels[i].text = Load.allPasswords[i]
 	
-func _change_scene(index : int):
+	
+func change_scene(index : int):
+	if just_pressed:
+		return
+	just_pressed = true
+	if index != 3:
+		Load.done_map[index] = true
+	var isAllDone = true
+	for i in len(Load.done_map):
+		if !Load.done_map[i]:
+			isAllDone = false
+	if !isAllDone && index == 3:
+		return
 	#print(str(index))
 	animationPlayer.play(allAnims[index])
 	#pic.visible = false

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://lhi7ly1qqlvr"]
 
-[ext_resource type="Texture2D" uid="uid://c7m62ao1sgssb" path="res://David/Textures/Blob1.png" id="1_0114l"]
-[ext_resource type="Texture2D" uid="uid://bptcplxy0fs85" path="res://David/Textures/Blob2.png" id="2_v62w5"]
-[ext_resource type="Texture2D" uid="uid://b5glefnegydkc" path="res://David/Textures/Blob3.png" id="3_ekv7h"]
-[ext_resource type="Texture2D" uid="uid://dl1rqr27qs868" path="res://David/Textures/Blob4.png" id="4_cd00w"]
-[ext_resource type="Texture2D" uid="uid://br8v3x0om0jfd" path="res://David/Textures/Blob5.png" id="5_c4k7d"]
+[ext_resource type="Texture2D" uid="uid://c7m62ao1sgssb" path="res://David/Textures/Knife/Blob1.png" id="1_0114l"]
+[ext_resource type="Texture2D" uid="uid://bptcplxy0fs85" path="res://David/Textures/Knife/Blob2.png" id="2_v62w5"]
+[ext_resource type="Texture2D" uid="uid://b5glefnegydkc" path="res://David/Textures/Knife/Blob3.png" id="3_ekv7h"]
+[ext_resource type="Texture2D" uid="uid://dl1rqr27qs868" path="res://David/Textures/Knife/Blob4.png" id="4_cd00w"]
+[ext_resource type="Texture2D" uid="uid://br8v3x0om0jfd" path="res://David/Textures/Knife/Blob5.png" id="5_c4k7d"]
 
 [node name="AllSpriteBlobs" type="Node2D"]
 

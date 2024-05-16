@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://x4s3ku0ew8jq"]
+
+[node name="AcceptDialog" type="AcceptDialog"]
+title = "Viktigt!"
+initial_position = 2
+size = Vector2i(1566, 273)
+transient = false
+exclusive = false
+always_on_top = true
+popup_window = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 1558.0
+offset_bottom = 224.0
+theme_override_font_sizes/font_size = 51
+text = "Ljudinspelning måste acceperas för att spelet skall gå att spela.
+
+Applikationen stänger ned första gången."
+horizontal_alignment = 1

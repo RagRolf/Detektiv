@@ -1,7 +1,14 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://bfe0khw7rme3x"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://bfe0khw7rme3x"]
 
 [sub_resource type="AudioEffectRecord" id="AudioEffectRecord_yxofq"]
 resource_name = "Record"
+
+[sub_resource type="AudioEffectNotchFilter" id="AudioEffectNotchFilter_mt2fa"]
+resource_name = "NotchFilter"
+cutoff_hz = 3000.0
+resonance = 0.7
+gain = 2.0
+db = 1
 
 [resource]
 bus/1/name = &"Record2"
@@ -18,3 +25,11 @@ bus/2/volume_db = 0.0
 bus/2/send = &"Record2"
 bus/2/effect/0/effect = SubResource("AudioEffectRecord_yxofq")
 bus/2/effect/0/enabled = true
+bus/3/name = &"Phone"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"
+bus/3/effect/0/effect = SubResource("AudioEffectNotchFilter_mt2fa")
+bus/3/effect/0/enabled = true
