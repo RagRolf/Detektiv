@@ -45,6 +45,7 @@ func _process(delta):
 		
 	else:
 		target_scale = Vector2(0.5, 0.5)
+		candle_number.visible = false
 		
 	light_pivot.rotation = roll
 	
