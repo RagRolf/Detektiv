@@ -1,13 +1,16 @@
 extends Node3D
 
-
 var pitch: float = 0.0
 var roll: float = 0.0
-var yaw: float = 0.0
+var adjustedPitch = 0.0
+#var yaw: float = 0.0
+const offset = PI/4
 
 #var initial_yaw : float = 0.0
 
-var k : float = 0.98
+const k : float = 0.98
+
+const RSPEED = 0.01
 
 @onready var touchbutton = $"../Return"
 
@@ -26,17 +29,19 @@ func _ready():
 	
 
 func _process(delta):
-	var magnet: Vector3 = Input.get_magnetometer().rotated(-Vector3.FORWARD, rotation.z).rotated(Vector3.RIGHT, rotation.x)
+	#var magnet: Vector3 = Input.get_magnetometer().rotated(-Vector3.FORWARD, rotation.z).rotated(Vector3.RIGHT, rotation.x)
 	var gravity: Vector3 = Input.get_gravity()
 	var roll_acc = atan2(-gravity.x, -gravity.y) 
-	gravity = gravity.rotated(-Vector3.FORWARD, rotation.z)
 	var pitch_acc = atan2(gravity.z, -gravity.y)
-	var yaw_magnet = atan2(-magnet.x, magnet.z)
+	#var yaw_magnet = atan2(-magnet.x, magnet.z)
 	var gyroscope: Vector3 = Input.get_gyroscope().rotated(-Vector3.FORWARD, roll)
 	pitch = lerp_angle(pitch_acc, pitch + gyroscope.x * delta, k)
-	yaw = lerp_angle(yaw_magnet, yaw + gyroscope.y * delta, k)
+	#yaw = lerp_angle(yaw_magnet, yaw + gyroscope.y * delta, k)
 	roll = lerp_angle(roll_acc, roll + gyroscope.z * delta, k) 
-	rotation = Vector3(-pitch, roll, yaw)
+	adjustedPitch = pitch + offset
+	adjustedPitch = clamp(adjustedPitch, -0.75, 0.75)
+	roll = clamp(roll, -1.0, 1.0) * 0.75
+	rotation += Vector3(adjustedPitch, roll, 0.0) * RSPEED
 	#var dot = transform.basis.z.dot(Vector3.FORWARD)
 	#print(dot)
 	if transform.basis.z.dot(Vector3.FORWARD) > 0.9:

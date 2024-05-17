@@ -155,7 +155,7 @@ func checkforblow(): #Seems to work know, shall choose random sprite-blobs to pu
 			mic.play()
 			#print("Started")
 		power = AudioServer.get_bus_peak_volume_left_db(indexBuffer, 0)
-		print(str(power))
+		#print(str(power))
 		#isDone = false
 		if power > ScreamPower: 
 			prompt.visible = false

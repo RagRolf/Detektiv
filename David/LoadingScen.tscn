@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://01wfryb42ctq"]
 
-[ext_resource type="Texture2D" uid="uid://b1b2h6t2rypga" path="res://icon.svg" id="2_tho6s"]
+[ext_resource type="Texture2D" uid="uid://b75x55m50uq7h" path="res://David/Textures/Hat.png" id="1_ij1ub"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_51f0a"]
 bg_color = Color(0, 0.716587, 0.391273, 1)
@@ -31,6 +31,6 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_51f0a")
 max_value = 1.0
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(971, 419)
+position = Vector2(971, 307)
 scale = Vector2(2.9375, 2.9375)
-texture = ExtResource("2_tho6s")
+texture = ExtResource("1_ij1ub")

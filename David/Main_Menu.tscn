@@ -1728,7 +1728,7 @@ script = ExtResource("1_63g2m")
 position = Vector2(963, 539.5)
 scale = Vector2(0.963, 0.904167)
 sprite_frames = SubResource("SpriteFrames_sb2sy")
-animation = &"phone"
+animation = &"log"
 
 [node name="Knife" type="TouchScreenButton" parent="."]
 position = Vector2(831, 592)
