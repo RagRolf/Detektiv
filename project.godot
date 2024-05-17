@@ -25,7 +25,7 @@ driver/enable_input=true
 Load="*res://David/Scripts/Load.gd"
 
 [dotnet]
-=======
+
 project/assembly_name="Detektiv"
 
 [importer_defaults]

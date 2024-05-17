@@ -1,9 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://8l53avp6t4ak"]
+[gd_scene load_steps=37 format=3 uid="uid://8l53avp6t4ak"]
 
 [ext_resource type="Script" path="res://Somchai/2DCandle.gd" id="1_hq0gi"]
 [ext_resource type="Texture2D" uid="uid://dkuto30av3s73" path="res://Somchai/vector-3d-realistic-candle-fire-260nw-1987246832-removebg-preview.png" id="1_ppws1"]
 [ext_resource type="Script" path="res://Somchai/pivotLight.gd" id="2_apt5m"]
 [ext_resource type="Texture2D" uid="uid://qm0gfgcpmuh1" path="res://Somchai/ezgif-6-e4e0c5094d-removebg-preview.png" id="2_r6xv7"]
+[ext_resource type="Texture2D" uid="uid://h7i07nwqqdnl" path="res://Somchai/glasig-ljusfat-klarglas__0902843_pe586154_s5-removebg-preview.png" id="3_kyqbf"]
 [ext_resource type="Texture2D" uid="uid://75tbuktygtu2" path="res://Somchai/dolphin_marine_mammals_water.jpg" id="5_jtjr0"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6qwxm"]
@@ -230,6 +231,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Gyroscope" type="Label" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 138.0
 offset_top = 71.0
@@ -240,6 +242,7 @@ text = "Words
 "
 
 [node name="Acc" type="Label" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 138.0
 offset_top = 136.0
@@ -250,6 +253,7 @@ text = "Words
 "
 
 [node name="Grav" type="Label" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 138.0
 offset_top = 189.0
@@ -260,25 +264,11 @@ text = "Words
 "
 
 [node name="DolphinMarineMammalsWater" type="Sprite2D" parent="Control"]
+visible = false
 z_index = -2
 position = Vector2(645, 393)
 scale = Vector2(2.79778, 2.49363)
 texture = ExtResource("5_jtjr0")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(597, 322)
-scale = Vector2(1500, -879.114)
-texture = SubResource("CanvasTexture_6qwxm")
-
-[node name="Pivot" type="Node2D" parent="."]
-position = Vector2(1352, 322)
-script = ExtResource("2_apt5m")
-
-[node name="Light" type="AnimatedSprite2D" parent="Pivot"]
-position = Vector2(15, -308)
-scale = Vector2(10, 10)
-sprite_frames = SubResource("SpriteFrames_rt3tw")
-animation = &"default2"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(664.929, 318.603)
@@ -286,3 +276,47 @@ rotation = 3.14159
 scale = Vector2(3.36518, -3.51501)
 skew = -0.379269
 ignore_rotation = false
+
+[node name="Container" type="Node2D" parent="."]
+position = Vector2(342, 168)
+scale = Vector2(0.45, 0.45)
+
+[node name="Sprite2D" type="Sprite2D" parent="Container"]
+clip_children = 2
+position = Vector2(513.333, 320)
+rotation = 1.57079
+scale = Vector2(6.20274, 4.95829)
+texture = ExtResource("3_kyqbf")
+
+[node name="Mask" type="Sprite2D" parent="Container/Sprite2D"]
+visible = false
+position = Vector2(1.79171, -223.643)
+rotation = 1.5708
+scale = Vector2(388.96, -182.113)
+texture = SubResource("CanvasTexture_6qwxm")
+
+[node name="Sprite2DOld" type="Sprite2D" parent="Container"]
+visible = false
+position = Vector2(597, 322)
+scale = Vector2(1500, -879.114)
+texture = SubResource("CanvasTexture_6qwxm")
+
+[node name="Pivot" type="Node2D" parent="Container"]
+position = Vector2(1352, 322)
+script = ExtResource("2_apt5m")
+
+[node name="Light" type="AnimatedSprite2D" parent="Container/Pivot"]
+position = Vector2(15, -308)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_rt3tw")
+animation = &"default2"
+
+[node name="Number" type="Label" parent="."]
+offset_left = 600.0
+offset_top = 244.0
+offset_right = 786.0
+offset_bottom = 327.0
+rotation = 1.57079
+theme_override_font_sizes/font_size = 60
+text = "2
+"
