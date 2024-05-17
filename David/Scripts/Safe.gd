@@ -3,14 +3,21 @@ extends ColorRect
 var buttons = []
 
 const OFFSETSIDEWAYS = 57
-const OFFSETUPDOWN = 141
+const OFFSETUPDOWN = 98
 
 var left_right = 0
 var up_down = 0
 
-@onready var codes = [$"../VBoxContainer/Code1", $"../VBoxContainer/Code2", $"../VBoxContainer/Code3"]
+@onready var codes = [$"../AllCodes/Code1", $"../AllCodes/Code2", $"../AllCodes/Code3"]
+
+@onready var theCode = $"../../TheCode"
+
+@onready var return_button = $"../../Return"
+@onready var numbers = $"../AllCodes"
+
 
 func _ready():
+	return_button.pressed.connect(_return_to_main)
 	var myParent = $"../../AllButtons"
 	for i in myParent.get_child_count():
 		buttons.append(myParent.get_child(i))
@@ -74,4 +81,10 @@ func _return():
 	for i in len(codes):
 		if codes[i].text != Load.allPasswords[i]:
 			return
-	print("You won")
+	visible = false
+	theCode.visible = true
+	numbers.visible = false
+	process_mode = Node.PROCESS_MODE_DISABLED
+	
+func _return_to_main():
+	Load.change_scene()

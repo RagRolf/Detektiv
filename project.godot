@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Detektiv"
-run/main_scene="res://Somchai/2DCandle.tscn"
+run/main_scene="res://David/LoadingScen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -24,9 +24,16 @@ driver/enable_input=true
 
 Load="*res://David/Scripts/Load.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [dotnet]
-=======
+
 project/assembly_name="Detektiv"
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [importer_defaults]
 

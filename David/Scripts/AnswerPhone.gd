@@ -7,15 +7,18 @@ var start_position
 var parent
 
 var hasAnswered = false
+@export var Candle : MeshInstance3D
 
 @onready var humanSprite = $"../../Dude"
 @onready var below = $"../../below"
 @onready var PhoneSignal = $"../../PhoneSignal"
 @onready var Voice = $"../../Voice"
+@onready var aPanel = $"../../Panel"
 
 const BORDER = 274.0
 
 func _ready():
+	Candle.process_mode = Node.PROCESS_MODE_DISABLED
 	parent = get_parent()
 	start_position = parent.position
 	pressed.connect(pressed_func)
@@ -37,8 +40,11 @@ func _process(_delta):
 			PhoneSignal.stop()
 			await get_tree().create_timer(1.0).timeout
 			Voice.play()
-			await get_tree().create_timer(5.0).timeout
-			Load.change_scene()
+			await get_tree().create_timer(2.5).timeout
+			aPanel.visible = false
+			process_mode = Node.PROCESS_MODE_DISABLED
+			Candle.process_mode = Node.PROCESS_MODE_INHERIT
+			#Load.change_scene()
 			
 			
 		

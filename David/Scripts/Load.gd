@@ -2,7 +2,7 @@ extends Control
 
 #var loading_scene = preload("res://David/LoadingScen.tscn")
 @onready var bar
-var OnOff = true
+var OnOff = false
 
 #@onready var scene = "res://David/Main_Menu.tscn"
 
@@ -42,9 +42,10 @@ func _ready():
 		get_tree().get_current_scene().add_child(mic)
 		mic.stream = AudioStreamMicrophone.new()
 		mic.play()
-		await get_tree().create_timer(2.0).timeout
+		mic.stream_paused = true
+		await get_tree().create_timer(1.0).timeout
 		get_tree().quit()
-	ResourceLoader.load_threaded_request(STARTSCENE, "", false, 1) #Multithreading works on PC, but breaks android
+	ResourceLoader.load_threaded_request(STARTSCENE, "", false, ResourceLoader.CACHE_MODE_REUSE) #Multithreading works on PC, but breaks android
 	var ifDone = false
 	while true:
 		var status = ResourceLoader.load_threaded_get_status(STARTSCENE, progress)

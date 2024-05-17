@@ -20,6 +20,7 @@ func _ready():
 	
 	
 func change_scene(index : int):
+	
 	if just_pressed:
 		return
 	just_pressed = true
@@ -30,6 +31,7 @@ func change_scene(index : int):
 		if !Load.done_map[i]:
 			isAllDone = false
 	if !isAllDone && index == 3:
+		just_pressed = false #Must reset
 		return
 	#print(str(index))
 	animationPlayer.play(allAnims[index])

@@ -228,6 +228,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Gyroscope" type="Label" parent="Control"]
 layout_mode = 0
@@ -238,6 +239,7 @@ offset_bottom = 154.0
 theme_override_font_sizes/font_size = 60
 text = "Words
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="Acc" type="Label" parent="Control"]
 layout_mode = 0
@@ -248,6 +250,7 @@ offset_bottom = 219.0
 theme_override_font_sizes/font_size = 60
 text = "Words
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="Grav" type="Label" parent="Control"]
 layout_mode = 0
@@ -258,6 +261,7 @@ offset_bottom = 272.0
 theme_override_font_sizes/font_size = 60
 text = "Words
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="DolphinMarineMammalsWater" type="Sprite2D" parent="Control"]
 z_index = -2
@@ -279,6 +283,7 @@ position = Vector2(15, -308)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_rt3tw")
 animation = &"default2"
+frame_progress = 0.422217
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(664.929, 318.603)
