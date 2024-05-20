@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Detektiv"
-run/main_scene="res://Svante/Tredje_Scen.tscn"
+run/main_scene="res://Svante/scenes/Tredje_Scen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dcblol1ybuxup"]
 
-[ext_resource type="Script" path="res://Svante/Camera3D.gd" id="1_uwefp"]
-[ext_resource type="PackedScene" uid="uid://3767c6xy0jj3" path="res://Svante/HUD.tscn" id="2_mkqj6"]
+[ext_resource type="Script" path="res://Svante/scripts/Camera3D.gd" id="1_se5r3"]
+[ext_resource type="PackedScene" uid="uid://3767c6xy0jj3" path="res://Svante/scenes/HUD.tscn" id="2_p1kbe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mva4m"]
 
@@ -19,7 +19,7 @@
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.999155, -0.0410909, 0, 0.0410909, 0.999155, 0, -0.0316448, 0.246717)
-script = ExtResource("1_uwefp")
+script = ExtResource("1_se5r3")
 
 [node name="Item_1" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.382267, -0.129358, -0.48292)
@@ -54,7 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0425458, -0.454131)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource("2_mkqj6")]
+[node name="Control" parent="CanvasLayer" instance=ExtResource("2_p1kbe")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 0, 0)
