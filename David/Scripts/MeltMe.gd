@@ -12,7 +12,7 @@ const offset = PI/4
 
 var k : float = 0.98
 
-var is_done = false
+const COMPLETELYCOVERING = -0.079
 
 #@onready var touchbutton = $"../Return"
 
@@ -22,6 +22,10 @@ var Candle
 @onready var return_button = $"../Return"
 
 func _ready():
+	#DisplayServer.size
+	#DisplayServer.window_set_size(Vector2i(1080, 1920))
+	#get_tree().root
+	#DisplayServer.aspect = DisplayServer.keep_width
 	DisplayServer.screen_set_orientation(DisplayServer.SCREEN_PORTRAIT)
 	Candle = get_child(0).process_material as ParticleProcessMaterial
 	return_button.pressed.connect(_main_menu)
@@ -46,15 +50,16 @@ func _process(delta):
 	#print(str(transform.basis.y.dot(Vector3.UP)))
 	#print(str(global_basis.z))
 	Candle.gravity = 0.1 * global_basis.y
-	if transform.basis.y.dot(Vector3.DOWN) > 0.9 && !is_done:
-		InvisibleBox.size.y += SPEED * delta
-		Virke.position.y -= SPEED * delta * 0.5
+	if !Virke.visible: #IsDone
+		return
+	if transform.basis.y.dot(Vector3.DOWN) > 0.9:
+		InvisibleBox.position.y -= SPEED * delta
+		Virke.position.y -= SPEED * delta
 		if position.y > -0.363: #Not too far down
-			position.y -= SPEED * delta * 0.5
-	if InvisibleBox.size.y > 8.946:
+			position.y -= SPEED * delta
+	if InvisibleBox.position.y <= COMPLETELYCOVERING:
 		return_button.visible = true
 		Virke.visible = false
-		is_done = true
 		
 func _main_menu():
 	DisplayServer.screen_set_orientation(DisplayServer.SCREEN_LANDSCAPE)

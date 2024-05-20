@@ -172,6 +172,8 @@ func checkforblow(): #Seems to work know, shall choose random sprite-blobs to pu
 				var finger_print = FingerPrint.instantiate()
 				Finger.add_child(finger_print)
 				finger_print.position = AllSprites.get_child(index).position
+				finger_print.get_child(0).emitting = true
+				#finger_print.get_child(0).enabled = true
 				AllSprites.get_child(index).visible = false
 				allPossible[index] = allPossible[amount]
 				#finger_print.modulate = Color(randf_range(0.0,1.0),randf_range(0.0,1.0),randf_range(0.0,1.0))

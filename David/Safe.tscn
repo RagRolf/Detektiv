@@ -116,52 +116,53 @@ offset_bottom = 1059.0
 color = Color(0, 0.217548, 0, 1)
 
 [node name="0" type="TouchScreenButton" parent="AllButtons"]
-position = Vector2(30, 36)
+position = Vector2(195, 358)
 texture_normal = ExtResource("1_wg7l6")
 texture_pressed = ExtResource("6_75edg")
 
 [node name="1" type="TouchScreenButton" parent="AllButtons"]
-position = Vector2(193, 36)
+position = Vector2(30, 36)
+scale = Vector2(1, 0.993421)
 texture_normal = ExtResource("2_vh4kg")
 texture_pressed = ExtResource("8_3730e")
 
 [node name="2" type="TouchScreenButton" parent="AllButtons"]
-position = Vector2(356, 36)
+position = Vector2(195, 36)
 texture_normal = ExtResource("3_c0jf2")
 texture_pressed = ExtResource("10_y0ti7")
 
 [node name="3" type="TouchScreenButton" parent="AllButtons"]
-position = Vector2(518, 36)
+position = Vector2(356, 36)
 texture_normal = ExtResource("4_5w7bv")
 texture_pressed = ExtResource("12_h2yj0")
 
 [node name="4" type="TouchScreenButton" parent="AllButtons"]
-position = Vector2(31, 198)
+position = Vector2(518, 36)
 texture_normal = ExtResource("5_eaf2m")
 texture_pressed = ExtResource("14_mkrsb")
 
 [node name="5" type="TouchScreenButton" parent="AllButtons"]
-position = Vector2(193, 198)
+position = Vector2(31, 198)
 texture_normal = ExtResource("6_1jw52")
 texture_pressed = ExtResource("16_aekkb")
 
 [node name="6" type="TouchScreenButton" parent="AllButtons"]
-position = Vector2(356, 198)
+position = Vector2(195, 198)
 texture_normal = ExtResource("7_cknqw")
 texture_pressed = ExtResource("18_jsvvw")
 
 [node name="7" type="TouchScreenButton" parent="AllButtons"]
-position = Vector2(518, 198)
+position = Vector2(356, 198)
 texture_normal = ExtResource("8_f417v")
 texture_pressed = ExtResource("20_g57u4")
 
 [node name="8" type="TouchScreenButton" parent="AllButtons"]
-position = Vector2(31, 358)
+position = Vector2(518, 198)
 texture_normal = ExtResource("9_1enxl")
 texture_pressed = ExtResource("22_k5rbm")
 
 [node name="9" type="TouchScreenButton" parent="AllButtons"]
-position = Vector2(193, 358)
+position = Vector2(30, 358)
 texture_normal = ExtResource("10_q1kjq")
 texture_pressed = ExtResource("24_gp3jy")
 

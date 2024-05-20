@@ -22,7 +22,7 @@ func _ready():
 	parent = get_parent()
 	start_position = parent.position
 	pressed.connect(pressed_func)
-	while(!hasAnswered):
+	while !hasAnswered:
 		Input.vibrate_handheld(800)
 		await get_tree().create_timer(1.0).timeout
 

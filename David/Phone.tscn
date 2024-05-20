@@ -142,18 +142,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.17064)
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.59252, 0)
-material_override = ExtResource("7_be60w")
 cast_shadow = 0
-operation = 2
+operation = 1
+snap = 1e-06
 calculate_tangents = false
 mesh = ExtResource("8_hdh12")
+material = ExtResource("7_be60w")
 
 [node name="Melt" type="CSGBox3D" parent="CSGMesh3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.42649, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.94692, 0)
 operation = 2
-snap = 0.01
 calculate_tangents = false
-size = Vector3(1.2, 1, 1.2)
+size = Vector3(1.2, 4.028, 1.2)
 
 [node name="Holder" type="MeshInstance3D" parent="CSGMesh3D"]
 material_override = ExtResource("10_rprxr")
@@ -205,7 +205,7 @@ omni_range = 4.0
 
 [node name="Return" type="TouchScreenButton" parent="."]
 visible = false
-position = Vector2(17, 1714)
+position = Vector2(17, 1594.89)
 texture_normal = ExtResource("15_b1s6c")
 texture_pressed = ExtResource("15_b1s6c")
 shape = SubResource("RectangleShape2D_pr8mt")
