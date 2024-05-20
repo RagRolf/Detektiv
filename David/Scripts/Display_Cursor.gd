@@ -58,13 +58,10 @@ var click_once = false
 @onready var all_suspects = $"../AllSuspects"
 
 func _ready():
-	#start_time = Time.get_time_dict_from_system ()
-	#$"../PopupMenu".popup_exclusive = true
 	var j = 0
 	for button in all_buttons:
 		button.pressed.connect(_selected.bind(j))
 		j += 1
-		#allSus.get_child(i).set_block_signals(true)
 	blobMum = $"../BlobMum"
 	polygons = $"../Knife/CollisionPolygon2D".polygon
 	for i in len(polygons):
@@ -74,20 +71,10 @@ func _ready():
 	SpritesLevel = SpritesLevel.instantiate()
 	for i in SpritesLevel.get_child_count():
 		sprites.push_back(SpritesLevel.get_child(i) as Sprite2D)
-		#sprites[i].modulate = sprites[i].modulate + Color(0, 0, randf_range(0, 0.244))
-		#sprites[i].visible = true
-		#sprites[i].queue_free()
 
 func _process(_delta):
-	#print(str(randi_range(0,4)))
 	lastPos = position
 	position = get_global_mouse_position()
-	#power = clamp(db_to_linear(AudioServer.get_bus_peak_volume_left_db(indexBuffer, 0)), 0.0, 1.0)
-	#power = AudioServer.get_bus_peak_volume_left_db(indexBuffer, 0)
-	#print("Inside Update: " + str(isInsideKnife))
-	#print("Inside Update: " + str(totalBlobsThisFill))
-	#print(str(power))
-	#$"../Control/ColorRect/HSlider".value = power
 
 
 func _on_area_entered(area):
@@ -141,72 +128,46 @@ func drop_splash():
 					prompt.visible = true
 					checkforblow()
 					return
-		#print("Inside loop lowest: " + str(isInsideKnife))
-		#print(str(totalBlobsThisFill))
 		await get_tree().process_frame
 
 func checkforblow(): #Seems to work know, shall choose random sprite-blobs to put fingerprints on
+	var SpriteChildren = AllSprites.get_child_count()
+	var amount = randi_range(3, SpriteChildren)
+	#var randomOffset = randi_range(0, 3)
+	var allPossible = []
+	for i in AllSprites.get_child_count():
+		allPossible.append(i)
+	while amount > 0:
+			amount -= 1
+			var random = randi_range(0, SpriteChildren - 1)
+			var index = allPossible[random]
+			var finger_print = FingerPrint.instantiate()
+			finger_print.visible = false
+			Finger.add_child(finger_print)
+			finger_print.position = AllSprites.get_child(index).position
 	await get_tree().create_timer(1.0).timeout
 	while !isDone:
-		#print(str(ScreamPower))
-		#print(mic.playing)
 		if !mic.playing:
-			#await get_tree().create_timer(1.0).timeout #small timer, give some time
+			await get_tree().create_timer(0.5).timeout #Need a small timer for it to work
 			mic.play()
-			#print("Started")
 		power = AudioServer.get_bus_peak_volume_left_db(indexBuffer, 0)
-		#print(str(power))
-		#isDone = false
 		if power > ScreamPower: 
 			prompt.visible = false
-			var SpriteChildren = AllSprites.get_child_count()
-			var amount = randi_range(3, SpriteChildren)
-			#var randomOffset = randi_range(0, 3)
-			var allPossible = []
-			for i in AllSprites.get_child_count():
-				allPossible.append(i)
-			while amount > 0:
-				amount -= 1
-				var random = randi_range(0, SpriteChildren - 1)
-				var index = allPossible[random]
-				var finger_print = FingerPrint.instantiate()
-				Finger.add_child(finger_print)
-				finger_print.position = AllSprites.get_child(index).position
-				finger_print.get_child(0).emitting = true
+			for index in Finger.get_child_count():
+				Finger.get_child(index).visible = true
+				Finger.get_child(index).get_child(0).emitting = true
 				#finger_print.get_child(0).enabled = true
 				AllSprites.get_child(index).visible = false
 				allPossible[index] = allPossible[amount]
-				#finger_print.modulate = Color(randf_range(0.0,1.0),randf_range(0.0,1.0),randf_range(0.0,1.0))
 			await get_tree().create_timer(2.0).timeout
 			isDone = true
 			all_suspects.visible = true
-			#Load.change_scene()
-		#else:
-		#if !isDone:
 		if !isDone:
 			await get_tree().process_frame
 		
 func exit_splash(area):
-	#print("Exited: " + str(isInsideKnife))
-	#print(str(totalBlobsThisFill))
 	if area.is_in_group("Knife"):
 		isInsideKnife = false
-		
-		#if difference > 2000:
-			#difference -= randi_range(20, 50) #decrease a bit
-		
-		
-#func _on_knife_mouse_exited():
-	##if area.is_in_group("Knife"):
-	#isInsideKnife = false
-	#if difference > 2000:
-		#difference -= randi_range(10, 20) #decrease a bit
-
-#
-#func _on_knife_mouse_entered():
-	#if blobMum.visible:
-		#await drop_splash()
-
 
 func _selected(index : int):
 	#print("He")

@@ -1,11 +1,11 @@
 [gd_scene load_steps=271 format=3 uid="uid://cvv5k6mhnj6lk"]
 
 [ext_resource type="Script" path="res://David/Scripts/Change_Scene.gd" id="1_63g2m"]
-[ext_resource type="Texture2D" uid="uid://dgd5lmnxjawr5" path="res://David/Animation/AnimationKnife/knife.png" id="2_4wmxp"]
-[ext_resource type="Texture2D" uid="uid://bauypqwodoa4u" path="res://David/Animation/AnimationLog/log.png" id="3_nua7o"]
-[ext_resource type="Texture2D" uid="uid://oeilww4a0bml" path="res://David/Animation/AnimationPhone/phone.png" id="4_58lk1"]
-[ext_resource type="Texture2D" uid="uid://tjo3ynqimmws" path="res://David/Animation/AnimationSafe/safe.png" id="5_h31co"]
-[ext_resource type="Texture2D" uid="uid://dhoklys1i6tih" path="res://David/Textures/Magnifier.png" id="6_ltntg"]
+[ext_resource type="Texture2D" path="res://David/Animation/AnimationKnife/knife.png" id="2_4wmxp"]
+[ext_resource type="Texture2D" path="res://David/Animation/AnimationLog/log.png" id="3_nua7o"]
+[ext_resource type="Texture2D" path="res://David/Animation/AnimationPhone/phone.png" id="4_58lk1"]
+[ext_resource type="Texture2D" path="res://David/Animation/AnimationSafe/safe.png" id="5_h31co"]
+[ext_resource type="Texture2D" path="res://David/Textures/Magnifier.png" id="6_ltntg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j56as"]
 atlas = ExtResource("2_4wmxp")
@@ -1825,21 +1825,20 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_gufax"]
 radius = 74.25
 
-[sub_resource type="Curve" id="Curve_wxg4r"]
+[sub_resource type="Curve" id="Curve_fhjcg"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_81eg5"]
-curve = SubResource("Curve_wxg4r")
+[sub_resource type="CurveTexture" id="CurveTexture_klsem"]
+curve = SubResource("Curve_fhjcg")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b3b85"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u574y"]
 particle_flag_disable_z = true
 emission_shape = 2
 emission_sphere_radius = 60.0
 direction = Vector3(0, 0, 0)
-spread = 0.0
 gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveTexture_81eg5")
+scale_curve = SubResource("CurveTexture_klsem")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg20q"]
 size = Vector2(630.795, 183.39)
@@ -1866,10 +1865,11 @@ shape = SubResource("CircleShape2D_gufax")
 [node name="ParticleEffect" type="GPUParticles2D" parent="Knife"]
 emitting = false
 amount = 7
-process_material = SubResource("ParticleProcessMaterial_b3b85")
+process_material = SubResource("ParticleProcessMaterial_u574y")
 texture = ExtResource("6_ltntg")
 one_shot = true
 speed_scale = 0.7
+randomness = 1.0
 fixed_fps = 60
 
 [node name="Log" type="TouchScreenButton" parent="."]
@@ -1881,10 +1881,11 @@ shape = SubResource("RectangleShape2D_lg20q")
 position = Vector2(-4, 4)
 emitting = false
 amount = 7
-process_material = SubResource("ParticleProcessMaterial_b3b85")
+process_material = SubResource("ParticleProcessMaterial_u574y")
 texture = ExtResource("6_ltntg")
 one_shot = true
 speed_scale = 0.7
+randomness = 1.0
 fixed_fps = 60
 
 [node name="Safe" type="TouchScreenButton" parent="."]
@@ -1894,10 +1895,11 @@ shape = SubResource("RectangleShape2D_oevtn")
 [node name="ParticleEffect" type="GPUParticles2D" parent="Safe"]
 emitting = false
 amount = 7
-process_material = SubResource("ParticleProcessMaterial_b3b85")
+process_material = SubResource("ParticleProcessMaterial_u574y")
 texture = ExtResource("6_ltntg")
 one_shot = true
 speed_scale = 0.7
+randomness = 1.0
 fixed_fps = 60
 
 [node name="Phone" type="TouchScreenButton" parent="."]
@@ -1908,10 +1910,11 @@ shape = SubResource("CapsuleShape2D_b53n8")
 [node name="ParticleEffect" type="GPUParticles2D" parent="Phone"]
 emitting = false
 amount = 7
-process_material = SubResource("ParticleProcessMaterial_b3b85")
+process_material = SubResource("ParticleProcessMaterial_u574y")
 texture = ExtResource("6_ltntg")
 one_shot = true
 speed_scale = 0.7
+randomness = 1.0
 fixed_fps = 60
 
 [node name="LabelScen" type="Control" parent="."]
