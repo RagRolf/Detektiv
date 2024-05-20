@@ -2,7 +2,7 @@ extends Control
 
 #var loading_scene = preload("res://David/LoadingScen.tscn")
 @onready var bar
-var OnOff = false
+var OnOff = true
 
 #@onready var scene = "res://David/Main_Menu.tscn"
 

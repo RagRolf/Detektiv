@@ -10,7 +10,7 @@ const offset = PI/4
 
 const k : float = 0.98
 
-const RSPEED = 0.01
+const RSPEED = 0.02
 
 @onready var touchbutton = $"../Return"
 
@@ -40,7 +40,7 @@ func _process(delta):
 	roll = lerp_angle(roll_acc, roll + gyroscope.z * delta, k) 
 	adjustedPitch = pitch + offset
 	adjustedPitch = clamp(adjustedPitch, -0.75, 0.75)
-	roll = clamp(roll, -1.0, 1.0) * 0.75
+	roll = clamp(roll, -1.0, 1.0)
 	rotation += Vector3(adjustedPitch, roll, 0.0) * RSPEED
 	#var dot = transform.basis.z.dot(Vector3.FORWARD)
 	#print(dot)
