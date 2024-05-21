@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8hj23xbsjjsd"]
+
+[ext_resource type="Texture2D" uid="uid://b405h5sqbt3u8" path="res://Svante/assets/fan.png" id="1_fhned"]
+[ext_resource type="Texture2D" uid="uid://colg75o0iha4j" path="res://Svante/assets/whiteCircle.png" id="1_stvax"]
+[ext_resource type="Script" path="res://Svante/scripts/Fan.gd" id="3_tdi6w"]
+[ext_resource type="Script" path="res://Svante/scripts/down.gd" id="3_umea1"]
+[ext_resource type="Script" path="res://Svante/scripts/PointLocation.gd" id="4_6sm7t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lcop2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fhned")
+}],
+"loop": true,
+"name": &"Normal",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ne0tw"]
+size = Vector2(160, 312)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmdwx"]
+
+[node name="Fan_Scene" type="Node2D"]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(952, 96)
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("1_stvax")
+
+[node name="Fan" type="AnimatedSprite2D" parent="."]
+position = Vector2(928, 528)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_lcop2")
+animation = &"Normal"
+script = ExtResource("3_tdi6w")
+
+[node name="Down_Col" type="Area2D" parent="Fan"]
+
+[node name="down" type="CollisionShape2D" parent="Fan/Down_Col"]
+position = Vector2(84, -40)
+shape = SubResource("RectangleShape2D_ne0tw")
+script = ExtResource("3_umea1")
+
+[node name="PointLocation" type="Area2D" parent="."]
+script = ExtResource("4_6sm7t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointLocation"]
+shape = SubResource("RectangleShape2D_xmdwx")
+
+[connection signal="pressed" from="TouchScreenButton" to="Fan/Down_Col/down" method="_on_touch_screen_button_pressed"]
+[connection signal="released" from="TouchScreenButton" to="Fan/Down_Col/down" method="_on_touch_screen_button_released"]
+[connection signal="spinFan" from="Fan/Down_Col/down" to="Fan" method="_on_down_spin_fan"]
+[connection signal="area_entered" from="PointLocation" to="Fan/Down_Col/down" method="_on_point_location_area_entered"]
+[connection signal="area_exited" from="PointLocation" to="Fan/Down_Col/down" method="_on_point_location_area_exited"]
