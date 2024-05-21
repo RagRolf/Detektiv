@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://0e2ccyox4626"]
+[gd_scene load_steps=36 format=3 uid="uid://0e2ccyox4626"]
 
 [ext_resource type="Script" path="res://David/Scripts/Safe.gd" id="1_l851o"]
 [ext_resource type="Texture2D" uid="uid://c0y1m5l7t1efg" path="res://David/Textures/Safe/nought.png" id="1_wg7l6"]
@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://d110br0cf1qxm" path="res://David/Textures/Safe/left_arrow_p.png" id="30_u3p4o"]
 [ext_resource type="Texture2D" uid="uid://c8fjbkc3ynkx2" path="res://David/Textures/Safe/right_point_p.png" id="31_4lgke"]
 [ext_resource type="Texture2D" uid="uid://boj7xv88o3uap" path="res://David/Textures/Safe/left_point_p.png" id="33_g60cc"]
+[ext_resource type="AudioStream" uid="uid://dvpnea4c3xhjx" path="res://David/Sounds/Safe/Tangent.wav" id="35_juc4d"]
 
 [node name="Safe" type="Node2D"]
 
@@ -200,3 +201,6 @@ texture_pressed = ExtResource("33_g60cc")
 position = Vector2(42, 864)
 texture_normal = ExtResource("18_ex17e")
 texture_pressed = ExtResource("18_ex17e")
+
+[node name="ButtonPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_juc4d")

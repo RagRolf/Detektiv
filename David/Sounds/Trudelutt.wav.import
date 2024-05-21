@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://dn8vk4i354pjx"
-path="res://.godot/imported/PhoneCall.wav-609adfa6b1bf49a9425c9fd6be7b40e9.sample"
+uid="uid://bt6xk41763xk2"
+path="res://.godot/imported/Trudelutt.wav-3288b8ed25d562377b11b81c0fdea724.sample"
 
 [deps]
 
-source_file="res://David/Sounds/PhoneCall.wav"
-dest_files=["res://.godot/imported/PhoneCall.wav-609adfa6b1bf49a9425c9fd6be7b40e9.sample"]
+source_file="res://David/Sounds/Trudelutt.wav"
+dest_files=["res://.godot/imported/Trudelutt.wav-3288b8ed25d562377b11b81c0fdea724.sample"]
 
 [params]
 

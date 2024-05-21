@@ -57,6 +57,10 @@ var click_once = false
 
 @onready var all_suspects = $"../AllSuspects"
 
+@onready var kladd = $"../Kladd"
+@onready var kladd2 = $"../Kladd2"
+@onready var svep = $"../Svep"
+
 func _ready():
 	var j = 0
 	for button in all_buttons:
@@ -91,7 +95,7 @@ func _on_area_entered(area):
 func stick_to_brush():
 	if blobMum.visible:
 		return
-	#isOnPensel = true
+	kladd2.play()
 	blobMum.visible = true
 	while blobMum.visible:
 		#var Difference = position - lastPos
@@ -121,6 +125,7 @@ func drop_splash():
 			totalBlobsThisFill -= 1
 			totalBlobs += 1
 			#print(str(totalBlobs))
+			kladd.play()
 			if !totalBlobsThisFill:
 				blobMum.visible = false
 				if !fill.visible:
@@ -153,6 +158,7 @@ func checkforblow(): #Seems to work know, shall choose random sprite-blobs to pu
 		power = AudioServer.get_bus_peak_volume_left_db(indexBuffer, 0)
 		if power > ScreamPower: 
 			prompt.visible = false
+			svep.play()
 			for index in Finger.get_child_count():
 				Finger.get_child(index).visible = true
 				Finger.get_child(index).get_child(0).emitting = true
@@ -170,7 +176,6 @@ func exit_splash(area):
 		isInsideKnife = false
 
 func _selected(index : int):
-	#print("He")
 	if click_once:
 		return
 	click_once = true

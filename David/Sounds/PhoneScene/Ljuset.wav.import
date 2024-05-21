@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ck6xfgo32q1ji"
-path="res://.godot/imported/Ljuset.wav-6f6b9074699fd91423219aef4209c6f1.sample"
+path="res://.godot/imported/Ljuset.wav-aba134ae8acd50c18cf603d0fe29bbff.sample"
 
 [deps]
 
-source_file="res://David/Sounds/Ljuset.wav"
-dest_files=["res://.godot/imported/Ljuset.wav-6f6b9074699fd91423219aef4209c6f1.sample"]
+source_file="res://David/Sounds/PhoneScene/Ljuset.wav"
+dest_files=["res://.godot/imported/Ljuset.wav-aba134ae8acd50c18cf603d0fe29bbff.sample"]
 
 [params]
 
