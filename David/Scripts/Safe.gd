@@ -14,7 +14,7 @@ var up_down = 0
 
 @onready var return_button = $"../../Return"
 @onready var numbers = $"../AllCodes"
-
+@onready var button_press = $"../../ButtonPress"
 
 func _ready():
 	return_button.pressed.connect(_return_to_main)
@@ -36,6 +36,7 @@ func _ready():
 		color.a = is_on as float
 	
 func _number(integer : int):
+	button_press.play()
 	if codes[up_down].text[left_right] == str(integer):
 		return
 	codes[up_down].text[left_right] = str(integer)
@@ -49,35 +50,41 @@ func _number(integer : int):
 		position.x -= OFFSETSIDEWAYS * 3
 	
 func _right_point():
+	button_press.play()
 	if up_down > 0:
 		position.y -= OFFSETUPDOWN
 		if up_down:
 			up_down -= 1
 	
 func _left_point():
+	button_press.play()
 	if up_down < 2:
 		position.y += OFFSETUPDOWN
 		if up_down != 2:
 			up_down += 1
 	
 func _right_arrow():
+	button_press.play()
 	if left_right < 3:
 		position.x += OFFSETSIDEWAYS
 		if left_right != 3:
 			left_right += 1
 	
 func _left_arrow():
+	button_press.play()
 	if left_right > 0:
 		position.x -= OFFSETSIDEWAYS
 		if left_right:
 			left_right -= 1
 	
 func _erase_all():
+	button_press.play()
 	for i in len(codes):
 		for j in codes[0].text.length():
 			codes[i].text[j] = str(0)
 	
 func _return():
+	button_press.play()
 	for i in len(codes):
 		if codes[i].text != Load.allPasswords[i]:
 			return
