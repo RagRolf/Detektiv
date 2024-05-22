@@ -2,8 +2,10 @@ extends Node2D
 
 @onready var allButtons = [$Knife, $Log, $Phone, $Safe]
 @onready var animationPlayer = $Animation
-@onready var AllLabels = [$LabelScen/Code1, $LabelScen/Code2, $LabelScen/Code3]
-@onready var magnifier = $See
+@onready var AllLabels = [$CanvasLayer/LabelScen/Code1, $CanvasLayer/LabelScen/Code2, $CanvasLayer/LabelScen/Code3]
+@onready var magnifier = $CanvasLayer/Glas/See
+@onready var start_sound = $StartSound
+@onready var zoom_sound = $ZoomSound
 
 var allScenes = ["res://David/KnifeScene.tscn", "res://David/Rotate_Object.tscn", "res://David/Phone.tscn", "res://David/Safe.tscn"]
 var particles = []
@@ -13,6 +15,7 @@ var isAllDone = true
 
 
 func _ready():
+	start_sound.finished.connect(_on_start_sound_finished)
 	magnifier.pressed.connect(show_what_to_press)
 	for i in len(allButtons):
 		allButtons[i].pressed.connect(change_scene.bind(i))
@@ -44,8 +47,15 @@ func change_scene(index : int):
 	Load.change_scene((allScenes[index]))
 	
 func show_what_to_press():
+	if zoom_sound.playing:
+		return
+	zoom_sound.play()
 	for i in len(particles) - 1:
 		particles[i].emitting = true
 	if !isAllDone:
 		return
 	particles[3].emitting = true
+
+func _on_start_sound_finished():
+	await get_tree().create_timer(1.78).timeout
+	start_sound.play()
