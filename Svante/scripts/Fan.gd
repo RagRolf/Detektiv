@@ -17,4 +17,4 @@ func _process(delta):
 
 
 func _on_down_spin_fan():
-	speed = get_global_mouse_position().y / 100
+	speed += get_global_mouse_position().y / 100

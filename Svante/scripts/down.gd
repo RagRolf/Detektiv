@@ -18,6 +18,7 @@ func _process(delta):
 		print("Swipe emitted!")
 		spinFan.emit()
 		swiping = false
+		touched = false
 
 
 func _on_touch_screen_button_pressed():
