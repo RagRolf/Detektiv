@@ -37,12 +37,13 @@ turbulence_influence_min = 0.088
 turbulence_influence_max = 0.173
 
 [node name="Fingerprint" type="Sprite2D"]
-modulate = Color(0.996078, 0.345098, 0.345098, 1)
+modulate = Color(0.913734, 0.317459, 0.102128, 1)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_fdni7")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 modulate = Color(0.960695, 0.697133, 0.696581, 1)
+position = Vector2(0, -3.515)
 emitting = false
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_4c31y")

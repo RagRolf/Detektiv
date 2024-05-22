@@ -117,6 +117,7 @@ offset_right = 825.0
 offset_bottom = 487.485
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 color = Color(0, 0, 0, 0.290196)
 
 [node name="Rina" type="ColorRect" parent="AllSuspects"]
@@ -251,7 +252,7 @@ text = "6. Nuka Hansen
 "
 
 [node name="Fingerprint" type="Sprite2D" parent="AllSuspects"]
-modulate = Color(0.996078, 0.345098, 0.345098, 1)
+modulate = Color(0.913725, 0.317647, 0.101961, 1)
 position = Vector2(202, 558)
 texture = ExtResource("7_3ub44")
 

@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bes2fqug2krvh"
-path="res://.godot/imported/Trudelutt.wav-3288b8ed25d562377b11b81c0fdea724.sample"
+uid="uid://bsxfgia7vrvii"
+path="res://.godot/imported/Zoom.wav-99e8448afbd94599b75b37f5ce026658.sample"
 
 [deps]
 
-source_file="res://David/Sounds/Trudelutt.wav"
-dest_files=["res://.godot/imported/Trudelutt.wav-3288b8ed25d562377b11b81c0fdea724.sample"]
+source_file="res://David/Sounds/Zoom.wav"
+dest_files=["res://.godot/imported/Zoom.wav-99e8448afbd94599b75b37f5ce026658.sample"]
 
 [params]
 

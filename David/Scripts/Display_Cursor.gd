@@ -60,6 +60,7 @@ var click_once = false
 @onready var kladd = $"../Kladd"
 @onready var kladd2 = $"../Kladd2"
 @onready var svep = $"../Svep"
+var RandomNumbers = []
 
 func _ready():
 	var j = 0
@@ -75,18 +76,43 @@ func _ready():
 	SpritesLevel = SpritesLevel.instantiate()
 	for i in SpritesLevel.get_child_count():
 		sprites.push_back(SpritesLevel.get_child(i) as Sprite2D)
+		
+	var amount = randi_range(3, MAXBLOBS)
+	var allPossible = []
+	for i in MAXBLOBS:
+		allPossible.append(i)
+	var remove_last = MAXBLOBS
+	while amount > 0:
+			amount -= 1
+			remove_last -= 1
+			var random = randi_range(0, MAXBLOBS - remove_last)
+			var finger_print = FingerPrint.instantiate()
+			#if !Load.KnifeMapLoaded:
+				#finger_print.get_child(0).emitting = true
+			finger_print.position = Vector2(-100, -100) #Particles not visible for player, for caching particles, playing them once
+			Finger.add_child(finger_print)
+			RandomNumbers.append(allPossible[random])
+			var temp = allPossible[random];
+			allPossible[random] = allPossible[remove_last];
+			allPossible[remove_last] = temp;
+	#Load.KnifeMapLoaded = true
+	#if Load.KnifeMapLoaded:
+		#return
+	#await get_tree().create_timer(100.0).timeout
+	#for i in Finger.get_child_count():
+		#Finger.get_child(i).get_child(0).visibility_layer = 1
 
 func _process(_delta):
 	lastPos = position
 	position = get_global_mouse_position()
 
-
 func _on_area_entered(area):
-	#print("Hi")
-	if !area.is_in_group("Knife") && fill.visible:
+	if !area.is_in_group("Knife") && fill.visible && totalBlobsThisFill != 3:
+		kladd2.play()
 		totalBlobsThisFill = BLOBSPERFILL
 		stick_to_brush()
-		if totalBlobs >= MAXBLOBS:
+		if totalBlobs + BLOBSPERFILL >= MAXBLOBS:
+			totalBlobsThisFill = MAXBLOBS - totalBlobs
 			fill.visible = false
 	else:
 		if blobMum.visible && !isInsideKnife:
@@ -95,7 +121,6 @@ func _on_area_entered(area):
 func stick_to_brush():
 	if blobMum.visible:
 		return
-	kladd2.play()
 	blobMum.visible = true
 	while blobMum.visible:
 		#var Difference = position - lastPos
@@ -136,21 +161,6 @@ func drop_splash():
 		await get_tree().process_frame
 
 func checkforblow(): #Seems to work know, shall choose random sprite-blobs to put fingerprints on
-	var SpriteChildren = AllSprites.get_child_count()
-	var amount = randi_range(3, SpriteChildren)
-	#var randomOffset = randi_range(0, 3)
-	var allPossible = []
-	for i in AllSprites.get_child_count():
-		allPossible.append(i)
-	while amount > 0:
-			amount -= 1
-			var random = randi_range(0, SpriteChildren - 1)
-			var index = allPossible[random]
-			var finger_print = FingerPrint.instantiate()
-			finger_print.visible = false
-			Finger.add_child(finger_print)
-			finger_print.position = AllSprites.get_child(index).position
-	await get_tree().create_timer(1.0).timeout
 	while !isDone:
 		if !mic.playing:
 			await get_tree().create_timer(0.5).timeout #Need a small timer for it to work
@@ -162,9 +172,8 @@ func checkforblow(): #Seems to work know, shall choose random sprite-blobs to pu
 			for index in Finger.get_child_count():
 				Finger.get_child(index).visible = true
 				Finger.get_child(index).get_child(0).emitting = true
-				#finger_print.get_child(0).enabled = true
-				AllSprites.get_child(index).visible = false
-				allPossible[index] = allPossible[amount]
+				Finger.get_child(index).position = AllSprites.get_child(RandomNumbers[index]).position
+				AllSprites.get_child(RandomNumbers[index]).visible = false
 			await get_tree().create_timer(2.0).timeout
 			isDone = true
 			all_suspects.visible = true

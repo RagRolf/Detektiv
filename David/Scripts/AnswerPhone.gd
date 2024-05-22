@@ -9,11 +9,11 @@ var parent
 var hasAnswered = false
 @export var Candle : MeshInstance3D
 
-@onready var humanSprite = $"../../Dude"
-@onready var below = $"../../below"
-@onready var PhoneSignal = $"../../PhoneSignal"
-@onready var Voice = $"../../Voice"
-@onready var aPanel = $"../../Panel"
+@onready var humanSprite = $"../../../Dude"
+@onready var below = $"../.."
+@onready var PhoneSignal = $"../../../../PhoneSignal"
+@onready var Voice = $"../../../../Voice"
+@onready var aPanel = $"../../../Panel"
 
 const BORDER = 274.0
 

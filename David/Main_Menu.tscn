@@ -1,4 +1,4 @@
-[gd_scene load_steps=272 format=3 uid="uid://cvv5k6mhnj6lk"]
+[gd_scene load_steps=273 format=3 uid="uid://cvv5k6mhnj6lk"]
 
 [ext_resource type="Script" path="res://David/Scripts/Change_Scene.gd" id="1_63g2m"]
 [ext_resource type="Texture2D" uid="uid://dgd5lmnxjawr5" path="res://David/Animation/AnimationKnife/knife.png" id="2_4wmxp"]
@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://oeilww4a0bml" path="res://David/Animation/AnimationPhone/phone.png" id="4_58lk1"]
 [ext_resource type="Texture2D" uid="uid://tjo3ynqimmws" path="res://David/Animation/AnimationSafe/safe.png" id="5_h31co"]
 [ext_resource type="Texture2D" uid="uid://dhoklys1i6tih" path="res://David/Textures/Magnifier.png" id="6_ltntg"]
-[ext_resource type="AudioStream" uid="uid://bt6xk41763xk2" path="res://David/Sounds/Trudelutt.wav" id="7_vxrm3"]
+[ext_resource type="AudioStream" uid="uid://bes2fqug2krvh" path="res://David/Sounds/Trudelutt.wav" id="7_vxrm3"]
+[ext_resource type="AudioStream" uid="uid://bsxfgia7vrvii" path="res://David/Sounds/Zoom.wav" id="7_wqy4w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j56as"]
 atlas = ExtResource("2_4wmxp")
@@ -1918,7 +1919,24 @@ speed_scale = 0.7
 randomness = 1.0
 fixed_fps = 60
 
-[node name="LabelScen" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Glas" type="Control" parent="CanvasLayer"]
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+
+[node name="See" type="TouchScreenButton" parent="CanvasLayer/Glas"]
+position = Vector2(-112, 19)
+scale = Vector2(0.714286, 0.714286)
+texture_normal = ExtResource("6_ltntg")
+texture_pressed = ExtResource("6_ltntg")
+
+[node name="LabelScen" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1926,7 +1944,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Code1" type="Label" parent="LabelScen"]
+[node name="Code1" type="Label" parent="CanvasLayer/LabelScen"]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 916.0
@@ -1936,7 +1954,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "0000"
 
-[node name="Code2" type="Label" parent="LabelScen"]
+[node name="Code2" type="Label" parent="CanvasLayer/LabelScen"]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 965.0
@@ -1946,7 +1964,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "0000"
 
-[node name="Code3" type="Label" parent="LabelScen"]
+[node name="Code3" type="Label" parent="CanvasLayer/LabelScen"]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 1013.0
@@ -1956,12 +1974,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "0000"
 
-[node name="See" type="TouchScreenButton" parent="."]
-position = Vector2(1818, 10)
-scale = Vector2(0.714286, 0.714286)
-texture_normal = ExtResource("6_ltntg")
-texture_pressed = ExtResource("6_ltntg")
-
 [node name="StartSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_vxrm3")
+volume_db = -5.0
 autoplay = true
+
+[node name="ZoomSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wqy4w")

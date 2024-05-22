@@ -43,6 +43,9 @@ fill_to = Vector2(1.175, 0.125)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sc3pu"]
 texture = SubResource("GradientTexture2D_anpke")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pr8mt"]
+size = Vector2(418.415, 189.99)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_6c4n8"]
 radius = 69.8
 
@@ -66,26 +69,46 @@ turbulence_noise_scale = 5.0
 [sub_resource type="SphereMesh" id="SphereMesh_x4ply"]
 flip_faces = true
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pr8mt"]
-size = Vector2(418.415, 189.99)
-
 [node name="Phone" type="Node2D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4oowp")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
 offset_right = 1080.0
 offset_bottom = 1920.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_sc3pu")
 
-[node name="below" type="ColorRect" parent="."]
-offset_left = 118.0
-offset_top = 1551.0
-offset_right = 1023.0
-offset_bottom = 1708.0
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
 
-[node name="Label" type="Label" parent="below"]
+[node name="Return" type="TouchScreenButton" parent="CanvasLayer/Control"]
+visible = false
+position = Vector2(20, -205)
+texture_normal = ExtResource("15_b1s6c")
+texture_pressed = ExtResource("15_b1s6c")
+shape = SubResource("RectangleShape2D_pr8mt")
+
+[node name="below" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -452.5
+offset_top = -409.0
+offset_right = 452.5
+offset_bottom = -252.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/below"]
 layout_mode = 0
 offset_left = 32.0
 offset_top = -352.0
@@ -95,34 +118,34 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 116
 text = "Okänt nummer"
 
-[node name="Mark" type="Sprite2D" parent="below"]
+[node name="Mark" type="Sprite2D" parent="CanvasLayer/below"]
 modulate = Color(1, 1, 1, 0.509804)
 position = Vector2(149, 80)
 texture = ExtResource("4_ahh3l")
 
-[node name="Mark2" type="Sprite2D" parent="below"]
+[node name="Mark2" type="Sprite2D" parent="CanvasLayer/below"]
 modulate = Color(1, 1, 1, 0.509804)
 position = Vector2(335, 79)
 texture = ExtResource("4_ahh3l")
 
-[node name="Mark3" type="Sprite2D" parent="below"]
+[node name="Mark3" type="Sprite2D" parent="CanvasLayer/below"]
 modulate = Color(1, 1, 1, 0.509804)
 position = Vector2(520, 79)
 texture = ExtResource("4_ahh3l")
 
-[node name="Offset" type="Node2D" parent="."]
-position = Vector2(931, 1631)
+[node name="Offset" type="Node2D" parent="CanvasLayer/below"]
+position = Vector2(811.5, 80)
 
-[node name="SlideButton" type="TouchScreenButton" parent="Offset" node_paths=PackedStringArray("Candle")]
-position = Vector2(-69, -72)
+[node name="SlideButton" type="TouchScreenButton" parent="CanvasLayer/below/Offset" node_paths=PackedStringArray("Candle")]
+position = Vector2(-71, -74)
 texture_normal = ExtResource("1_xidpb")
 texture_pressed = ExtResource("1_xidpb")
 shape = SubResource("CircleShape2D_6c4n8")
 passby_press = true
 script = ExtResource("2_5ncx5")
-Candle = NodePath("../../Candle_mtl")
+Candle = NodePath("../../../../Candle_mtl")
 
-[node name="Dude" type="Sprite2D" parent="."]
+[node name="Dude" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(565, 647)
 scale = Vector2(1.34, 1.34)
 texture = ExtResource("3_1mnkg")
@@ -202,10 +225,3 @@ light_energy = 2.0
 light_size = 1.5
 light_specular = 1.2
 omni_range = 4.0
-
-[node name="Return" type="TouchScreenButton" parent="."]
-visible = false
-position = Vector2(17, 1594.89)
-texture_normal = ExtResource("15_b1s6c")
-texture_pressed = ExtResource("15_b1s6c")
-shape = SubResource("RectangleShape2D_pr8mt")

@@ -19,7 +19,7 @@ const COMPLETELYCOVERING = -0.079
 @export var InvisibleBox : CSGBox3D
 @export var Virke : MeshInstance3D
 var Candle
-@onready var return_button = $"../Return"
+@onready var return_button = $"../CanvasLayer/Control/Return"
 
 func _ready():
 	#DisplayServer.size
