@@ -11,7 +11,9 @@ config_version=5
 [application]
 
 config/name="Detektiv"
+
 run/main_scene="res://David/LoadingScen.tscn"
+
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -58,6 +60,7 @@ texture={
 "roughness/mode": 0,
 "roughness/src_normal": ""
 }
+
 
 [input]
 

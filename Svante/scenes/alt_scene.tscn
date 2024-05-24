@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv4ip0k2prnxi"]
+
+[ext_resource type="Script" path="res://Svante/scripts/alt_scene.gd" id="1_y0fs4"]
+[ext_resource type="Texture2D" uid="uid://colg75o0iha4j" path="res://Svante/assets/whiteCircle.png" id="2_nfb86"]
+
+[node name="Alt_Scene" type="Node2D"]
+script = ExtResource("1_y0fs4")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 497.0
+offset_top = 15.0
+offset_right = 632.0
+offset_bottom = 38.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "This is a 2D scene
+V Go back V"
+horizontal_alignment = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(463, 49)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_nfb86")
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
