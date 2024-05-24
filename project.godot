@@ -11,7 +11,9 @@ config_version=5
 [application]
 
 config/name="Detektiv"
-run/main_scene="res://Svante/scenes/Tredje_Scen.tscn"
+
+run/main_scene="res://David/LoadingScen.tscn"
+
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,14 +22,45 @@ config/icon="res://icon.svg"
 driver/driver=""
 driver/enable_input=true
 
+[autoload]
+
+Load="*res://David/Scripts/Load.gd"
+
 [display]
 
+window/size/viewport_width=1080
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[dotnet]
+
+project/assembly_name="Detektiv"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
-[filesystem]
+[importer_defaults]
 
-import/fbx/enabled=false
+texture={
+"compress/channel_pack": 0,
+"compress/hdr_compression": 1,
+"compress/high_quality": false,
+"compress/lossy_quality": 0.7,
+"compress/mode": 2,
+"compress/normal_map": 0,
+"detect_3d/compress_to": 1,
+"mipmaps/generate": false,
+"mipmaps/limit": -1,
+"process/fix_alpha_border": true,
+"process/hdr_as_srgb": false,
+"process/hdr_clamp_exposure": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"process/size_limit": 0,
+"roughness/mode": 0,
+"roughness/src_normal": ""
+}
+
 
 [input]
 

@@ -1,0 +1,269 @@
+[gd_scene load_steps=14 format=3 uid="uid://jkm6q7nj65ke"]
+
+[ext_resource type="Texture2D" uid="uid://bb73x5udt7e2m" path="res://David/Textures/Knife/Knife.png" id="1_q714s"]
+[ext_resource type="Script" path="res://David/Scripts/Display_Cursor.gd" id="1_qcq35"]
+[ext_resource type="Texture2D" uid="uid://bn5rj4ba60ya0" path="res://David/Textures/Knife/Fill.png" id="3_wvvek"]
+[ext_resource type="Texture2D" uid="uid://cark78kw58jy0" path="res://David/Textures/Knife/Brush.png" id="4_j5dky"]
+[ext_resource type="Texture2D" uid="uid://bpa0imherfku8" path="res://David/Textures/Knife/Mug.png" id="6_3ixm6"]
+[ext_resource type="Texture2D" uid="uid://bcudxbmxyf3d1" path="res://David/Textures/Knife/Fingerprint.png" id="7_3ub44"]
+[ext_resource type="AudioStream" uid="uid://bij74377srv7y" path="res://David/Sounds/Knife/Kladd2.wav" id="8_72ck8"]
+[ext_resource type="AudioStream" uid="uid://cax7wf4lp4mec" path="res://David/Sounds/Knife/Kladd.wav" id="8_skmxm"]
+[ext_resource type="Texture2D" uid="uid://pqgasfulb552" path="res://David/Textures/Knife/BlobMum.png" id="9_v0rdv"]
+[ext_resource type="AudioStream" uid="uid://br7y3gu03b2eb" path="res://David/Sounds/Knife/Svep.wav" id="10_102ap"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m8iiq"]
+radius = 50.0
+height = 238.97
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_wunyc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20gxs"]
+size = Vector2(900, 109)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BackGround" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.53, 0.37259, 0.3551, 1)
+
+[node name="Knife" type="Area2D" parent="." groups=["Knife"]]
+position = Vector2(909, 547)
+
+[node name="Knife" type="Sprite2D" parent="Knife"]
+scale = Vector2(1.025, 1.025)
+texture = ExtResource("1_q714s")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Knife"]
+polygon = PackedVector2Array(281, -515, 192, -425, 57, -205, -271, 398, -278, 478, -260, 517, -179, 467, -185, 414, -120, 316, -63, 189, -27, 173, 1, 183, 249, -315, 281, -439)
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(1710, 862)
+
+[node name="Mug" type="Sprite2D" parent="Area2D2"]
+texture = ExtResource("6_3ixm6")
+
+[node name="Fill" type="Sprite2D" parent="Area2D2"]
+position = Vector2(0, -105)
+texture = ExtResource("3_wvvek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(1, -105)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_m8iiq")
+
+[node name="Brush" type="Area2D" parent="."]
+position = Vector2(1320, 728)
+rotation = -3.14159
+script = ExtResource("1_qcq35")
+
+[node name="Sprite2D" type="Sprite2D" parent="Brush"]
+texture = ExtResource("4_j5dky")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Brush"]
+position = Vector2(1.00001, -75)
+polygon = PackedVector2Array(-20, -35, -31, -52, -39, -75, -37, -98, -24, -112, -1, -118, 15, -114, 31, -99, 37, -78, 30, -61, 18, -33)
+
+[node name="StickTo" type="Node2D" parent="Brush"]
+position = Vector2(-1.34631e-05, -154)
+
+[node name="AllSprites" type="Node" parent="."]
+
+[node name="Fingers" type="Node" parent="."]
+
+[node name="BlobMum" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.599443, 0.067633, 0.22075, 1)
+z_index = 1
+texture = ExtResource("9_v0rdv")
+
+[node name="MicrophoneAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMicrophone_wunyc")
+autoplay = true
+bus = &"Record"
+
+[node name="PromptBlew" type="ColorRect" parent="."]
+visible = false
+offset_left = 173.0
+offset_top = 262.0
+offset_right = 714.0
+offset_bottom = 369.0
+color = Color(0, 0, 0, 0.533333)
+
+[node name="Prompt" type="Label" parent="PromptBlew"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 11.0
+offset_right = 534.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0.975565, 0.000966129, 0.000531171, 1)
+theme_override_colors/font_shadow_color = Color(0, 1, 0, 1)
+theme_override_constants/line_spacing = -850
+theme_override_font_sizes/font_size = 60
+text = "Blås bort pulvret!"
+
+[node name="AllSuspects" type="ColorRect" parent="."]
+visible = false
+top_level = true
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -825.0
+offset_top = -487.485
+offset_right = 825.0
+offset_bottom = 487.485
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 0.290196)
+
+[node name="Rina" type="ColorRect" parent="AllSuspects"]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 160.0
+offset_right = 1376.0
+offset_bottom = 269.0
+color = Color(0, 0, 0, 1)
+
+[node name="Rina" type="TouchScreenButton" parent="AllSuspects/Rina"]
+position = Vector2(450, 55)
+shape = SubResource("RectangleShape2D_20gxs")
+
+[node name="Ryan" type="ColorRect" parent="AllSuspects"]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 289.0
+offset_right = 1376.0
+offset_bottom = 398.0
+color = Color(0, 0, 0, 1)
+
+[node name="Ryan" type="TouchScreenButton" parent="AllSuspects/Ryan"]
+position = Vector2(450, 54)
+shape = SubResource("RectangleShape2D_20gxs")
+
+[node name="Olga" type="ColorRect" parent="AllSuspects"]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 417.0
+offset_right = 1376.0
+offset_bottom = 526.0
+color = Color(0, 0, 0, 1)
+
+[node name="Olga" type="TouchScreenButton" parent="AllSuspects/Olga"]
+position = Vector2(450, 54)
+shape = SubResource("RectangleShape2D_20gxs")
+
+[node name="Hassan" type="ColorRect" parent="AllSuspects"]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 544.0
+offset_right = 1376.0
+offset_bottom = 653.0
+color = Color(0, 0, 0, 1)
+
+[node name="Hassan" type="TouchScreenButton" parent="AllSuspects/Hassan"]
+position = Vector2(450, 55)
+shape = SubResource("RectangleShape2D_20gxs")
+
+[node name="Stig" type="ColorRect" parent="AllSuspects"]
+layout_mode = 0
+offset_left = 475.0
+offset_top = 672.0
+offset_right = 1375.0
+offset_bottom = 781.0
+color = Color(0, 0, 0, 1)
+
+[node name="Stig" type="TouchScreenButton" parent="AllSuspects/Stig"]
+position = Vector2(451, 55)
+shape = SubResource("RectangleShape2D_20gxs")
+
+[node name="Nuka" type="ColorRect" parent="AllSuspects"]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 801.0
+offset_right = 1376.0
+offset_bottom = 910.0
+color = Color(0, 0, 0, 1)
+
+[node name="Nuka" type="TouchScreenButton" parent="AllSuspects/Nuka"]
+position = Vector2(450, 54)
+shape = SubResource("RectangleShape2D_20gxs")
+
+[node name="Ask" type="Label" parent="AllSuspects"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -553.0
+offset_top = -13.0
+offset_right = 743.0
+offset_bottom = 133.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 106
+text = "Vems är fingeravtrycken?"
+
+[node name="AllLabels" type="VBoxContainer" parent="AllSuspects"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -338.5
+offset_top = -345.485
+offset_right = 528.5
+offset_bottom = 424.515
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Rina" type="Label" parent="AllSuspects/AllLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 91
+text = "1. Rina Watanabe"
+
+[node name="Ryan" type="Label" parent="AllSuspects/AllLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 91
+text = "2. Ryan von Fressen"
+
+[node name="Olga" type="Label" parent="AllSuspects/AllLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 91
+text = "3. Olga Smirnova"
+
+[node name="Hassan" type="Label" parent="AllSuspects/AllLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 91
+text = "4. Hassan Hussein "
+
+[node name="Stig" type="Label" parent="AllSuspects/AllLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 91
+text = "5. Stig Björnqvist"
+
+[node name="Nuka" type="Label" parent="AllSuspects/AllLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 91
+text = "6. Nuka Hansen 
+"
+
+[node name="Fingerprint" type="Sprite2D" parent="AllSuspects"]
+modulate = Color(0.913725, 0.317647, 0.101961, 1)
+position = Vector2(202, 558)
+texture = ExtResource("7_3ub44")
+
+[node name="Kladd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_skmxm")
+
+[node name="Kladd2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_72ck8")
+
+[node name="Svep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_102ap")
+
+[connection signal="area_entered" from="Brush" to="Brush" method="_on_area_entered"]
+[connection signal="area_exited" from="Brush" to="Brush" method="exit_splash"]

@@ -1,0 +1,227 @@
+[gd_scene load_steps=31 format=3 uid="uid://bf1cchdfbeo5e"]
+
+[ext_resource type="Texture2D" uid="uid://ecbx61e2d3su" path="res://David/Textures/Phone/Slide.png" id="1_xidpb"]
+[ext_resource type="Script" path="res://David/Scripts/AnswerPhone.gd" id="2_5ncx5"]
+[ext_resource type="Texture2D" uid="uid://dkc4bl5xgj8e0" path="res://David/Textures/Phone/Dude.png" id="3_1mnkg"]
+[ext_resource type="Texture2D" uid="uid://ca6kuxut0optl" path="res://David/Textures/Mark.png" id="4_ahh3l"]
+[ext_resource type="AudioStream" uid="uid://dn8vk4i354pjx" path="res://David/Sounds/PhoneScene/PhoneCall.wav" id="5_sqs31"]
+[ext_resource type="AudioStream" uid="uid://ck6xfgo32q1ji" path="res://David/Sounds/PhoneScene/Ljuset.wav" id="6_qnvo3"]
+[ext_resource type="Material" uid="uid://bghymdh8j4gh2" path="res://David/Models/Candle.tres" id="7_be60w"]
+[ext_resource type="Script" path="res://David/Scripts/MeltMe.gd" id="7_kgra0"]
+[ext_resource type="ArrayMesh" uid="uid://c7yyvelcoohx4" path="res://David/Models/candle.mtl.obj" id="8_hdh12"]
+[ext_resource type="ArrayMesh" uid="uid://cx84ufp5met6h" path="res://David/Models/virke.mtl.obj" id="9_cqw3d"]
+[ext_resource type="Material" uid="uid://cvkgrxuvlyjoj" path="res://David/Models/Black.tres" id="9_gfijf"]
+[ext_resource type="ArrayMesh" uid="uid://8ndstkuj4lj5" path="res://David/Models/note.mtl.obj" id="10_1pxgb"]
+[ext_resource type="ArrayMesh" uid="uid://ciwqo3estfn" path="res://David/Models/holder.obj" id="10_oi1wh"]
+[ext_resource type="Material" uid="uid://fjmy7o131385" path="res://David/Models/Holder.tres" id="10_rprxr"]
+[ext_resource type="Texture2D" uid="uid://elj2l2fcn7ey" path="res://David/Models/Note_512.png" id="11_yfkx0"]
+[ext_resource type="Material" uid="uid://ddoyiby8nov1w" path="res://David/Models/pariclelight.tres" id="14_fxunv"]
+[ext_resource type="Texture2D" uid="uid://byrrumqw3w56w" path="res://David/Textures/Back.png" id="15_b1s6c"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uvahx"]
+sky_top_color = Color(0.00802384, 0.11464, 0.196849, 1)
+sky_horizon_color = Color(0.321932, 0.329963, 0.342641, 1)
+ground_bottom_color = Color(0.205117, 0.205117, 0.205117, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_e2ajj"]
+sky_material = SubResource("ProceduralSkyMaterial_uvahx")
+
+[sub_resource type="Environment" id="Environment_4oowp"]
+background_mode = 2
+sky = SubResource("Sky_e2ajj")
+
+[sub_resource type="Gradient" id="Gradient_4kj5c"]
+colors = PackedColorArray(0.561562, 0.21986, 0, 1, 1, 0.427451, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_anpke"]
+gradient = SubResource("Gradient_4kj5c")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1.175, 0.125)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sc3pu"]
+texture = SubResource("GradientTexture2D_anpke")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pr8mt"]
+size = Vector2(418.415, 189.99)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6c4n8"]
+radius = 69.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lm80w"]
+albedo_texture = ExtResource("11_yfkx0")
+
+[sub_resource type="Curve" id="Curve_enbtr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.200241), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_q7c5l"]
+curve = SubResource("Curve_enbtr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2tw74"]
+direction = Vector3(0, 0, 0)
+spread = 10.0
+gravity = Vector3(0.1, 0.1, 0.1)
+scale_curve = SubResource("CurveTexture_q7c5l")
+turbulence_noise_scale = 5.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_x4ply"]
+flip_faces = true
+
+[node name="Phone" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4oowp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_right = 1080.0
+offset_bottom = 1920.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_sc3pu")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="Return" type="TouchScreenButton" parent="CanvasLayer/Control"]
+visible = false
+position = Vector2(20, -205)
+texture_normal = ExtResource("15_b1s6c")
+texture_pressed = ExtResource("15_b1s6c")
+shape = SubResource("RectangleShape2D_pr8mt")
+
+[node name="below" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -452.5
+offset_top = -409.0
+offset_right = 452.5
+offset_bottom = -252.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/below"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = -352.0
+offset_right = 893.0
+offset_bottom = -194.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 116
+text = "Okänt nummer"
+
+[node name="Mark" type="Sprite2D" parent="CanvasLayer/below"]
+modulate = Color(1, 1, 1, 0.509804)
+position = Vector2(149, 80)
+texture = ExtResource("4_ahh3l")
+
+[node name="Mark2" type="Sprite2D" parent="CanvasLayer/below"]
+modulate = Color(1, 1, 1, 0.509804)
+position = Vector2(335, 79)
+texture = ExtResource("4_ahh3l")
+
+[node name="Mark3" type="Sprite2D" parent="CanvasLayer/below"]
+modulate = Color(1, 1, 1, 0.509804)
+position = Vector2(520, 79)
+texture = ExtResource("4_ahh3l")
+
+[node name="Offset" type="Node2D" parent="CanvasLayer/below"]
+position = Vector2(811.5, 80)
+
+[node name="SlideButton" type="TouchScreenButton" parent="CanvasLayer/below/Offset" node_paths=PackedStringArray("Candle")]
+position = Vector2(-71, -74)
+texture_normal = ExtResource("1_xidpb")
+texture_pressed = ExtResource("1_xidpb")
+shape = SubResource("CircleShape2D_6c4n8")
+passby_press = true
+script = ExtResource("2_5ncx5")
+Candle = NodePath("../../../../Candle_mtl")
+
+[node name="Dude" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(565, 647)
+scale = Vector2(1.34, 1.34)
+texture = ExtResource("3_1mnkg")
+
+[node name="PhoneSignal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_sqs31")
+autoplay = true
+bus = &"Phone"
+
+[node name="Voice" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_qnvo3")
+volume_db = 20.0
+bus = &"Phone"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.17064)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.59252, 0)
+cast_shadow = 0
+operation = 1
+snap = 1e-06
+calculate_tangents = false
+mesh = ExtResource("8_hdh12")
+material = ExtResource("7_be60w")
+
+[node name="Melt" type="CSGBox3D" parent="CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.94692, 0)
+operation = 2
+calculate_tangents = false
+size = Vector3(1.2, 4.028, 1.2)
+
+[node name="Holder" type="MeshInstance3D" parent="CSGMesh3D"]
+material_override = ExtResource("10_rprxr")
+mesh = ExtResource("10_oi1wh")
+skeleton = NodePath("../..")
+
+[node name="Virke_mtl" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.59252, 0)
+material_override = ExtResource("9_gfijf")
+mesh = ExtResource("9_cqw3d")
+
+[node name="Note_mtl" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00964674, -2.59252, 0.0240712)
+material_override = SubResource("StandardMaterial3D_lm80w")
+mesh = ExtResource("10_1pxgb")
+
+[node name="Candle_mtl" type="MeshInstance3D" parent="." node_paths=PackedStringArray("InvisibleBox", "Virke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.60234, 0)
+material_override = ExtResource("7_be60w")
+cast_shadow = 0
+mesh = ExtResource("8_hdh12")
+script = ExtResource("7_kgra0")
+InvisibleBox = NodePath("../CSGMesh3D/Melt")
+Virke = NodePath("../Virke_mtl")
+
+[node name="Candle" type="GPUParticles3D" parent="Candle_mtl"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.24106, -0.0464283)
+material_override = ExtResource("14_fxunv")
+cast_shadow = 0
+amount = 12
+lifetime = 5.0
+explosiveness = 0.1
+randomness = 0.2
+process_material = SubResource("ParticleProcessMaterial_2tw74")
+draw_pass_1 = SubResource("SphereMesh_x4ply")
+
+[node name="Virke_mtl2" type="MeshInstance3D" parent="Candle_mtl"]
+material_override = ExtResource("9_gfijf")
+mesh = ExtResource("9_cqw3d")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Candle_mtl"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08606, -1.82369e-07)
+light_color = Color(0.666444, 0.357963, 0.126416, 1)
+light_energy = 2.0
+light_size = 1.5
+light_specular = 1.2
+omni_range = 4.0

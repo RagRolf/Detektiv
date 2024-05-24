@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://01wfryb42ctq"]
+
+[ext_resource type="Texture2D" uid="uid://b75x55m50uq7h" path="res://David/Textures/Hat.png" id="1_ij1ub"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_51f0a"]
+bg_color = Color(0, 0.716587, 0.391273, 1)
+
+[node name="LoadingScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.529412, 0.607843, 0.556863, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -448.5
+offset_top = -340.0
+offset_right = 448.5
+offset_bottom = -184.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 111
+theme_override_styles/fill = SubResource("StyleBoxFlat_51f0a")
+max_value = 1.0
+
+[node name="Icon" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(971, 307)
+scale = Vector2(2.9375, 2.9375)
+texture = ExtResource("1_ij1ub")

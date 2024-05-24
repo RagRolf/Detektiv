@@ -1,11 +1,54 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpyn1a37mmuau"]
+[gd_scene load_steps=7 format=3 uid="uid://bpyn1a37mmuau"]
 
-[ext_resource type="Texture2D" uid="uid://bcudxbmxyf3d1" path="res://David/Textures/Fingerprint.png" id="1_3igba"]
+[ext_resource type="Texture2D" uid="uid://bcudxbmxyf3d1" path="res://David/Textures/Knife/Fingerprint.png" id="1_fdni7"]
 
-[node name="FingerPrint" type="Node2D"]
-z_index = 1
-z_as_relative = false
+[sub_resource type="Curve" id="Curve_l61h2"]
+min_value = -2.0
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, -2), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
-[node name="Fingerprint" type="Sprite2D" parent="."]
-scale = Vector2(0.203125, 0.203125)
-texture = ExtResource("1_3igba")
+[sub_resource type="CurveTexture" id="CurveTexture_6ihnq"]
+curve = SubResource("Curve_l61h2")
+
+[sub_resource type="Curve" id="Curve_c0442"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_l173p"]
+curve = SubResource("Curve_c0442")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4c31y"]
+particle_flag_align_y = true
+direction = Vector3(0, 0, 0)
+orbit_velocity_curve = SubResource("CurveTexture_6ihnq")
+radial_velocity_min = 131.7
+radial_velocity_max = 223.5
+gravity = Vector3(0, 98, 0)
+scale_min = 20.0
+scale_max = 20.0
+scale_curve = SubResource("CurveTexture_l173p")
+hue_variation_min = -0.05
+hue_variation_max = 0.05
+turbulence_enabled = true
+turbulence_noise_strength = 0.49
+turbulence_noise_speed_random = 0.52
+turbulence_influence_min = 0.088
+turbulence_influence_max = 0.173
+
+[node name="Fingerprint" type="Sprite2D"]
+modulate = Color(0.913734, 0.317459, 0.102128, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_fdni7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0.960695, 0.697133, 0.696581, 1)
+position = Vector2(0, -3.515)
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_4c31y")
+lifetime = 17.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 0.2

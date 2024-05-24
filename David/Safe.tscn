@@ -1,0 +1,206 @@
+[gd_scene load_steps=36 format=3 uid="uid://0e2ccyox4626"]
+
+[ext_resource type="Script" path="res://David/Scripts/Safe.gd" id="1_l851o"]
+[ext_resource type="Texture2D" uid="uid://c0y1m5l7t1efg" path="res://David/Textures/Safe/nought.png" id="1_wg7l6"]
+[ext_resource type="Texture2D" uid="uid://mthpsjdghn7" path="res://David/Textures/Safe/One.png" id="2_vh4kg"]
+[ext_resource type="Texture2D" uid="uid://bgvukt45q4o3b" path="res://David/Textures/Safe/Two.png" id="3_c0jf2"]
+[ext_resource type="Texture2D" uid="uid://7evfpyd2yura" path="res://David/Textures/Safe/Three.png" id="4_5w7bv"]
+[ext_resource type="Texture2D" uid="uid://bnrdb2i1kovyw" path="res://David/Textures/Safe/Four.png" id="5_eaf2m"]
+[ext_resource type="Texture2D" uid="uid://dannoxesvx0dw" path="res://David/Textures/Safe/Five.png" id="6_1jw52"]
+[ext_resource type="Texture2D" uid="uid://cv3yockfkysf5" path="res://David/Textures/Safe/nought_p.png" id="6_75edg"]
+[ext_resource type="Texture2D" uid="uid://cj4gub0j2b362" path="res://David/Textures/Safe/Six.png" id="7_cknqw"]
+[ext_resource type="Texture2D" uid="uid://dvkwvefu8inns" path="res://David/Textures/Safe/One_p.png" id="8_3730e"]
+[ext_resource type="Texture2D" uid="uid://d0u7pcq5y8q6t" path="res://David/Textures/Safe/Seven.png" id="8_f417v"]
+[ext_resource type="Texture2D" uid="uid://cjnkdr4l2xppe" path="res://David/Textures/Safe/eight.png" id="9_1enxl"]
+[ext_resource type="Texture2D" uid="uid://bwf5ejhi8f5nt" path="res://David/Textures/Safe/nine.png" id="10_q1kjq"]
+[ext_resource type="Texture2D" uid="uid://es7xb76wd61g" path="res://David/Textures/Safe/Two_p.png" id="10_y0ti7"]
+[ext_resource type="Texture2D" uid="uid://0fneopc1ibni" path="res://David/Textures/Safe/Return.png" id="11_qugxf"]
+[ext_resource type="Texture2D" uid="uid://iuti86unspoy" path="res://David/Textures/Safe/Three_p.png" id="12_h2yj0"]
+[ext_resource type="Texture2D" uid="uid://cf56cnmfjodk4" path="res://David/Textures/Safe/EX.png" id="12_opoct"]
+[ext_resource type="Texture2D" uid="uid://oi5qkl5s06qh" path="res://David/Textures/Safe/left_arrow.png" id="13_dsne5"]
+[ext_resource type="Texture2D" uid="uid://c5xjr4vedropm" path="res://David/Textures/Safe/right_arrow.png" id="13_skdh7"]
+[ext_resource type="Texture2D" uid="uid://beej0dapot77n" path="res://David/Textures/Safe/Four_p.png" id="14_mkrsb"]
+[ext_resource type="Texture2D" uid="uid://dq6orkm5ew21x" path="res://David/Textures/Safe/left_point.png" id="15_igg4l"]
+[ext_resource type="Texture2D" uid="uid://caui4sg3emjrx" path="res://David/Textures/Safe/Five_p.png" id="16_aekkb"]
+[ext_resource type="Texture2D" uid="uid://cf6yenfn5iwwf" path="res://David/Textures/Safe/right_point.png" id="16_q1vfn"]
+[ext_resource type="Texture2D" uid="uid://byrrumqw3w56w" path="res://David/Textures/Back.png" id="18_ex17e"]
+[ext_resource type="Texture2D" uid="uid://b70fumbfjmulc" path="res://David/Textures/Safe/Six_p.png" id="18_jsvvw"]
+[ext_resource type="Texture2D" uid="uid://deemf3lha0m7j" path="res://David/Textures/Safe/Seven_p.png" id="20_g57u4"]
+[ext_resource type="Texture2D" uid="uid://dbr6prsacfwji" path="res://David/Textures/Safe/eight_p.png" id="22_k5rbm"]
+[ext_resource type="Texture2D" uid="uid://byye8pphxls1" path="res://David/Textures/Safe/nine_p.png" id="24_gp3jy"]
+[ext_resource type="Texture2D" uid="uid://2mjhplvq4hql" path="res://David/Textures/Safe/Return_p.png" id="26_llqnj"]
+[ext_resource type="Texture2D" uid="uid://d133fhd7c73v3" path="res://David/Textures/Safe/EX_p.png" id="28_7o8ln"]
+[ext_resource type="Texture2D" uid="uid://b3emiriglwp42" path="res://David/Textures/Safe/right_arrow_p.png" id="29_xxxgv"]
+[ext_resource type="Texture2D" uid="uid://d110br0cf1qxm" path="res://David/Textures/Safe/left_arrow_p.png" id="30_u3p4o"]
+[ext_resource type="Texture2D" uid="uid://c8fjbkc3ynkx2" path="res://David/Textures/Safe/right_point_p.png" id="31_4lgke"]
+[ext_resource type="Texture2D" uid="uid://boj7xv88o3uap" path="res://David/Textures/Safe/left_point_p.png" id="33_g60cc"]
+[ext_resource type="AudioStream" uid="uid://dvpnea4c3xhjx" path="res://David/Sounds/Safe/Tangent.wav" id="35_juc4d"]
+
+[node name="Safe" type="Node2D"]
+
+[node name="TheCode" type="ColorRect" parent="."]
+visible = false
+z_index = 1
+offset_left = 551.0
+offset_top = 144.0
+offset_right = 1344.0
+offset_bottom = 267.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="TheCode"]
+z_index = 1
+layout_mode = 0
+offset_top = -19.0
+offset_right = 795.0
+offset_bottom = 133.0
+theme_override_font_sizes/font_size = 111
+text = "Koden är: 7391"
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.10614, 0.0817428, 0.040479, 0.552941)
+
+[node name="AllCodes" type="ColorRect" parent="Background"]
+layout_mode = 0
+offset_left = 861.0
+offset_top = 16.0
+offset_right = 1108.0
+offset_bottom = 318.0
+color = Color(0, 0, 0, 1)
+
+[node name="Code1" type="Label" parent="Background/AllCodes"]
+layout_mode = 2
+offset_left = 9.0
+offset_top = -15.0
+offset_right = 249.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "0000"
+
+[node name="Code2" type="Label" parent="Background/AllCodes"]
+layout_mode = 2
+offset_left = 9.0
+offset_top = 83.0
+offset_right = 249.0
+offset_bottom = 220.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "0000"
+
+[node name="Code3" type="Label" parent="Background/AllCodes"]
+layout_mode = 2
+offset_left = 9.0
+offset_top = 181.0
+offset_right = 249.0
+offset_bottom = 318.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "0000"
+
+[node name="Marker" type="ColorRect" parent="Background"]
+layout_mode = 0
+offset_left = 925.0
+offset_top = 28.0
+offset_right = 929.0
+offset_bottom = 116.0
+script = ExtResource("1_l851o")
+
+[node name="AllButtons" type="ColorRect" parent="."]
+offset_left = 628.0
+offset_top = 366.0
+offset_right = 1347.0
+offset_bottom = 1059.0
+color = Color(0, 0.217548, 0, 1)
+
+[node name="0" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(195, 358)
+texture_normal = ExtResource("1_wg7l6")
+texture_pressed = ExtResource("6_75edg")
+
+[node name="1" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(30, 36)
+scale = Vector2(1, 0.993421)
+texture_normal = ExtResource("2_vh4kg")
+texture_pressed = ExtResource("8_3730e")
+
+[node name="2" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(195, 36)
+texture_normal = ExtResource("3_c0jf2")
+texture_pressed = ExtResource("10_y0ti7")
+
+[node name="3" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(356, 36)
+texture_normal = ExtResource("4_5w7bv")
+texture_pressed = ExtResource("12_h2yj0")
+
+[node name="4" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(518, 36)
+texture_normal = ExtResource("5_eaf2m")
+texture_pressed = ExtResource("14_mkrsb")
+
+[node name="5" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(31, 198)
+texture_normal = ExtResource("6_1jw52")
+texture_pressed = ExtResource("16_aekkb")
+
+[node name="6" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(195, 198)
+texture_normal = ExtResource("7_cknqw")
+texture_pressed = ExtResource("18_jsvvw")
+
+[node name="7" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(356, 198)
+texture_normal = ExtResource("8_f417v")
+texture_pressed = ExtResource("20_g57u4")
+
+[node name="8" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(518, 198)
+texture_normal = ExtResource("9_1enxl")
+texture_pressed = ExtResource("22_k5rbm")
+
+[node name="9" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(30, 358)
+texture_normal = ExtResource("10_q1kjq")
+texture_pressed = ExtResource("24_gp3jy")
+
+[node name="Return" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(356, 358)
+texture_normal = ExtResource("11_qugxf")
+texture_pressed = ExtResource("26_llqnj")
+
+[node name="EraseAll" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(518, 358)
+texture_normal = ExtResource("12_opoct")
+texture_pressed = ExtResource("28_7o8ln")
+
+[node name="Left_Arrow" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(30, 518)
+texture_normal = ExtResource("13_dsne5")
+texture_pressed = ExtResource("30_u3p4o")
+
+[node name="Right_Arrow" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(193, 518)
+texture_normal = ExtResource("13_skdh7")
+texture_pressed = ExtResource("29_xxxgv")
+
+[node name="Right_Point" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(518, 518)
+texture_normal = ExtResource("16_q1vfn")
+texture_pressed = ExtResource("31_4lgke")
+
+[node name="Left_Point" type="TouchScreenButton" parent="AllButtons"]
+position = Vector2(356, 518)
+texture_normal = ExtResource("15_igg4l")
+texture_pressed = ExtResource("33_g60cc")
+
+[node name="Return" type="TouchScreenButton" parent="."]
+position = Vector2(42, 864)
+texture_normal = ExtResource("18_ex17e")
+texture_pressed = ExtResource("18_ex17e")
+
+[node name="ButtonPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_juc4d")
