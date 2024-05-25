@@ -11,7 +11,6 @@ var done_map = [false, false, false]
 
 const allPasswords = ["9141", "1346", "1493"]
 
-
 func _ready():
 	if !OnOff:
 		return
@@ -32,16 +31,15 @@ func _ready():
 		while true:
 			await get_tree().process_frame
 			if !prompt.visible:
-				#print("Break")
 				prompt.get_child(0).visible = false
 				break
-		var save_file = ConfigFile.new()
-		save_file.save(SAVEPATH)
 		var mic = AudioStreamPlayer.new()
-		get_tree().get_current_scene().add_child(mic)
+		get_tree().root.add_child(mic)
 		mic.stream = AudioStreamMicrophone.new()
 		mic.play()
 		mic.stream_paused = true
+		var save_file = ConfigFile.new()
+		save_file.save(SAVEPATH)
 		await get_tree().create_timer(1.0).timeout
 		get_tree().quit()
 	ResourceLoader.load_threaded_request(STARTSCENE, "", false, ResourceLoader.CACHE_MODE_REUSE) #Multithreading works on PC, but breaks android
@@ -64,8 +62,6 @@ func _ready():
 		if !ifDone:
 			await get_tree().process_frame
 		
-
-
 func change_scene(toScene = "res://David/Main_Menu.tscn"):
 	await get_tree().process_frame #Scene is null otherwise
 	get_tree().change_scene_to_file("res://David/LoadingScen.tscn")

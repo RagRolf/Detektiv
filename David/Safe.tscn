@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://0e2ccyox4626"]
+[gd_scene load_steps=38 format=3 uid="uid://0e2ccyox4626"]
 
 [ext_resource type="Script" path="res://David/Scripts/Safe.gd" id="1_l851o"]
 [ext_resource type="Texture2D" uid="uid://c0y1m5l7t1efg" path="res://David/Textures/Safe/nought.png" id="1_wg7l6"]
@@ -35,6 +35,8 @@
 [ext_resource type="Texture2D" uid="uid://c8fjbkc3ynkx2" path="res://David/Textures/Safe/right_point_p.png" id="31_4lgke"]
 [ext_resource type="Texture2D" uid="uid://boj7xv88o3uap" path="res://David/Textures/Safe/left_point_p.png" id="33_g60cc"]
 [ext_resource type="AudioStream" uid="uid://dvpnea4c3xhjx" path="res://David/Sounds/Safe/Tangent.wav" id="35_juc4d"]
+[ext_resource type="AudioStream" uid="uid://dft805lq3crkt" path="res://David/Sounds/Safe/Scary.wav" id="36_wb6sv"]
+[ext_resource type="AudioStream" uid="uid://bes2fqug2krvh" path="res://David/Sounds/Trudelutt.wav" id="37_yyvgc"]
 
 [node name="Safe" type="Node2D"]
 
@@ -204,3 +206,11 @@ texture_pressed = ExtResource("18_ex17e")
 
 [node name="ButtonPress" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("35_juc4d")
+
+[node name="Start" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("36_wb6sv")
+autoplay = true
+
+[node name="EndPlay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("37_yyvgc")
+pitch_scale = 1.6
