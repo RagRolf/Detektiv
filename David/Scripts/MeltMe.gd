@@ -14,7 +14,7 @@ var k : float = 0.98
 
 const COMPLETELYCOVERING = -0.079
 
-#@onready var touchbutton = $"../Return"
+@onready var melt_candle = $"../MeltCandle"
 
 @export var InvisibleBox : CSGBox3D
 @export var Virke : MeshInstance3D
@@ -53,10 +53,15 @@ func _process(delta):
 	if !Virke.visible: #IsDone
 		return
 	if transform.basis.y.dot(Vector3.DOWN) > 0.9:
+		if !melt_candle.playing:
+			melt_candle.play()
 		InvisibleBox.position.y -= SPEED * delta
 		Virke.position.y -= SPEED * delta
 		if position.y > -0.363: #Not too far down
 			position.y -= SPEED * delta
+	else:
+		if melt_candle.playing:
+			melt_candle.stop()
 	if InvisibleBox.position.y <= COMPLETELYCOVERING:
 		return_button.visible = true
 		Virke.visible = false

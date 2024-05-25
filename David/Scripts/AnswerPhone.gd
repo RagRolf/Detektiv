@@ -15,6 +15,8 @@ var hasAnswered = false
 @onready var Voice = $"../../../../Voice"
 @onready var aPanel = $"../../../Panel"
 
+@onready var Wind = $"../../../../Wind"
+
 const BORDER = 274.0
 
 func _ready():
@@ -42,6 +44,7 @@ func _process(_delta):
 			Voice.play()
 			await get_tree().create_timer(2.5).timeout
 			aPanel.visible = false
+			Wind.play()
 			process_mode = Node.PROCESS_MODE_DISABLED
 			Candle.process_mode = Node.PROCESS_MODE_INHERIT
 			#Load.change_scene()

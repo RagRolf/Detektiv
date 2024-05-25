@@ -16,7 +16,11 @@ var up_down = 0
 @onready var numbers = $"../AllCodes"
 @onready var button_press = $"../../ButtonPress"
 
+@onready var Start = $"../../Start"
+@onready var EndSong = $"../../EndPlay"
+
 func _ready():
+	EndSong.finished.connect(_on_start_sound_finished)
 	return_button.pressed.connect(_return_to_main)
 	var myParent = $"../../AllButtons"
 	for i in myParent.get_child_count():
@@ -30,10 +34,16 @@ func _ready():
 	buttons[14].pressed.connect(_right_point)
 	buttons[15].pressed.connect(_left_point)
 	var is_on  = true
+	change_pitch()
 	while true:
 		await get_tree().create_timer(0.5).timeout
 		is_on  = !is_on 
 		color.a = is_on as float
+		
+func change_pitch():
+	while !theCode.visible:
+		Start.pitch_scale = randf_range(0.75, 1.0)
+		await get_tree().create_timer(randf_range(5.0, 7.0)).timeout
 	
 func _number(integer : int):
 	button_press.play()
@@ -49,14 +59,14 @@ func _number(integer : int):
 		left_right = 0
 		position.x -= OFFSETSIDEWAYS * 3
 	
-func _right_point():
+func _left_point():
 	button_press.play()
 	if up_down > 0:
 		position.y -= OFFSETUPDOWN
 		if up_down:
 			up_down -= 1
 	
-func _left_point():
+func _right_point():
 	button_press.play()
 	if up_down < 2:
 		position.y += OFFSETUPDOWN
@@ -88,10 +98,18 @@ func _return():
 	for i in len(codes):
 		if codes[i].text != Load.allPasswords[i]:
 			return
+	if theCode.visible:
+		return
 	visible = false
 	theCode.visible = true
 	numbers.visible = false
+	Start.stop()
+	EndSong.play()
 	process_mode = Node.PROCESS_MODE_DISABLED
 	
 func _return_to_main():
 	Load.change_scene()
+	
+func _on_start_sound_finished():
+	await get_tree().create_timer(1.78).timeout
+	EndSong.play()

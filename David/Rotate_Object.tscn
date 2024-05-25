@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://63kvu4hkp665"]
+[gd_scene load_steps=9 format=3 uid="uid://63kvu4hkp665"]
 
 [ext_resource type="PackedScene" uid="uid://2xkjh05n3qt" path="res://David/Models/Trunk.gltf" id="1_03lpv"]
 [ext_resource type="Texture2D" uid="uid://byrrumqw3w56w" path="res://David/Textures/Back.png" id="1_katay"]
 [ext_resource type="Script" path="res://David/Scripts/Rotate_Trunk.gd" id="2_tmgy5"]
+[ext_resource type="AudioStream" uid="uid://ch2w8yyg4vhw2" path="res://David/Sounds/Rotate/Wind_s.wav" id="4_j30s6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pr8mt"]
 size = Vector2(418.415, 189.99)
@@ -42,3 +43,7 @@ script = ExtResource("2_tmgy5")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_j30s6")
+autoplay = true

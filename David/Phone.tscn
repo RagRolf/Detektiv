@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bf1cchdfbeo5e"]
+[gd_scene load_steps=33 format=3 uid="uid://bf1cchdfbeo5e"]
 
 [ext_resource type="Texture2D" uid="uid://ecbx61e2d3su" path="res://David/Textures/Phone/Slide.png" id="1_xidpb"]
 [ext_resource type="Script" path="res://David/Scripts/AnswerPhone.gd" id="2_5ncx5"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://elj2l2fcn7ey" path="res://David/Models/Note_512.png" id="11_yfkx0"]
 [ext_resource type="Material" uid="uid://ddoyiby8nov1w" path="res://David/Models/pariclelight.tres" id="14_fxunv"]
 [ext_resource type="Texture2D" uid="uid://byrrumqw3w56w" path="res://David/Textures/Back.png" id="15_b1s6c"]
+[ext_resource type="AudioStream" uid="uid://dsc5fvuu1lhbv" path="res://David/Sounds/PhoneScene/Smelt.wav" id="18_r6k8a"]
+[ext_resource type="AudioStream" uid="uid://ch2w8yyg4vhw2" path="res://David/Sounds/Rotate/Wind_s.wav" id="19_scvv2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uvahx"]
 sky_top_color = Color(0.00802384, 0.11464, 0.196849, 1)
@@ -225,3 +227,10 @@ light_energy = 2.0
 light_size = 1.5
 light_specular = 1.2
 omni_range = 4.0
+
+[node name="MeltCandle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_r6k8a")
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_scvv2")
+pitch_scale = 0.7
