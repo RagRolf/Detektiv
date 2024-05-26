@@ -1,15 +1,15 @@
 extends Node2D
 
-@onready var allButtons = [$Knife, $Log, $Phone, $Safe]
+@onready var allButtons = [$Knife, $Log, $Phone, $Lamp, $Safe]
 @onready var animationPlayer = $Animation
-@onready var AllLabels = [$CanvasLayer/LabelScen/Code1, $CanvasLayer/LabelScen/Code2, $CanvasLayer/LabelScen/Code3]
+@onready var AllLabels = [$CanvasLayer/LabelScen/Code1, $CanvasLayer/LabelScen/Code2, $CanvasLayer/LabelScen/Code3, $CanvasLayer/LabelScen/Code4]
 @onready var magnifier = $CanvasLayer/Glas/See
 @onready var start_sound = $StartSound
 @onready var zoom_sound = $ZoomSound
 
-var allScenes = ["res://David/KnifeScene.tscn", "res://David/Rotate_Object.tscn", "res://David/Phone.tscn", "res://David/Safe.tscn"]
+var allScenes = ["res://David/KnifeScene.tscn", "res://David/Rotate_Object.tscn", "res://David/Phone.tscn", "res://David/Snurren.tscn", "res://David/Safe.tscn"]
 var particles = []
-var allAnims = ["knife", "log", "phone", "safe"]
+var allAnims = ["knife", "log", "phone", "fan", "safe"]
 var just_pressed = false
 var isAllDone = true
 
@@ -28,16 +28,16 @@ func _ready():
 		if !Load.done_map[i]:
 			isAllDone = false
 	if isAllDone:
-		particles[3].emitting = true
+		particles[4].emitting = true
 	
 	
 func change_scene(index : int):
 	if just_pressed:
 		return
 	just_pressed = true
-	if index != 3:
+	if index != 4:
 		Load.done_map[index] = true
-	if !isAllDone && index == 3:
+	if !isAllDone && index == 4:
 		just_pressed = false #Must reset
 		return
 	for particle in particles:
@@ -54,7 +54,7 @@ func show_what_to_press():
 		particles[i].emitting = true
 	if !isAllDone:
 		return
-	particles[3].emitting = true
+	particles[4].emitting = true
 
 func _on_start_sound_finished():
 	await get_tree().create_timer(1.78).timeout

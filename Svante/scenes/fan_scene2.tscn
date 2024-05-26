@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1gwippd7dsja"]
+[gd_scene load_steps=10 format=3 uid="uid://cigq2n4wruov1"]
 
-[ext_resource type="Texture2D" uid="uid://b405h5sqbt3u8" path="res://Svante/assets/fan.png" id="1_fhned"]
-[ext_resource type="Script" path="res://Svante/scripts/Fan.gd" id="3_tdi6w"]
-[ext_resource type="Script" path="res://Svante/scripts/down.gd" id="3_umea1"]
-[ext_resource type="Script" path="res://Svante/scripts/PointLocation.gd" id="4_6sm7t"]
-[ext_resource type="Script" path="res://Svante/scripts/Label.gd" id="5_e5pgu"]
+[ext_resource type="Texture2D" uid="uid://b405h5sqbt3u8" path="res://Svante/assets/fan.png" id="1_e7a7j"]
+[ext_resource type="Script" path="res://Svante/scripts/Fan.gd" id="2_bw0go"]
+[ext_resource type="Script" path="res://Svante/scripts/down.gd" id="3_bxsv8"]
+[ext_resource type="Script" path="res://Svante/scripts/PointLocation.gd" id="4_x02vi"]
+[ext_resource type="Script" path="res://Svante/scripts/Label.gd" id="5_nh211"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5bvxb"]
 
@@ -12,7 +12,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_fhned")
+"texture": ExtResource("1_e7a7j")
 }],
 "loop": true,
 "name": &"Normal",
@@ -36,7 +36,7 @@ position = Vector2(928, 528)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_lcop2")
 animation = &"Normal"
-script = ExtResource("3_tdi6w")
+script = ExtResource("2_bw0go")
 metadata/_edit_lock_ = true
 
 [node name="Down_Col" type="Area2D" parent="Fan"]
@@ -44,11 +44,11 @@ metadata/_edit_lock_ = true
 [node name="down" type="CollisionShape2D" parent="Fan/Down_Col"]
 position = Vector2(84, -40)
 shape = SubResource("RectangleShape2D_ne0tw")
-script = ExtResource("3_umea1")
+script = ExtResource("3_bxsv8")
 metadata/_edit_lock_ = true
 
 [node name="PointLocation" type="Area2D" parent="."]
-script = ExtResource("4_6sm7t")
+script = ExtResource("4_x02vi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PointLocation"]
 shape = SubResource("RectangleShape2D_xmdwx")
@@ -65,7 +65,7 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 46
 text = "Nuka Hansen"
-script = ExtResource("5_e5pgu")
+script = ExtResource("5_nh211")
 
 [connection signal="pressed" from="TouchScreenButton" to="TouchScreenButton" method="_on_pressed"]
 [connection signal="pressed" from="TouchScreenButton" to="Fan/Down_Col/down" method="_on_touch_screen_button_pressed"]

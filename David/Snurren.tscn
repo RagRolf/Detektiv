@@ -1,0 +1,147 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1gwippd7dsja"]
+
+[ext_resource type="Script" path="res://David/Scripts/Fan.gd" id="1_8jn28"]
+[ext_resource type="Texture2D" uid="uid://byrrumqw3w56w" path="res://David/Textures/Back.png" id="1_f6x18"]
+[ext_resource type="Texture2D" uid="uid://bs02b0f0b8imc" path="res://David/Textures/Fan/Code.png" id="1_qtx6w"]
+[ext_resource type="Texture2D" uid="uid://gocrjy2al1ig" path="res://David/Textures/Fan/Fan.png" id="3_6t5np"]
+[ext_resource type="AudioStream" uid="uid://br7y3gu03b2eb" path="res://David/Sounds/Knife/Svep.wav" id="5_0dr0d"]
+[ext_resource type="Texture2D" uid="uid://d33a3l35iyjj5" path="res://David/Textures/Fan/Arrow.png" id="6_t1nq2"]
+
+[sub_resource type="Animation" id="Animation_05cam"]
+resource_name = "AnimateArrow"
+length = 2.0
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Arrows:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0166667, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 339)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Arrows:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0166667, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n7mew"]
+_data = {
+"AnimateArrow": SubResource("Animation_05cam")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wwo4"]
+size = Vector2(418.415, 189.99)
+
+[node name="Fan" type="Node2D"]
+
+[node name="ArrowAnim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CanvasLayer/ColorRect")
+libraries = {
+"": SubResource("AnimationLibrary_n7mew")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.906667)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.521415, 0.465421, 0.386079, 1)
+
+[node name="Arrows" type="Control" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.991597)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.84874
+offset_bottom = 2.84875
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ArrowLeft" type="TextureRect" parent="CanvasLayer/Arrows"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 76.0
+offset_top = -438.0
+offset_right = 320.0
+offset_bottom = 106.0
+grow_vertical = 2
+texture = ExtResource("6_t1nq2")
+
+[node name="ArrowRight" type="TextureRect" parent="CanvasLayer/Arrows"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -438.0
+offset_right = -76.0
+offset_bottom = 106.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("6_t1nq2")
+
+[node name="Code" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -289.0
+offset_top = -278.0
+offset_right = 93.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qtx6w")
+
+[node name="Fan" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_top = -413.0
+offset_right = 344.0
+offset_bottom = 413.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(344, 413)
+texture = ExtResource("3_6t5np")
+script = ExtResource("1_8jn28")
+
+[node name="Return" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+position = Vector2(61, 857)
+texture_normal = ExtResource("1_f6x18")
+texture_pressed = ExtResource("1_f6x18")
+shape = SubResource("RectangleShape2D_3wwo4")
+
+[node name="FanSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0dr0d")
+pitch_scale = 1.35

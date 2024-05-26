@@ -2,17 +2,19 @@ extends ColorRect
 
 var buttons = []
 
-const OFFSETSIDEWAYS = 57
-const OFFSETUPDOWN = 98
+const OFFSETSIDEWAYS = 62
+const OFFSETUPDOWN = 99
 
 var left_right = 0
 var up_down = 0
 
-@onready var codes = [$"../AllCodes/Code1", $"../AllCodes/Code2", $"../AllCodes/Code3"]
+@onready var codes = [$"../AllCodes/Code1", $"../AllCodes/Code2", $"../AllCodes/Code3",  $"../AllCodes/Code4"]
+
+@onready var codesToShow = [$"../../LabelScen/Code1", $"../../LabelScen/Code2", $"../../LabelScen/Code3", $"../../LabelScen/Code4"]
 
 @onready var theCode = $"../../TheCode"
 
-@onready var return_button = $"../../Return"
+@onready var return_button = $"../../Return2/Return"
 @onready var numbers = $"../AllCodes"
 @onready var button_press = $"../../ButtonPress"
 
@@ -23,6 +25,8 @@ func _ready():
 	EndSong.finished.connect(_on_start_sound_finished)
 	return_button.pressed.connect(_return_to_main)
 	var myParent = $"../../AllButtons"
+	for k in len(codesToShow):
+		codesToShow[k].text = Load.allPasswords[k]
 	for i in myParent.get_child_count():
 		buttons.append(myParent.get_child(i))
 		if i < 10:
@@ -53,7 +57,7 @@ func _number(integer : int):
 	if left_right != 3:
 		left_right += 1
 		position.x += OFFSETSIDEWAYS
-	elif up_down != 2:
+	elif up_down != 3:
 		up_down += 1
 		position.y += OFFSETUPDOWN
 		left_right = 0
@@ -68,9 +72,9 @@ func _left_point():
 	
 func _right_point():
 	button_press.play()
-	if up_down < 2:
+	if up_down < 3:
 		position.y += OFFSETUPDOWN
-		if up_down != 2:
+		if up_down != 3:
 			up_down += 1
 	
 func _right_arrow():

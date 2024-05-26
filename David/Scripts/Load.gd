@@ -1,15 +1,15 @@
 extends Control
 
 @onready var bar
-var OnOff = false
+var OnOff = true
 
 var progress = [0.0]
 
 const SAVEPATH = "user://savegame.save"
 
-var done_map = [false, false, false]
+var done_map = [false, false, false, false]
 
-const allPasswords = ["9141", "1346", "1493"]
+const allPasswords = ["9141", "1346", "1493", "5201"]
 
 func _ready():
 	if !OnOff:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://bf1cchdfbeo5e"]
+[gd_scene load_steps=34 format=3 uid="uid://bf1cchdfbeo5e"]
 
 [ext_resource type="Texture2D" uid="uid://ecbx61e2d3su" path="res://David/Textures/Phone/Slide.png" id="1_xidpb"]
 [ext_resource type="Script" path="res://David/Scripts/AnswerPhone.gd" id="2_5ncx5"]
+[ext_resource type="FontFile" uid="uid://dakrw6tsjku2a" path="res://David/Fonts/FONTSFREE-NET-ROCK-1.TTF" id="2_bkko7"]
 [ext_resource type="Texture2D" uid="uid://dkc4bl5xgj8e0" path="res://David/Textures/Phone/Dude.png" id="3_1mnkg"]
 [ext_resource type="Texture2D" uid="uid://ca6kuxut0optl" path="res://David/Textures/Mark.png" id="4_ahh3l"]
 [ext_resource type="AudioStream" uid="uid://dn8vk4i354pjx" path="res://David/Sounds/PhoneScene/PhoneCall.wav" id="5_sqs31"]
@@ -117,6 +118,7 @@ offset_top = -352.0
 offset_right = 893.0
 offset_bottom = -194.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_bkko7")
 theme_override_font_sizes/font_size = 116
 text = "Okänt nummer"
 

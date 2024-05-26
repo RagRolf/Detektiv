@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq8j1v6wykt6h"
-path.s3tc="res://.godot/imported/log.png-f4e01e5f9eafb184d023c53521d1a50c.s3tc.ctex"
-path.etc2="res://.godot/imported/log.png-f4e01e5f9eafb184d023c53521d1a50c.etc2.ctex"
+uid="uid://d33a3l35iyjj5"
+path.s3tc="res://.godot/imported/Arrow.png-773018c9aece9538b00334773f08a6bc.s3tc.ctex"
+path.etc2="res://.godot/imported/Arrow.png-773018c9aece9538b00334773f08a6bc.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://David/Animation/AnimationLog/log.png"
-dest_files=["res://.godot/imported/log.png-f4e01e5f9eafb184d023c53521d1a50c.s3tc.ctex", "res://.godot/imported/log.png-f4e01e5f9eafb184d023c53521d1a50c.etc2.ctex"]
+source_file="res://David/Textures/Fan/Arrow.png"
+dest_files=["res://.godot/imported/Arrow.png-773018c9aece9538b00334773f08a6bc.s3tc.ctex", "res://.godot/imported/Arrow.png-773018c9aece9538b00334773f08a6bc.etc2.ctex"]
 
 [params]
 
