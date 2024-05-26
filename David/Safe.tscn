@@ -134,6 +134,7 @@ theme_override_font_sizes/font_size = 115
 text = "0000"
 
 [node name="Marker" type="ColorRect" parent="CanvasLayer/AllCodes"]
+layout_mode = 0
 offset_left = 83.0
 offset_top = 14.0
 offset_right = 87.0

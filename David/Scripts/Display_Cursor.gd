@@ -46,7 +46,7 @@ var isDone = false
 
 @onready var mic = $"../MicrophoneAudioStreamPlayer"
 
-@onready var all_labels = [$"../CanvasLayer/AllSuspects/Rina", $"../CanvasLayer/AllSuspects/AllLabels/Ryan", $"../CanvasLayer/AllSuspects/AllLabels/Olga", $"../AllSuspects/AllLabels/Hassan", $"../CanvasLayer/AllSuspects/AllLabels/Stig", $"../CanvasLayer/AllSuspects/AllLabels/Nuka"]
+@onready var all_labels = [$"../CanvasLayer/AllSuspects/Rina", $"../CanvasLayer/AllSuspects/AllLabels/Ryan", $"../CanvasLayer/AllSuspects/AllLabels/Olga", $"../CanvasLayer/AllSuspects/AllLabels/Hassan", $"../CanvasLayer/AllSuspects/AllLabels/Stig", $"../CanvasLayer/AllSuspects/AllLabels/Nuka"]
 @onready var all_buttons = [$"../CanvasLayer/AllSuspects/Rina/Rina", $"../CanvasLayer/AllSuspects/Ryan/Ryan", $"../CanvasLayer/AllSuspects/Olga/Olga", $"../CanvasLayer/AllSuspects/Hassan/Hassan", $"../CanvasLayer/AllSuspects/Stig/Stig", $"../CanvasLayer/AllSuspects/Nuka/Nuka"]
 
 var click_once = false
