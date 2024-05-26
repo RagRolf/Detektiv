@@ -11,12 +11,11 @@ var done_map = [false, false, false, false]
 
 const allPasswords = ["9141", "1346", "1493", "5201"]
 
+
 func _ready():
 	if !OnOff:
 		return
 	const STARTSCENE = "res://David/Main_Menu.tscn"
-	await get_tree().process_frame #Scene is null otherwise
-	get_tree().change_scene_to_file("res://David/LoadingScen.tscn")
 	await get_tree().process_frame
 	bar = get_node("/root/LoadingScene/ProgressBar")
 	if !FileAccess.file_exists("user://savegame.save"):
