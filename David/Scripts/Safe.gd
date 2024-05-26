@@ -8,14 +8,14 @@ const OFFSETUPDOWN = 99
 var left_right = 0
 var up_down = 0
 
-@onready var codes = [$"../AllCodes/Code1", $"../AllCodes/Code2", $"../AllCodes/Code3",  $"../AllCodes/Code4"]
+@onready var codes = [$"../Code1", $"../Code2", $"../Code3",  $"../Code4"]
 
 @onready var codesToShow = [$"../../LabelScen/Code1", $"../../LabelScen/Code2", $"../../LabelScen/Code3", $"../../LabelScen/Code4"]
 
 @onready var theCode = $"../../TheCode"
 
 @onready var return_button = $"../../Return2/Return"
-@onready var numbers = $"../AllCodes"
+@onready var numbers = $".."
 @onready var button_press = $"../../ButtonPress"
 
 @onready var Start = $"../../Start"

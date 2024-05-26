@@ -10,7 +10,7 @@ var currentSprite = -1
 
 #var isOnPensel = false
 
-@onready var fill = $"../Area2D2/Fill"
+@onready var fill = $"../CanvasLayer/Center/Area2D2/Fill"
 
 var lastPos = Vector2(0.0, 0.0)
 var difference = 0.0
@@ -32,7 +32,7 @@ var totalBlobs = 0
 
 var polygons = []
 
-@onready var prompt = $"../PromptBlew"
+@onready var prompt = $"../CanvasLayer/PromptBlew"
 
 var power = 0.0
 
@@ -46,17 +46,17 @@ var isDone = false
 
 @onready var mic = $"../MicrophoneAudioStreamPlayer"
 
-@onready var all_labels = [$"../AllSuspects/AllLabels/Rina", $"../AllSuspects/AllLabels/Ryan", $"../AllSuspects/AllLabels/Olga", $"../AllSuspects/AllLabels/Hassan", $"../AllSuspects/AllLabels/Stig", $"../AllSuspects/AllLabels/Nuka"]
-@onready var all_buttons = [$"../AllSuspects/Rina/Rina", $"../AllSuspects/Ryan/Ryan", $"../AllSuspects/Olga/Olga", $"../AllSuspects/Hassan/Hassan", $"../AllSuspects/Stig/Stig", $"../AllSuspects/Nuka/Nuka"]
+@onready var all_labels = [$"../CanvasLayer/AllSuspects/Rina", $"../CanvasLayer/AllSuspects/AllLabels/Ryan", $"../CanvasLayer/AllSuspects/AllLabels/Olga", $"../AllSuspects/AllLabels/Hassan", $"../CanvasLayer/AllSuspects/AllLabels/Stig", $"../CanvasLayer/AllSuspects/AllLabels/Nuka"]
+@onready var all_buttons = [$"../CanvasLayer/AllSuspects/Rina/Rina", $"../CanvasLayer/AllSuspects/Ryan/Ryan", $"../CanvasLayer/AllSuspects/Olga/Olga", $"../CanvasLayer/AllSuspects/Hassan/Hassan", $"../CanvasLayer/AllSuspects/Stig/Stig", $"../CanvasLayer/AllSuspects/Nuka/Nuka"]
 
 var click_once = false
 
-@onready var all_suspects = $"../AllSuspects"
+@onready var all_suspects = $"../CanvasLayer/AllSuspects"
 
 @onready var kladd = $"../Kladd"
 @onready var kladd2 = $"../Kladd2"
 @onready var svep = $"../Svep"
-@onready var font = $"../TheCode"
+@onready var font = $"../CanvasLayer/TheCode"
 var RandomNumbers = []
 
 func _ready():
@@ -66,9 +66,10 @@ func _ready():
 		button.pressed.connect(_selected.bind(j))
 		j += 1
 	blobMum = $"../BlobMum"
-	polygons = $"../Knife/CollisionPolygon2D".polygon
+	polygons = $"../CanvasLayer/Center/Knife/CollisionPolygon2D".polygon
+	var theKnife = $"../CanvasLayer/Center/Knife"
 	for i in len(polygons):
-		polygons[i] += $"../Knife".position
+		polygons[i] += theKnife.global_position
 	indexBuffer = AudioServer.get_bus_index("Record")
 	var SpritesLevel = load("res://David/AllSpriteBlobs.tscn")
 	SpritesLevel = SpritesLevel.instantiate()

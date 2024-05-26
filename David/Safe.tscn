@@ -51,9 +51,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -825.0
+offset_left = -934.0
 offset_top = -61.5
-offset_right = -32.0
+offset_right = -141.0
 offset_bottom = 61.5
 grow_horizontal = 0
 grow_vertical = 2
@@ -75,15 +75,21 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(0.10614, 0.0817428, 0.040479, 0.552941)
 
-[node name="AllCodes" type="ColorRect" parent="CanvasLayer/Background"]
-layout_mode = 0
-offset_left = 1333.0
-offset_top = 344.0
-offset_right = 1627.0
-offset_bottom = 754.0
+[node name="AllCodes" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -786.0
+offset_top = -205.0
+offset_right = -492.0
+offset_bottom = 205.0
+grow_horizontal = 0
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Code1" type="Label" parent="CanvasLayer/Background/AllCodes"]
+[node name="Code1" type="Label" parent="CanvasLayer/AllCodes"]
 layout_mode = 2
 offset_left = 23.0
 offset_top = -11.0
@@ -94,7 +100,7 @@ theme_override_fonts/font = ExtResource("1_8j7fg")
 theme_override_font_sizes/font_size = 115
 text = "0000"
 
-[node name="Code2" type="Label" parent="CanvasLayer/Background/AllCodes"]
+[node name="Code2" type="Label" parent="CanvasLayer/AllCodes"]
 layout_mode = 2
 offset_left = 23.0
 offset_top = 87.0
@@ -105,7 +111,7 @@ theme_override_fonts/font = ExtResource("1_8j7fg")
 theme_override_font_sizes/font_size = 115
 text = "0000"
 
-[node name="Code3" type="Label" parent="CanvasLayer/Background/AllCodes"]
+[node name="Code3" type="Label" parent="CanvasLayer/AllCodes"]
 layout_mode = 2
 offset_left = 23.0
 offset_top = 185.0
@@ -116,7 +122,7 @@ theme_override_fonts/font = ExtResource("1_8j7fg")
 theme_override_font_sizes/font_size = 115
 text = "0000"
 
-[node name="Code4" type="Label" parent="CanvasLayer/Background/AllCodes"]
+[node name="Code4" type="Label" parent="CanvasLayer/AllCodes"]
 layout_mode = 0
 offset_left = 23.0
 offset_top = 283.0
@@ -127,12 +133,11 @@ theme_override_fonts/font = ExtResource("1_8j7fg")
 theme_override_font_sizes/font_size = 115
 text = "0000"
 
-[node name="Marker" type="ColorRect" parent="CanvasLayer/Background"]
-layout_mode = 0
-offset_left = 1416.0
-offset_top = 358.0
-offset_right = 1420.0
-offset_bottom = 446.0
+[node name="Marker" type="ColorRect" parent="CanvasLayer/AllCodes"]
+offset_left = 83.0
+offset_top = 14.0
+offset_right = 87.0
+offset_bottom = 102.0
 script = ExtResource("1_l851o")
 
 [node name="AllButtons" type="ColorRect" parent="CanvasLayer"]
