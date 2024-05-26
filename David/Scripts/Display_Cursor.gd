@@ -86,6 +86,7 @@ func _ready():
 			var random = randi_range(0, remove_last)
 			var finger_print = FingerPrint.instantiate()
 			Finger.add_child(finger_print)
+			finger_print.position = Vector2(-100, -100)
 			RandomNumbers.append(allPossible[random])
 			var temp = allPossible[random];
 			allPossible[random] = allPossible[remove_last];
