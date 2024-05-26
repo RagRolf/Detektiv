@@ -1,7 +1,6 @@
 extends Control
 
 @onready var bar
-var OnOff = true
 
 var progress = [0.0]
 
@@ -13,11 +12,11 @@ const allPasswords = ["9141", "1346", "1493", "5201"]
 
 
 func _ready():
-	if !OnOff:
-		return
 	const STARTSCENE = "res://David/Main_Menu.tscn"
 	await get_tree().process_frame
 	bar = get_node("/root/LoadingScene/ProgressBar")
+	if !bar:
+		return #bar is null
 	if !FileAccess.file_exists("user://savegame.save"):
 		var prompt = ResourceLoader.load("res://David/PromptFirstTime.tscn")
 		prompt = prompt.instantiate()
