@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://David/Scripts/Change_Scene.gd" id="1_63g2m"]
 [ext_resource type="Texture2D" uid="uid://c4t184y8qx6ji" path="res://David/Animation/AnimationKnife/knife.png" id="2_4wmxp"]
 [ext_resource type="Texture2D" uid="uid://dyd14ytmxvkie" path="res://David/Animation/AnimationFan/lamp.png" id="2_css63"]
-[ext_resource type="Texture2D" uid="uid://j67vwsvvtm8y" path="res://David/Animation/StartFrame/Pig.png" id="3_bhq40"]
+[ext_resource type="Texture2D" uid="uid://j67vwsvvtm8y" path="res://David/Animation/StartFrame/PIG.png" id="3_bhq40"]
 [ext_resource type="Texture2D" uid="uid://cq8j1v6wykt6h" path="res://David/Animation/AnimationLog/log.png" id="3_nua7o"]
 [ext_resource type="Texture2D" uid="uid://c1dxl6j0675kn" path="res://David/Animation/AnimationPhone/phone.png" id="4_58lk1"]
 [ext_resource type="Texture2D" uid="uid://coy54xe4oun30" path="res://David/Animation/AnimationSafe/safe.png" id="5_h31co"]
