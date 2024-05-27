@@ -46,7 +46,7 @@ var isDone = false
 
 @onready var mic = $"../MicrophoneAudioStreamPlayer"
 
-@onready var all_labels = [$"../CanvasLayer2/AllSuspects/Rina", $"../CanvasLayer2/AllSuspects/AllLabels/Ryan", $"../CanvasLayer2/AllSuspects/AllLabels/Olga", $"../CanvasLayer2/AllSuspects/AllLabels/Hassan", $"../CanvasLayer2/AllSuspects/AllLabels/Stig", $"../CanvasLayer2/AllSuspects/AllLabels/Nuka"]
+@onready var all_labels = [$"../CanvasLayer2/AllSuspects/AllLabels/Rina", $"../CanvasLayer2/AllSuspects/AllLabels/Ryan", $"../CanvasLayer2/AllSuspects/AllLabels/Olga", $"../CanvasLayer2/AllSuspects/AllLabels/Hassan", $"../CanvasLayer2/AllSuspects/AllLabels/Stig", $"../CanvasLayer2/AllSuspects/AllLabels/Nuka"]
 @onready var all_buttons = [$"../CanvasLayer2/AllSuspects/Rina/Rina", $"../CanvasLayer2/AllSuspects/Ryan/Ryan", $"../CanvasLayer2/AllSuspects/Olga/Olga", $"../CanvasLayer2/AllSuspects/Hassan/Hassan", $"../CanvasLayer2/AllSuspects/Stig/Stig", $"../CanvasLayer2/AllSuspects/Nuka/Nuka"]
 
 var click_once = false
@@ -176,6 +176,7 @@ func _selected(index : int):
 		await get_tree().create_timer(2.0).timeout
 		Load.change_scene()
 	else:
+		print(index)
 		all_labels[index].modulate = Color.RED
 		await get_tree().create_timer(2.0).timeout
 		Load.change_scene("res://David/KnifeScene.tscn")
