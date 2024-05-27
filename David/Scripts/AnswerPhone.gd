@@ -27,6 +27,7 @@ func _ready():
 	while !hasAnswered:
 		Input.vibrate_handheld(800)
 		await get_tree().create_timer(1.0).timeout
+	
 
 func _process(_delta):
 	#print(str(randi_range(0,4)))
@@ -47,10 +48,7 @@ func _process(_delta):
 			Wind.play()
 			process_mode = Node.PROCESS_MODE_DISABLED
 			Candle.process_mode = Node.PROCESS_MODE_INHERIT
-			#Load.change_scene()
 			
-			
-		
 func _input(event):
 	if event is InputEventScreenTouch:
 		if !event.is_pressed():
@@ -59,7 +57,6 @@ func _input(event):
 	
 func pressed_func():
 	ifPressed = true
-
 
 func on_answer_pressed():
 	if !hasAnswered:

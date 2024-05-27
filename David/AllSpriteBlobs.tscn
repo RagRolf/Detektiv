@@ -30,4 +30,5 @@ texture = ExtResource("4_cd00w")
 
 [node name="Blob5" type="Sprite2D" parent="."]
 modulate = Color(0.46558, 0.0453579, 0.170369, 1)
+z_index = 1
 texture = ExtResource("5_c4k7d")

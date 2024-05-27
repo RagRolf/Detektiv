@@ -6,6 +6,7 @@ extends Node2D
 @onready var magnifier = $CanvasLayer/Glas/See
 @onready var start_sound = $StartSound
 @onready var zoom_sound = $ZoomSound
+@onready var enter_sound = $Enter
 
 var allScenes = ["res://David/KnifeScene.tscn", "res://David/Rotate_Object.tscn", "res://David/Phone.tscn", "res://David/Snurren.tscn", "res://David/Safe.tscn"]
 var particles = []
@@ -42,6 +43,7 @@ func change_scene(index : int):
 		return
 	for particle in particles:
 		particle.visible = false
+	enter_sound.play()
 	animationPlayer.play(allAnims[index])
 	await get_tree().create_timer(1.5).timeout
 	Load.change_scene((allScenes[index]))

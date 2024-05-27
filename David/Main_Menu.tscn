@@ -1,4 +1,4 @@
-[gd_scene load_steps=341 format=3 uid="uid://cvv5k6mhnj6lk"]
+[gd_scene load_steps=342 format=3 uid="uid://cvv5k6mhnj6lk"]
 
 [ext_resource type="Script" path="res://David/Scripts/Change_Scene.gd" id="1_63g2m"]
 [ext_resource type="Texture2D" uid="uid://c4t184y8qx6ji" path="res://David/Animation/AnimationKnife/knife.png" id="2_4wmxp"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://bes2fqug2krvh" path="res://David/Sounds/Trudelutt.wav" id="7_vxrm3"]
 [ext_resource type="AudioStream" uid="uid://bsxfgia7vrvii" path="res://David/Sounds/Zoom.wav" id="7_wqy4w"]
 [ext_resource type="FontFile" uid="uid://dakrw6tsjku2a" path="res://David/Fonts/FONTSFREE-NET-ROCK-1.TTF" id="8_46176"]
+[ext_resource type="AudioStream" uid="uid://yjw6l4vwxvc" path="res://David/Sounds/enter.wav" id="12_pfw3k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6e6xq"]
 atlas = ExtResource("2_css63")
@@ -2478,3 +2479,6 @@ autoplay = true
 
 [node name="ZoomSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_wqy4w")
+
+[node name="Enter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_pfw3k")

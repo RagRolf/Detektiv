@@ -46,12 +46,12 @@ var isDone = false
 
 @onready var mic = $"../MicrophoneAudioStreamPlayer"
 
-@onready var all_labels = [$"../CanvasLayer/AllSuspects/Rina", $"../CanvasLayer/AllSuspects/AllLabels/Ryan", $"../CanvasLayer/AllSuspects/AllLabels/Olga", $"../CanvasLayer/AllSuspects/AllLabels/Hassan", $"../CanvasLayer/AllSuspects/AllLabels/Stig", $"../CanvasLayer/AllSuspects/AllLabels/Nuka"]
-@onready var all_buttons = [$"../CanvasLayer/AllSuspects/Rina/Rina", $"../CanvasLayer/AllSuspects/Ryan/Ryan", $"../CanvasLayer/AllSuspects/Olga/Olga", $"../CanvasLayer/AllSuspects/Hassan/Hassan", $"../CanvasLayer/AllSuspects/Stig/Stig", $"../CanvasLayer/AllSuspects/Nuka/Nuka"]
+@onready var all_labels = [$"../CanvasLayer2/AllSuspects/Rina", $"../CanvasLayer2/AllSuspects/AllLabels/Ryan", $"../CanvasLayer2/AllSuspects/AllLabels/Olga", $"../CanvasLayer2/AllSuspects/AllLabels/Hassan", $"../CanvasLayer2/AllSuspects/AllLabels/Stig", $"../CanvasLayer2/AllSuspects/AllLabels/Nuka"]
+@onready var all_buttons = [$"../CanvasLayer2/AllSuspects/Rina/Rina", $"../CanvasLayer2/AllSuspects/Ryan/Ryan", $"../CanvasLayer2/AllSuspects/Olga/Olga", $"../CanvasLayer2/AllSuspects/Hassan/Hassan", $"../CanvasLayer2/AllSuspects/Stig/Stig", $"../CanvasLayer2/AllSuspects/Nuka/Nuka"]
 
 var click_once = false
 
-@onready var all_suspects = $"../CanvasLayer/AllSuspects"
+@onready var all_suspects = $"../CanvasLayer2/AllSuspects"
 
 @onready var kladd = $"../Kladd"
 @onready var kladd2 = $"../Kladd2"

@@ -22,10 +22,6 @@ var Candle
 @onready var return_button = $"../CanvasLayer/Control/Return"
 
 func _ready():
-	#DisplayServer.size
-	#DisplayServer.window_set_size(Vector2i(1080, 1920))
-	#get_tree().root
-	#DisplayServer.aspect = DisplayServer.keep_width
 	DisplayServer.screen_set_orientation(DisplayServer.SCREEN_PORTRAIT)
 	Candle = get_child(0).process_material as ParticleProcessMaterial
 	return_button.pressed.connect(_main_menu)
@@ -49,7 +45,7 @@ func _process(delta):
 	#var dot = transform.basis.z.dot(Vector3.FORWARD)
 	#print(str(transform.basis.y.dot(Vector3.UP)))
 	#print(str(global_basis.z))
-	Candle.gravity = 0.1 * global_basis.y
+	Candle.gravity = 0.3 * global_basis.y
 	if !Virke.visible: #IsDone
 		return
 	if transform.basis.y.dot(Vector3.DOWN) > 0.9:
