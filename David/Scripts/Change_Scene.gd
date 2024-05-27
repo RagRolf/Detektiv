@@ -38,9 +38,11 @@ func change_scene(index : int):
 	just_pressed = true
 	if index != 4:
 		Load.done_map[index] = true
-	if !isAllDone && index == 4:
+	elif !isAllDone && index == 4:
 		just_pressed = false #Must reset
 		return
+	else:
+		enter_sound.pitch_scale = 1.5
 	for particle in particles:
 		particle.visible = false
 	enter_sound.play()

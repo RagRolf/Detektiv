@@ -57,6 +57,7 @@ var click_once = false
 @onready var kladd2 = $"../Kladd2"
 @onready var svep = $"../Svep"
 @onready var font = $"../CanvasLayer/TheCode"
+@onready var choose_sound = $"../Choosing_Fingerprint"
 var RandomNumbers = []
 
 func _ready():
@@ -114,7 +115,6 @@ func stick_to_brush():
 		return
 	blobMum.visible = true
 	while blobMum.visible:
-		#var Difference = position - lastPos
 		blobMum.position = stickTo.global_position
 		await get_tree().process_frame
 		
@@ -171,11 +171,14 @@ func _selected(index : int):
 		return
 	click_once = true
 	if index == 5:
+		choose_sound.pitch_scale = 2.5
+		choose_sound.play()
 		all_labels[index].modulate = Color.GREEN
 		font.visible = true
 		await get_tree().create_timer(2.0).timeout
 		Load.change_scene()
 	else:
+		choose_sound.play()
 		all_labels[index].modulate = Color.RED
 		await get_tree().create_timer(2.0).timeout
 		Load.change_scene("res://David/KnifeScene.tscn")

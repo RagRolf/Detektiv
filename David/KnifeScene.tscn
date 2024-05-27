@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://jkm6q7nj65ke"]
+[gd_scene load_steps=16 format=3 uid="uid://jkm6q7nj65ke"]
 
 [ext_resource type="Texture2D" uid="uid://bb73x5udt7e2m" path="res://David/Textures/Knife/Knife.png" id="1_q714s"]
 [ext_resource type="Script" path="res://David/Scripts/Display_Cursor.gd" id="1_qcq35"]
@@ -11,12 +11,13 @@
 [ext_resource type="AudioStream" uid="uid://cax7wf4lp4mec" path="res://David/Sounds/Knife/Kladd.wav" id="8_skmxm"]
 [ext_resource type="Texture2D" uid="uid://pqgasfulb552" path="res://David/Textures/Knife/BlobMum.png" id="9_v0rdv"]
 [ext_resource type="AudioStream" uid="uid://br7y3gu03b2eb" path="res://David/Sounds/Knife/Svep.wav" id="10_102ap"]
+[ext_resource type="AudioStream" uid="uid://o8o4uhmywd14" path="res://David/Sounds/Knife/Choosen.wav" id="12_6t4kx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20gxs"]
 size = Vector2(900, 109)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m8iiq"]
-radius = 50.0
+radius = 55.0
 height = 238.97
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_wunyc"]
@@ -304,6 +305,9 @@ stream = ExtResource("8_72ck8")
 
 [node name="Svep" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_102ap")
+
+[node name="Choosing_Fingerprint" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_6t4kx")
 
 [connection signal="area_entered" from="Brush" to="Brush" method="_on_area_entered"]
 [connection signal="area_exited" from="Brush" to="Brush" method="exit_splash"]

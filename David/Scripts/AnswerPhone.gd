@@ -17,7 +17,7 @@ var hasAnswered = false
 
 @onready var Wind = $"../../../../Wind"
 
-const BORDER = 274.0
+const BORDER = 100.0
 
 func _ready():
 	Candle.process_mode = Node.PROCESS_MODE_DISABLED
@@ -30,12 +30,11 @@ func _ready():
 	
 
 func _process(_delta):
-	#print(str(randi_range(0,4)))
 	if ifPressed && !hasAnswered:
-		parent.position.x = get_global_mouse_position().x
-		if get_global_mouse_position().x > start_position.x:
+		parent.global_position.x = get_global_mouse_position().x
+		if parent.position.x > start_position.x:
 			parent.position.x = start_position.x
-		elif get_global_mouse_position().x < BORDER:
+		elif parent.position.x < BORDER:
 			humanSprite.visible = false
 			below.visible = false
 			visible = false

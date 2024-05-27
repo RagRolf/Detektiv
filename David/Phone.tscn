@@ -124,17 +124,17 @@ text = "Okänt nummer"
 
 [node name="Mark" type="Sprite2D" parent="CanvasLayer/below"]
 modulate = Color(1, 1, 1, 0.509804)
-position = Vector2(149, 80)
+position = Vector2(255.5, 80)
 texture = ExtResource("4_ahh3l")
 
 [node name="Mark2" type="Sprite2D" parent="CanvasLayer/below"]
 modulate = Color(1, 1, 1, 0.509804)
-position = Vector2(335, 79)
+position = Vector2(441.5, 79)
 texture = ExtResource("4_ahh3l")
 
 [node name="Mark3" type="Sprite2D" parent="CanvasLayer/below"]
 modulate = Color(1, 1, 1, 0.509804)
-position = Vector2(520, 79)
+position = Vector2(626.5, 79)
 texture = ExtResource("4_ahh3l")
 
 [node name="Offset" type="Node2D" parent="CanvasLayer/below"]
