@@ -176,7 +176,6 @@ func _selected(index : int):
 		await get_tree().create_timer(2.0).timeout
 		Load.change_scene()
 	else:
-		print(index)
 		all_labels[index].modulate = Color.RED
 		await get_tree().create_timer(2.0).timeout
 		Load.change_scene("res://David/KnifeScene.tscn")
