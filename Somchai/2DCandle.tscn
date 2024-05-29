@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://8l53avp6t4ak"]
+[gd_scene load_steps=41 format=3 uid="uid://8l53avp6t4ak"]
 
 [ext_resource type="Script" path="res://Somchai/2DCandle.gd" id="1_hq0gi"]
 [ext_resource type="Texture2D" uid="uid://dkuto30av3s73" path="res://Somchai/vector-3d-realistic-candle-fire-260nw-1987246832-removebg-preview.png" id="1_ppws1"]
@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://qm0gfgcpmuh1" path="res://Somchai/ezgif-6-e4e0c5094d-removebg-preview.png" id="2_r6xv7"]
 [ext_resource type="Texture2D" uid="uid://h7i07nwqqdnl" path="res://Somchai/glasig-ljusfat-klarglas__0902843_pe586154_s5-removebg-preview.png" id="3_kyqbf"]
 [ext_resource type="Texture2D" uid="uid://75tbuktygtu2" path="res://Somchai/dolphin_marine_mammals_water.jpg" id="5_jtjr0"]
+[ext_resource type="Shader" path="res://Somchai/mask.gdshader" id="6_rog2b"]
+
+[sub_resource type="GDScript" id="GDScript_2b2qb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j8o67"]
+script = SubResource("GDScript_2b2qb")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6qwxm"]
 
@@ -218,6 +224,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h6qtl"]
+shader = ExtResource("6_rog2b")
+
 [node name="2dCandle" type="Node2D"]
 script = ExtResource("1_hq0gi")
 
@@ -277,23 +286,15 @@ scale = Vector2(3.36518, -3.51501)
 skew = -0.379269
 ignore_rotation = false
 
-[node name="Container" type="Node2D" parent="."]
-position = Vector2(342, 168)
+[node name="Container" type="Control" parent="."]
+material = SubResource("ShaderMaterial_j8o67")
+layout_mode = 3
+anchors_preset = 0
+offset_left = 342.0
+offset_top = 168.0
+offset_right = 342.0
+offset_bottom = 168.0
 scale = Vector2(0.45, 0.45)
-
-[node name="Sprite2D" type="Sprite2D" parent="Container"]
-clip_children = 2
-position = Vector2(513.333, 320)
-rotation = 1.57079
-scale = Vector2(6.20274, 4.95829)
-texture = ExtResource("3_kyqbf")
-
-[node name="Mask" type="Sprite2D" parent="Container/Sprite2D"]
-visible = false
-position = Vector2(1.79171, -223.643)
-rotation = 1.5708
-scale = Vector2(388.96, -182.113)
-texture = SubResource("CanvasTexture_6qwxm")
 
 [node name="Sprite2DOld" type="Sprite2D" parent="Container"]
 visible = false
@@ -310,6 +311,21 @@ position = Vector2(15, -308)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_rt3tw")
 animation = &"default2"
+
+[node name="Control" type="Control" parent="Container"]
+material = SubResource("ShaderMaterial_h6qtl")
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2427.22
+offset_top = -994.993
+offset_right = 2864.22
+offset_bottom = -259.993
+
+[node name="Sprite2D" type="Sprite2D" parent="Container/Control"]
+position = Vector2(-1889.44, 1314.99)
+rotation = 1.57079
+scale = Vector2(6.20274, 4.82738)
+texture = ExtResource("3_kyqbf")
 
 [node name="Number" type="Label" parent="."]
 offset_left = 600.0
