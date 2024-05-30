@@ -25,6 +25,11 @@ func _ready():
 		var finger_print = particleCached.instantiate()
 		get_tree().root.add_child(finger_print)		
 		finger_print.get_child(0).emitting = true
+		var materialZoom = load("res://David/Models/Zoom.tres")
+		var GPUZOOM = GPUParticles2D.new()
+		GPUZOOM.process_material = materialZoom
+		get_tree().root.add_child(GPUZOOM)
+		GPUZOOM.emitting = true
 		prompt.show()
 		while true:
 			await get_tree().process_frame

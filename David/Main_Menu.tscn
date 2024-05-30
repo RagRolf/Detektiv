@@ -1,4 +1,4 @@
-[gd_scene load_steps=342 format=3 uid="uid://cvv5k6mhnj6lk"]
+[gd_scene load_steps=340 format=3 uid="uid://cvv5k6mhnj6lk"]
 
 [ext_resource type="Script" path="res://David/Scripts/Change_Scene.gd" id="1_63g2m"]
 [ext_resource type="Texture2D" uid="uid://c4t184y8qx6ji" path="res://David/Animation/AnimationKnife/knife.png" id="2_4wmxp"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://bes2fqug2krvh" path="res://David/Sounds/Trudelutt.wav" id="7_vxrm3"]
 [ext_resource type="AudioStream" uid="uid://bsxfgia7vrvii" path="res://David/Sounds/Zoom.wav" id="7_wqy4w"]
 [ext_resource type="FontFile" uid="uid://dakrw6tsjku2a" path="res://David/Fonts/FONTSFREE-NET-ROCK-1.TTF" id="8_46176"]
+[ext_resource type="Material" uid="uid://c5p1x0vv13jsu" path="res://David/Models/Zoom.tres" id="8_ma6af"]
 [ext_resource type="AudioStream" uid="uid://yjw6l4vwxvc" path="res://David/Sounds/enter.wav" id="12_pfw3k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6e6xq"]
@@ -2292,21 +2293,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_gufax"]
 radius = 74.25
 
-[sub_resource type="Curve" id="Curve_fhjcg"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_klsem"]
-curve = SubResource("Curve_fhjcg")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u574y"]
-particle_flag_disable_z = true
-emission_shape = 2
-emission_sphere_radius = 60.0
-direction = Vector3(0, 0, 0)
-gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveTexture_klsem")
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8884q"]
 radius = 70.0
 height = 421.38
@@ -2336,7 +2322,7 @@ shape = SubResource("CircleShape2D_gufax")
 [node name="ParticleEffect" type="GPUParticles2D" parent="Knife"]
 emitting = false
 amount = 7
-process_material = SubResource("ParticleProcessMaterial_u574y")
+process_material = ExtResource("8_ma6af")
 texture = ExtResource("6_ltntg")
 one_shot = true
 speed_scale = 0.7
@@ -2352,7 +2338,7 @@ shape = SubResource("CapsuleShape2D_8884q")
 position = Vector2(-32, -9.99993)
 emitting = false
 amount = 7
-process_material = SubResource("ParticleProcessMaterial_u574y")
+process_material = ExtResource("8_ma6af")
 texture = ExtResource("6_ltntg")
 one_shot = true
 speed_scale = 0.7
@@ -2368,7 +2354,7 @@ shape = SubResource("RectangleShape2D_lg20q")
 position = Vector2(-4, 4)
 emitting = false
 amount = 7
-process_material = SubResource("ParticleProcessMaterial_u574y")
+process_material = ExtResource("8_ma6af")
 texture = ExtResource("6_ltntg")
 one_shot = true
 speed_scale = 0.7
@@ -2382,7 +2368,7 @@ shape = SubResource("RectangleShape2D_oevtn")
 [node name="ParticleEffect" type="GPUParticles2D" parent="Safe"]
 emitting = false
 amount = 7
-process_material = SubResource("ParticleProcessMaterial_u574y")
+process_material = ExtResource("8_ma6af")
 texture = ExtResource("6_ltntg")
 one_shot = true
 speed_scale = 0.7
@@ -2397,7 +2383,7 @@ shape = SubResource("CapsuleShape2D_b53n8")
 [node name="ParticleEffect" type="GPUParticles2D" parent="Phone"]
 emitting = false
 amount = 7
-process_material = SubResource("ParticleProcessMaterial_u574y")
+process_material = ExtResource("8_ma6af")
 texture = ExtResource("6_ltntg")
 one_shot = true
 speed_scale = 0.7
