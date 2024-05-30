@@ -61,6 +61,7 @@ func _process(delta):
 	if InvisibleBox.position.y <= COMPLETELYCOVERING:
 		return_button.visible = true
 		Virke.visible = false
+		melt_candle.stop()
 		
 func _main_menu():
 	DisplayServer.screen_set_orientation(DisplayServer.SCREEN_LANDSCAPE)
