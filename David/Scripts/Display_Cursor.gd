@@ -90,9 +90,9 @@ func _ready():
 			Finger.add_child(finger_print)
 			finger_print.position = Vector2(-100, -100)
 			RandomNumbers.append(allPossible[random])
-			var temp = allPossible[random];
-			allPossible[random] = allPossible[remove_last];
-			allPossible[remove_last] = temp;
+			var temp = allPossible[random]
+			allPossible[random] = allPossible[remove_last]
+			allPossible[remove_last] = temp
 
 func _process(_delta):
 	lastPos = position
