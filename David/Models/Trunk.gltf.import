@@ -33,7 +33,7 @@ _subresources={
 "materials": {
 "Log": {
 "use_external/enabled": true,
-"use_external/path": "res://David/Materials/Log.tres"
+"use_external/path": "res://David/Models/Log.tres"
 }
 }
 }
